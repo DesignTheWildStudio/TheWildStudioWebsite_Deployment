@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — The Wild Studio</title>
+<meta name="description" content="Branding, visual identity, packaging, digital and social — services by The Wild Studio.">
+<link rel="icon" href="favicon.png?v=2" type="image/png" sizes="180x180">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.png?v=2">
+
+<script src="./support.js?v=2"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script src="./theme.js"></script>
+  <link rel="stylesheet" href="./responsive.css">
+  <script src="./mobile-nav.js"></script>
+  <script src="./footer-reveal.js"></script>
+  <script src="./video-key.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&amp;family=Questrial&amp;display=swap" rel="stylesheet">
+  <script src="./projects-data.js"></script>
+  <style>
+    @font-face { font-family: 'Century Gothic'; src: url('uploads/century-gothic/centurygothic.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Century Gothic'; src: url('uploads/century-gothic/centurygothic-bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+    @keyframes ws-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    html { scroll-behavior: smooth; }
+    .ws-btn { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; white-space: nowrap; width: 156px; height: 54px; box-sizing: border-box; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: .01em; border: 1.5px solid #141412; border-radius: 999px; padding: 0; background: transparent; color: #141412; cursor: pointer; transition: color .45s cubic-bezier(.65,0,.35,1); }
+    .ws-btn::before { content: ''; position: absolute; z-index: -1; left: -25%; right: -25%; bottom: -2px; height: 160%; background: #FFC72C; border-radius: 50% 50% 0 0; transform: translateY(101%); transition: transform .55s cubic-bezier(.65,0,.35,1), border-radius .55s cubic-bezier(.65,0,.35,1); }
+    .ws-btn:hover { color: #141412; }
+    .ws-btn:hover::before { transform: translateY(0); border-radius: 0; }
+    .ws-btn:active { color: #141412; }
+    .ws-btn:active::before { background: #FFC72C; transition: none; }
+    html.ws-dark .ws-btn:active { color: #141412; }
+    html.ws-dark .ws-btn:active::before { background: #FFC72C; }
+    html.ws-dark .ws-btn { border-color: #ECEAE3; color: #ECEAE3; }
+    html.ws-dark .ws-btn::before { background: #FFC72C; }
+    html.ws-dark .ws-btn:hover { color: #141412; }
+    body { margin: 0; background: #FFFFFF; color: #141412; font-family: 'Century Gothic', 'CenturyGothic', 'Questrial', 'Helvetica Neue', sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: 'Archivo', 'Helvetica Neue', sans-serif; }
+    * { box-sizing: border-box; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: inherit; }
+    button { cursor: pointer; }
+    ::selection { background: #141412; color: #FFFFFF; }
+    .ws-mark { position: relative; display: inline; cursor: pointer; }
+    .ws-mark::before { content: ''; position: absolute; inset: 0; background: #141412; transform: scaleX(0); transform-origin: bottom right; transition: transform .3s ease-in-out; will-change: transform; z-index: 0; }
+    .ws-mark > span { position: relative; z-index: 1; }
+    .ws-mark:hover::before, .ws-markgroup:hover .ws-mark::before { transform: scaleX(1); transform-origin: bottom left; }
+    .ws-mark > span { transition: color .3s ease-in-out; }
+    .ws-mark:hover > span, .ws-markgroup:hover .ws-mark > span { color: #FFFFFF; }
+    html.ws-dark .ws-mark::before { background: #ECEAE3; }
+    html.ws-dark .ws-mark:hover > span, html.ws-dark .ws-markgroup:hover .ws-mark > span { color: #141412; }
+    .ws-reveal { opacity: 0; transform: translateY(36px); transition: opacity 1s cubic-bezier(.19,1,.22,1), transform 1s cubic-bezier(.19,1,.22,1); }
+    .ws-reveal.ws-in { opacity: 1; transform: translateY(0); }
+    .ws-link { position: relative; }
+    .ws-link::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .5s cubic-bezier(.77,0,.18,1); }
+    .ws-link:hover::after { transform: scaleX(1); transform-origin: left; }
+    .ws-dd { position: relative; }
+    .ws-dd-menu { position: absolute; top: 100%; left: 50%; transform: translate(-50%, 6px); background: #FFFFFF; box-shadow: 0 14px 34px rgba(20,20,18,.14); padding: 8px 0; min-width: 190px; border-radius: 14px; overflow: hidden; opacity: 0; visibility: hidden; transition: opacity .25s ease, transform .25s ease; }
+    .ws-dd:hover .ws-dd-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+    .ws-dd-menu a { display: block; padding: 10px 20px; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412; transition: background .25s; }
+    .ws-dd-menu a:hover { background: #FFC72C; color: #141412; }
+    .ws-dd-menu a:active { background: #E6AC00; color: #141412; }
+    .ws-dd-menu a + a { border-top: 1px solid rgba(20,20,18,.1); }
+    html.ws-dark .ws-dd-menu a + a { border-top-color: rgba(236,234,227,.12); }
+    .ws-svc-row:hover { padding-left: 24px; }
+    .ws-theme-btn { transition: background .35s, color .35s, border-color .35s; }
+    .ws-theme-btn:hover { background: #141412 !important; color: #FFFFFF !important; border-color: #141412 !important; }
+    html.ws-dark .ws-theme-btn:hover { background: #ECEAE3 !important; color: #141412 !important; border-color: #ECEAE3 !important; }
+    .ws-ico-sun { display: none; }
+    html.ws-dark .ws-ico-sun { display: block; }
+    html.ws-dark .ws-ico-moon { display: none; }
+    html.ws-dark body { background: #141412; color: #ECEAE3; }
+    html.ws-dark [style*="color: rgb(20, 20, 18)"] { color: #ECEAE3 !important; }
+    html.ws-dark [style*="color: rgba(20, 20, 18"] { color: rgba(236,234,227,.62) !important; }
+    html.ws-dark [style*="border: 1px solid rgba(20, 20, 18"] { border-color: rgba(255,255,255,.3) !important; }
+    html.ws-dark [style*="border-top: 1px solid rgba(20, 20, 18"] { border-top-color: rgba(255,255,255,.16) !important; }
+    html.ws-dark [style*="border-bottom: 1px solid rgba(20, 20, 18"] { border-bottom-color: rgba(255,255,255,.16) !important; }
+    html.ws-dark header[style*="background: rgba(255, 255, 255"] { background: rgba(20,20,18,.8) !important; border-bottom-color: rgba(255,255,255,.1) !important; }
+    html.ws-dark header img[alt^="The Wild Studio"] { filter: invert(1); }
+    html.ws-dark .ws-dd-menu { background: rgba(30,30,27,.85); box-shadow: 0 14px 34px rgba(0,0,0,.5); }
+    html.ws-dark .ws-dd-menu a { color: #ECEAE3; }
+    html.ws-dark section[data-screen-label="Services hero"] video { mix-blend-mode: screen !important; filter: contrast(2.4) brightness(1.02) !important; }
+    html.ws-dark section[data-screen-label="Services hero"] div[style*="isolation"] { background: #141412 !important; }
+    html.ws-dark section[data-screen-label="Services hero"] div[style*="isolation"] { width: 388px !important; background: #141412 !important; }
+    html.ws-dark ::selection { background: #ECEAE3; color: #141412; }
+  </style>
+</helmet>
+
+<div style="min-height: 100vh;">
+  <header data-screen-label="Header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 800; display: flex; align-items: center; justify-content: space-between; padding: 6px 40px; background: rgba(255,255,255,.8); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(20,20,18,.08); color: #141412;">
+    <a href="index.html" style="display: flex; align-items: center;"><img src="/media/branding-6b9a3146.webp" alt="The Wild Studio Creative Co." style="height: 179px; width: auto; display: block; margin: -53px 0;"></a>
+    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 36px;">
+      <a href="work.html" class="ws-link" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412;">Work</a>
+      <div class="ws-dd" style="display: flex; align-items: center;">
+        <a href="services.html" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412; display: inline-flex; align-items: center; gap: 6px;">Services <span aria-hidden="true" style="font-size: 10px;">▾</span></a>
+        <div class="ws-dd-menu">
+          <a href="services.html#branding">Branding</a>
+          <a href="services.html#uiux">UI/UX</a>
+          <a href="services.html#social-media">Social Media</a>
+          <a href="services.html#development">Development</a>
+        </div>
+      </div>
+      <a href="about.html" class="ws-link" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412;">About us</a>
+      <a class="ws-btn" href="contact.html" style="width: auto; height: 49px; padding: 0 28px; font-size: 14px;">Get in touch</a>
+      <button class="ws-theme-btn" aria-label="Toggle light and dark mode" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(20,20,18,.35); background: transparent; color: inherit; display: flex; align-items: center; justify-content: center; padding: 0;">
+        <svg class="ws-ico-moon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg>
+        <svg class="ws-ico-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <section data-screen-label="Services hero" style="padding: 190px 40px 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 48px;">
+    <div style="flex: 1 1 auto; min-width: 0;">
+    <div style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 18px;">Services</div>
+    <h1 class="ws-markgroup" style="margin: 0; font-weight: 400; font-size: clamp(38px, 5.4vw, 94px); line-height: 1.06; letter-spacing: -0.02em; max-width: 1400px;">
+      <span style="display: block; overflow: hidden;"><span ref="{{ h1a }}" style="display: block; transform: translateY(110%); transition: transform 1.2s cubic-bezier(.19,1,.22,1) .2s;">Everything a brand</span></span>
+      <span style="display: block; overflow: hidden;"><span ref="{{ h1b }}" style="display: block; transform: translateY(110%); transition: transform 1.2s cubic-bezier(.19,1,.22,1) .28s;">needs to <span class="ws-mark"><span><em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">stand out</em></span></span>.</span></span>
+    </h1>
+    <p style="margin: 28px 0 0; max-width: 720px; font-size: 15px; line-height: 1.65; color: rgba(20,20,18,.62);">From strategy to execution, every identity, interface, and piece of content is thoughtfully designed.</p>
+    </div>
+    <div style="flex: 0 0 auto; width: 388px; margin-bottom: 24px; align-self: center; position: relative; left: 46px; top: 40px; z-index: 1; background: #FFFFFF; isolation: isolate;"><video src="{{ heroVideoSrc }}" data-ws-key="1" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" aria-label="Animated line illustration of two figures" style="width: 388px; height: 285px; display: block; mix-blend-mode: multiply; filter: brightness(1.08) contrast(1.06)"></video><canvas aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 0; height: 0; visibility: hidden; pointer-events: none;"></canvas></div>
+  </section>
+
+  <section data-screen-label="Service categories" style="padding: 120px 0 0;">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid rgba(20,20,18,.16);">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+        <a href="{{ c.href }}" class="ws-work-card ws-reveal" data-ws="reveal" style="position: relative; order: {{ c.imgOrder }}; grid-column: {{ c.imgCol }}; background: rgba(20,20,18,.04); aspect-ratio: 1 / 1; display: block;">
+          <image-slot id="{{ c.slotId }}" shape="rect" src="{{ c.img }}" placeholder="{{ c.name }}" style="width: 100%; height: 100%; pointer-events: none;"></image-slot>
+        </a>
+        <div id="{{ c.anchor }}" class="ws-reveal" data-ws="reveal" style="order: {{ c.txtOrder }}; grid-column: {{ c.txtCol }}; aspect-ratio: 1 / 1; display: flex; flex-direction: column; justify-content: center; padding: 0 clamp(28px, 5vw, 88px); box-sizing: border-box;">
+          <div style="font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(20,20,18,.4);">{{ c.num }}</div>
+          <h2 style="margin: 14px 0 0; font-size: clamp(26px, 2.9vw, 48px); font-weight: 400; letter-spacing: -0.015em;">{{ c.name }}</h2>
+          <sc-if value="{{ c.bullets }}" hint-placeholder-val="{{ false }}">
+            <div style="margin: 18px 0 0; display: grid; grid-template-columns: repeat({{ c.bulletCols }}, 1fr); gap: 0 32px; max-width: 480px;">
+              <sc-for list="{{ c.bullets }}" as="b" hint-placeholder-count="6">
+                <div style="grid-column: {{ b.col }}; padding: 12px 0; border-bottom: 1px solid rgba(20,20,18,.16); font-size: 13px; line-height: 1.4; color: rgba(20,20,18,.55)">{{ b.label }}</div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ c.hasBlurb }}" hint-placeholder-val="{{ true }}">
+            <p style="margin: 18px 0 0; max-width: 460px; font-size: 14px; line-height: 1.65; color: rgba(20,20,18,.62)">{{ c.blurb }}</p>
+          </sc-if>
+          <sc-if value="{{ c.blurb2 }}" hint-placeholder-val="{{ false }}">
+            <p style="margin: 14px 0 0; max-width: 460px; font-size: 14px; line-height: 1.65; color: rgba(20,20,18,.62)">{{ c.blurb2 }}</p>
+          </sc-if>
+          <sc-if value="{{ c.hasWorkLink }}" hint-placeholder-val="{{ false }}">
+            <a class="ws-btn" href="{{ c.workHref }}" style="margin-top: 28px; align-self: flex-start; width: auto; padding: 0 22px; height: 42px; font-size: 13px;">View work <span aria-hidden="true" style="font-size: 15px; line-height: 1;">→</span></a>
+          </sc-if>
+          <sc-if value="{{ c.hasLink }}" hint-placeholder-val="{{ true }}">
+            <a class="ws-btn" href="{{ c.href }}" style="margin-top: 32px;">View service <span aria-hidden="true" style="font-size: 18px; line-height: 1;">→</span></a>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <div style="position: absolute; width: 0; height: 0; overflow: hidden;">
+      <x-import component-from-global-scope="image-slot" from="./image-slot.js" style="width: 0; height: 0;" hint-size="0,0"></x-import>
+    </div>
+  </section>
+
+  <section data-screen-label="Services CTA" style="padding: 120px 40px 88px;">
+    <div class="ws-reveal" data-ws="reveal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px;">
+      <span style="font-size: clamp(32px, 4.6vw, 76px); font-weight: 400; letter-spacing: -0.02em; font-family: Archivo">Ready to get started?</span>
+      <a class="ws-btn" href="contact.html">Let's talk <span aria-hidden="true" style="font-size: 18px; line-height: 1;">→</span></a>
+    </div>
+  </section>
+</div>
+
+  <div class="ws-footer-curtain" style="position: relative; height: min(100vh, 800px); clip-path: inset(0 0 0 0); margin-top: 0;">
+  <div class="ws-footer-curtain" style="position: relative; height: min(100vh, 800px); clip-path: inset(0 0 0 0); margin-top: 0;">
+  <footer id="contact" data-screen-label="Footer" style="position: fixed; bottom: 0; left: 0; right: 0; height: min(100vh, 800px); box-sizing: border-box; background: #141412; color: #FFFFFF; padding: 70px 0 36px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; z-index: 0;">
+    <a href="contact.html" style="display: block; white-space: nowrap; overflow: hidden;">
+      <div style="display: inline-flex; animation: ws-marquee 22s linear infinite; will-change: transform;">
+        <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(64px, 9vw, 160px); font-weight: 400; letter-spacing: -0.02em; padding-right: 80px;">Let’s work together <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">design@thewildstudio.co</em> </span>
+        <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(64px, 9vw, 160px); font-weight: 400; letter-spacing: -0.02em; padding-right: 80px;">Let’s work together <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">design@thewildstudio.co</em> </span>
+      </div>
+    </a>
+    <div style="display: flex; justify-content: center; padding: 41px 40px 0;">
+      <a href="contact.html" class="ws-btn" style="border-color: #FFFFFF; color: #FFFFFF; width: auto; padding: 0 36px;" style-hover="color: #141412;">Let’s connect</a>
+    </div>
+    <div style="display: grid; grid-template-columns: minmax(320px, 1.1fr) 160px 160px 1fr; gap: 48px; padding: 40px 40px 0;">
+      <div>
+        <img src="/media/branding-6b9a3146.webp" alt="The Wild Studio Creative Co." style="height: 187px; width: auto; filter: invert(1); display: block; margin: -44px 0 0 -18px; transition: transform .45s cubic-bezier(.19,1,.22,1); transform-origin: center;" style-hover="transform: scale(1.12);">
+        <p style="margin: 16px 0 0; font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.55); max-width: 320px;">A collaborative studio of problem solvers, visionaries and storytellers.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 6px;">Sitemap</div>
+        <a href="work.html" class="ws-link" style="font-size: 14px; width: fit-content;">Work</a>
+        <a href="services.html" class="ws-link" style="font-size: 14px; width: fit-content;">Services</a>
+        <a href="about.html" class="ws-link" style="font-size: 14px; width: fit-content;">About us</a>
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin: 26px 0 6px;">Contact</div>
+        <a href="mailto:design@thewildstudio.co" class="ws-link" style="font-size: 14px; width: fit-content;">design@thewildstudio.co</a>
+        <a href="tel:+923091119453" class="ws-link" style="font-size: 14px; width: fit-content;">+92 309 111 9453</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 6px;">Social</div>
+        <a href="https://www.instagram.com/_thewildstudio?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==&amp;igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="ws-link" style="font-size: 14px; width: fit-content;">Instagram</a>
+        <a href="https://www.linkedin.com/company/the-wildstudio/posts/?feedView=all" target="_blank" rel="noopener" class="ws-link" style="font-size: 14px; width: fit-content;">LinkedIn</a>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding: 30px 40px 0; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35);">
+      <span>© 2026 The Wildstudio</span>
+      <span>All rights reserved</span>
+    </div>
+  </footer>
+  </div>
+  </div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const h1a = (el) => { if (el) this._h1a = el; };
+    const h1b = (el) => { if (el) this._h1b = el; };
+    const all = (typeof window !== 'undefined' && window.WS_PROJECTS) || [];
+    const pick = (slug) => { const p = all.find(x => x.slug === slug); return p && p.card; };
+    const cats = [
+      { num: '01', name: 'Branding', anchor: 'branding', count: 6, workHref: 'work.html',
+        bullets: [
+          'Brand Identity and Guideline',
+          'Mood board Concepts',
+          'Logo Design',
+          'Product Design',
+          'Packaging Design',
+        ],
+        blurb: 'We build brands from the ground up, then its identity, and every touchpoint after.',
+        blurb2: 'From positioning workshops to finished packaging on a shelf, we handle the whole journey. That means brand strategy and naming, identity and logo design, a visual language and design system your team can actually use, rebrands for companies outgrowing their look, and packaging that earns its place in someone’s hands.',
+        slotId: 'svc-cat-branding', img: pick('rabia') },
+      { num: '02', name: 'UI/UX', anchor: 'uiux', count: 5, workHref: 'work.html',
+        bullets: ['UX / UI Design', 'Web Design', 'Mobile App Design', 'Wireframing', 'Prototyping', 'Design Systems'],
+        blurb: 'Interfaces that feel as considered as they look websites, apps and the systems behind them.',
+        blurb2: 'We design digital products end to end: UX flows and wireframes, high fidelity UI, responsive web design, mobile apps, and the design systems that keep everything consistent as products grow. Every screen is prototyped and tested before a line of code is written.',
+        slotId: 'svc-cat-uiux', img: pick('fnb-guru') },
+      { num: '03', name: 'Social Media', anchor: 'social-media', count: 2, workHref: 'work.html',
+        bullets: ['Social Media Posts, Reels & Stories', 'Art Direction and Feed Curation', 'AI Product Photography', 'AI Animation', 'Social Media Grid layout Template'],
+        blurb: 'Content that keeps a brand consistent and unmistakable everywhere it shows up.',
+        blurb2: 'We art direct feeds, campaigns and launches so every post feels like it belongs to the brand, and we use AI product photography generation to produce shelf ready imagery at a fraction of a shoot’s cost and timeline.',
+        slotId: 'svc-cat-social', img: pick('commons-karachi') },
+      { num: '04', name: 'Development', anchor: 'development', count: 4, workHref: 'work.html',
+        bullets: ['Wordpress Development', 'IT Support', 'API Integration', 'AI Development'],
+        blurb: 'Design that ships. We build, connect and maintain what we create.',
+        blurb2: 'From connecting your product to third party services through clean API integrations, to WordPress builds your team can manage themselves, AI powered features and automations, and ongoing IT support that keeps everything running. We cover the technical side end to end.',
+        slotId: 'svc-cat-dev', img: pick('goodhood') },
+      { num: '05', name: 'Art, Illustration & Animation', anchor: 'art-illustration-animation', count: 5, workHref: 'work.html',
+        bullets: ['Custom Illustration', 'Character Design', 'Editorial & Print Art', 'Motion Graphics', 'Animated Logo Reveals'],
+        blurb: 'Original artwork and motion made for a brand, not borrowed from a stock library.',
+        blurb2: 'We draw and animate everything in house: custom illustration sets and character work, editorial and print art, motion graphics for campaigns and social, and animated logo reveals. Each piece is built to sit inside the brand’s visual language rather than beside it, and delivered in the formats your team actually needs.',
+        slotId: 'svc-cat-art', img: pick('colour-crush') },
+    ];
+    cats.forEach((c, i) => {
+      c.noBullets = !c.bullets;
+      c.hasLink = !!c.href;
+      c.hasWorkLink = !!c.workHref;
+      c.bulletCols = c.bulletCols || 3;
+      c.bulletCols = 3;
+      c.hasBlurb = !!c.blurb;
+      c.anchor = c.anchor || '';
+      if (c.bullets) c.bullets = c.bullets.map(b => typeof b === 'string' ? { label: b, col: 'auto' } : b);
+      const flip = i % 2 === 1;
+      c.imgOrder = i * 2 + (flip ? 1 : 0);
+      c.txtOrder = i * 2 + (flip ? 0 : 1);
+      c.imgCol = flip ? 2 : 1;
+      c.txtCol = flip ? 1 : 2;
+    });
+    return {
+      h1a, h1b,
+      heroVideoSrc: (() => {
+        const dark = document.documentElement.classList.contains('ws-dark');
+        const s = this.state || {};
+        return dark
+          ? (s.heroSrc_dark || 'uploads/two-girls-circle-dark.mp4')
+          : (s.heroSrc_light || 'uploads/two-girls-circle.mp4');
+      })(),
+      cats,
+    };
+  }
+  componentDidMount() {
+    setTimeout(() => ['_h1a', '_h1b'].forEach((k) => { if (this[k]) this[k].style.transform = 'translateY(0)'; }), 420);
+    const loadHero = (key, url) => fetch(url).then((r) => r.blob()).then((b) => {
+      this.setState({ ['heroSrc_' + key]: URL.createObjectURL(b) });
+      requestAnimationFrame(() => { const v = document.querySelector('section[data-screen-label="Services hero"] video'); if (v && v.paused) v.play().catch(() => {}); });
+    }).catch(() => {});
+    loadHero('light', 'uploads/two-girls-circle.mp4');
+    loadHero('dark', 'uploads/two-girls-circle-dark.mp4');
+    this._heroThemeObs = new MutationObserver(() => { this.forceUpdate();
+      requestAnimationFrame(() => { const v = document.querySelector('section[data-screen-label="Services hero"] video'); if (v && v.paused) v.play().catch(() => {}); }); });
+    this._heroThemeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    this._io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('ws-in'); }), { threshold: 0.12 });
+    this._t = setInterval(() => document.querySelectorAll('.ws-reveal:not([data-io])').forEach(el => { el.dataset.io = '1'; this._io.observe(el); }), 300);
+  }
+  componentWillUnmount() { clearInterval(this._t); if (this._io) this._io.disconnect(); }
+}
+</script>
+</body>
+</html>

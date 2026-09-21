@@ -1,0 +1,262 @@
+/* The Wild Studio — responsive overrides. Every rule lives inside a media query; the only one that
+   applies to desktop is the home-hero block at the very bottom of this file. */
+
+/* Testimonial quote: clamp to whole lines (ellipsis) instead of a mid-line-box cut.
+   Declared here — not inline — so display/-webkit-line-clamp survive and the
+   per-height overrides can win. */
+.ws-testi-quote {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  white-space: pre-line;
+  overflow: hidden !important;
+  -webkit-line-clamp: 16 !important;
+}
+@media (max-height: 860px) { .ws-testi-quote { -webkit-line-clamp: 12 !important; } }
+@media (max-height: 760px) { .ws-testi-quote { font-size: 11px !important; -webkit-line-clamp: 10 !important; } }
+@media (max-height: 680px) { .ws-testi-quote { font-size: 10px !important; -webkit-line-clamp: 7 !important; } }
+@media (max-height: 600px) { .ws-testi-quote { font-size: 9.5px !important; -webkit-line-clamp: 6 !important; } }
+@media (max-height: 520px) { .ws-testi-quote { font-size: 9px !important; -webkit-line-clamp: 5 !important; } }
+
+/* Hamburger nav — injected by mobile-nav.js; hidden above 900px */
+.ws-burger, .ws-drawer, .ws-mobile-right { display: none; }
+
+@media (max-width: 1024px) {
+  header[data-screen-label="Header"] img[src*="Rectangle"] { height: 130px !important; margin: -38px 0 !important; }
+  header[data-screen-label="Header"] > div { gap: 22px !important; }
+  section[data-screen-label="Work grid"] .ws-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; }
+  section[data-screen-label="Project gallery"] .ws-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; }
+}
+
+@media (max-width: 900px) {
+  html, body { overflow-x: hidden; }
+  img, video { max-width: 100%; }
+
+  /* Header: logo + hamburger */
+  header[data-screen-label="Header"] { padding: 20px 20px !important; }
+  header[data-screen-label="Header"] img[src*="Rectangle"] { height: 218px !important; margin: -68px 0 !important; }
+  header[data-screen-label="Header"] > div:not(.ws-mobile-right) { display: none !important; }
+  .ws-mobile-right { display: flex; align-items: center; gap: 6px; position: relative; z-index: 2; }
+  .ws-mobile-logo { position: relative; z-index: 2; }
+  .ws-theme-mirror { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(20,20,18,.35); background: transparent; color: inherit; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer; }
+  .ws-theme-mirror .ws-ico-sun { display: none; }
+  html.ws-dark .ws-theme-mirror { border-color: rgba(255,255,255,.4); }
+  html.ws-dark .ws-theme-mirror .ws-ico-moon { display: none; }
+  html.ws-dark .ws-theme-mirror .ws-ico-sun { display: block; }
+  .ws-burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 0 10px; border: 0; background: transparent; cursor: pointer; position: relative; z-index: 2; color: inherit; }
+  .ws-burger span { display: block; height: 2px; width: 100%; background: currentColor; border-radius: 1px; transition: transform .3s ease, opacity .2s ease; transform-origin: center; }
+  .ws-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .ws-burger.is-open span:nth-child(2) { opacity: 0; }
+  .ws-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .ws-drawer { display: block; position: fixed; top: 0; left: 0; right: 0; height: 100dvh; background: #FFFFFF; color: #141412; z-index: 1; padding: 110px 28px 40px; box-sizing: border-box; overflow-y: auto; transform: translateY(-100%); opacity: 0; visibility: hidden; transition: transform .45s cubic-bezier(.19,1,.22,1), opacity .3s ease, visibility 0s linear .45s; pointer-events: none; }
+  .ws-drawer.is-open { transform: translateY(0); opacity: 1; visibility: visible; transition: transform .45s cubic-bezier(.19,1,.22,1), opacity .3s ease; pointer-events: auto; }
+  .ws-drawer-list { display: flex; flex-direction: column; gap: 6px; }
+  .ws-drawer a { display: block; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0; font-size: 30px; line-height: 1.25; padding: 10px 0; color: inherit; text-decoration: none; border-bottom: 1px solid rgba(20,20,18,.1); }
+  .ws-drawer a.ws-drawer-sub { font-size: 15px; font-weight: 500; padding: 8px 0 8px 18px; border-bottom: 0; opacity: .7; }
+  .ws-drawer a.ws-drawer-sub + a:not(.ws-drawer-sub) { margin-top: 14px; border-top: 1px solid rgba(20,20,18,.1); }
+  .ws-drawer a.ws-drawer-cta { display: inline-flex; align-self: flex-start; margin-top: 28px; border: 1px solid #141412; border-radius: 999px; padding: 14px 26px; font-size: 14px; text-transform: uppercase; }
+  html.ws-dark .ws-drawer { background: #141412; color: #FFFFFF; }
+  html.ws-dark .ws-drawer a { border-bottom-color: rgba(255,255,255,.12); }
+  html.ws-dark .ws-drawer a.ws-drawer-sub + a:not(.ws-drawer-sub) { border-top-color: rgba(255,255,255,.12); }
+  html.ws-dark .ws-drawer a.ws-drawer-cta { border-color: #FFFFFF; }
+  html.ws-nav-open, html.ws-nav-open body { overflow: hidden; }
+  html.ws-nav-open header[data-screen-label="Header"] { background: transparent !important; border-bottom-color: transparent !important; backdrop-filter: none !important; }
+  .ws-dd-menu { left: auto !important; right: 0 !important; }
+
+  /* Section gutters (marquee stays full-bleed) */
+  section[data-screen-label] { padding-left: 24px !important; padding-right: 24px !important; }
+  section[data-screen-label="Marquee"], section[data-screen-label="Service categories"], section[data-screen-label="Studio story"] { padding-left: 0 !important; padding-right: 0 !important; }
+  section[data-screen-label="Studio story"] > div[style*="margin: 0 40px"], section[data-screen-label="Studio story"] > div[style*="margin: 38px 40px"] { margin-left: 24px !important; margin-right: 24px !important; }
+  section[data-screen-label="Work intro"], section[data-screen-label="About hero"], section[data-screen-label="Services hero"],
+  section[data-screen-label="Project intro"], section[data-screen-label="Contact"] { padding-top: 140px !important; }
+
+  /* Home hero */
+  section[data-screen-label="Hero"] h1 span { white-space: normal !important; }
+  section[data-screen-label="Hero"] h1 br { display: none; }
+  section[data-screen-label="Hero"] video.ws-hero-vid { width: 100% !important; height: auto !important; }
+  section[data-screen-label="Hero"] > div > div[style*="height: 100vh"] { height: auto !important; min-height: 60vh !important; padding-top: 120px !important; padding-bottom: 28px !important; }
+  section[data-screen-label="Hero"] [ref] > p { padding: 0 8px; }
+
+  /* Split intros (Work / About / Services) stack */
+  section[data-screen-label="Work intro"], section[data-screen-label="About hero"], section[data-screen-label="Services hero"] { flex-direction: column !important; align-items: flex-start !important; gap: 28px !important; }
+  section[data-screen-label="Work intro"] h1 span span, section[data-screen-label="About hero"] h1 span span { white-space: normal !important; }
+  section[data-screen-label="Work intro"] > div:last-child, section[data-screen-label="About hero"] > div:last-child, section[data-screen-label="Services hero"] > div:last-child {
+    width: 100% !important; left: 0 !important; top: 0 !important; margin: 0 !important; align-self: center !important; display: flex; justify-content: center;
+  }
+  section[data-screen-label="Work intro"] video, section[data-screen-label="About hero"] video, section[data-screen-label="Services hero"] video { width: min(100%, 420px) !important; height: auto !important; }
+  html.ws-dark section[data-screen-label="About hero"] div[style*="isolation"], html.ws-dark section[data-screen-label="Services hero"] div[style*="isolation"] { width: 100% !important; left: 0 !important; }
+  .ws-2col { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .ws-3col { grid-template-columns: 1fr !important; }
+
+  /* Featured bento: two cards per row */
+  .ws-bento-row { flex-wrap: wrap !important; height: auto !important; min-height: 0 !important; gap: 8px !important; }
+  .ws-bento-row > * { flex: 0 0 calc(50% - 4px) !important; width: calc(50% - 4px) !important; height: 240px !important; }
+
+  /* Experience The Commons accordion: two tiles per row */
+  section[data-screen-label="Commons Accordion"] > div:last-child { flex-direction: row !important; flex-wrap: wrap !important; height: auto !important; gap: 8px !important; }
+  section[data-screen-label="Commons Accordion"] > div:last-child > a { min-height: 220px !important; height: auto !important; flex: 0 0 calc(50% - 4px) !important; width: calc(50% - 4px) !important; }
+  section[data-screen-label="Commons Accordion"] > div:last-child > a > span { display: none !important; }
+  section[data-screen-label="Commons Accordion"] > div:last-child > a > div:last-child { opacity: 1 !important; transform: none !important; padding: 18px 18px !important; }
+  /* Mobile tile: title + View project only */
+  section[data-screen-label="Commons Accordion"] > div:last-child > a > div:last-child > p,
+  section[data-screen-label="Commons Accordion"] > div:last-child > a > div:last-child > div[style*="grid-template-columns"] { display: none !important; }
+  section[data-screen-label="Commons Accordion"] > div:last-child > a > div:last-child > div:first-child { font-size: 22px !important; white-space: normal !important; overflow: visible !important; text-overflow: clip !important; line-height: 1.15 !important; }
+  section[data-screen-label="Commons Accordion"] > div:last-child > a > div:last-child > div:last-child { margin-top: 12px !important; font-size: 11px !important; letter-spacing: .18em !important; }
+
+  /* Home services accordion */
+  section[data-screen-label="Services"] button > div:last-child > span:first-child { display: none !important; }
+  section[data-screen-label="Services"] div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; padding-left: 24px !important; gap: 4px !important; }
+
+  /* Approach videos stack */
+  section[data-screen-label="Approach"] > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 20px !important; margin-top: 48px !important; }
+  section[data-screen-label="Approach"] > div[style*="grid-template-columns"] > a { margin-top: 0 !important; height: 300px !important; }
+
+  /* Testimonials — mobile is a plain carousel (arrows / swipe), not a pinned scroll scrub. */
+  .ws-tpin { margin: 0 -24px !important; height: auto !important; }
+  .ws-tpin > div { position: relative !important; top: auto !important; height: auto !important; min-height: 0 !important; padding: 0 24px 40px !important; justify-content: flex-start !important; }
+  .ws-tpin .ws-scrollcue-x { display: none !important; }
+  .ws-track { touch-action: pan-y; }
+  .ws-track > div { width: min(78vw, 400px) !important; }
+  .ws-scrollcue-x { left: 24px !important; }
+
+  /* Work page */
+  section[data-screen-label="Work grid"] .ws-grid { grid-template-columns: 1fr 1fr !important; gap: 44px 20px !important; }
+  .ws-row { grid-template-columns: 1fr 40px !important; gap: 12px !important; }
+  .ws-row > span:nth-child(2), .ws-row > span:nth-child(3) { display: none !important; }
+  section[data-screen-label="All clients"] .ws-dd-menu { left: 0 !important; right: auto !important; }
+
+  /* Services page */
+  section[data-screen-label="Service categories"] > div { grid-template-columns: 1fr !important; }
+  section[data-screen-label="Service categories"] > div > a { grid-column: 1 !important; aspect-ratio: 4 / 3 !important; }
+  section[data-screen-label="Service categories"] > div > div { grid-column: 1 !important; aspect-ratio: auto !important; padding: 40px 24px 56px !important; }
+  section[data-screen-label="Service categories"] > div > div div[style*="grid-template-columns: repeat"] { grid-template-columns: 1fr 1fr !important; max-width: none !important; }
+  section[data-screen-label="Service categories"] > div > a:nth-of-type(1) { order: 1 !important; } section[data-screen-label="Service categories"] > div > div:nth-of-type(1) { order: 2 !important; }
+  section[data-screen-label="Service categories"] > div > a:nth-of-type(2) { order: 3 !important; } section[data-screen-label="Service categories"] > div > div:nth-of-type(2) { order: 4 !important; }
+  section[data-screen-label="Service categories"] > div > a:nth-of-type(3) { order: 5 !important; } section[data-screen-label="Service categories"] > div > div:nth-of-type(3) { order: 6 !important; }
+  section[data-screen-label="Service categories"] > div > a:nth-of-type(4) { order: 7 !important; } section[data-screen-label="Service categories"] > div > div:nth-of-type(4) { order: 8 !important; }
+
+  /* About page */
+  section[data-screen-label="Values"] .ws-track > div { grid-template-columns: 32px 1fr !important; gap: 10px 14px !important; padding: 20px 12px !important; }
+  section[data-screen-label="Values"] .ws-track > div > div:nth-child(2) { flex-wrap: wrap !important; gap: 10px !important; }
+  section[data-screen-label="Values"] .ws-track > div > div:nth-child(2) > span { min-width: 0 !important; }
+  section[data-screen-label="Values"] .ws-track > div > *:nth-child(3) { grid-column: 2 !important; }
+
+  /* Project page */
+  .ws-meta { grid-template-columns: 1fr !important; gap: 28px !important; margin-top: 48px !important; }
+  section[data-screen-label="Events timeline"] { padding-right: 0 !important; }
+  section[data-screen-label="Project gallery"] .ws-grid { grid-template-columns: 1fr !important; }
+  section[data-screen-label="Project gallery"] div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  section[data-screen-label="Project gallery"] > div[style*="margin: 0 -40px"] { margin: 0 -24px !important; }
+  section[data-screen-label="You might also like"] > div { grid-template-columns: 1fr !important; }
+
+  /* Contact */
+  section[data-screen-label="Contact"] div[style*="grid-template-columns: minmax(0,1fr) minmax(0,1fr)"] { grid-template-columns: 1fr !important; }
+
+  /* Footer: fixed panel must not become its own scroll container (it traps touch scroll);
+     the curtain grows so the whole footer is reachable by page scroll. */
+  footer[data-screen-label="Footer"] { overflow: visible !important; height: auto !important; min-height: min(100vh, 800px) !important; padding-bottom: 32px !important; }
+  .ws-footer-curtain { height: auto !important; min-height: min(100vh, 800px) !important; }
+  .ws-footer-curtain footer { position: relative !important; }
+  .ws-ticker-overlay { display: none !important; }
+  footer[data-screen-label="Footer"] > a > div { visibility: visible !important; }
+  footer[data-screen-label="Footer"] > a span, .ws-ticker-overlay span { font-size: 12vw !important; }
+  footer[data-screen-label="Footer"] > div[style*="grid-template-columns"] { grid-template-columns: 1fr 1fr !important; gap: 28px !important; padding: 32px 24px 0 !important; }
+  footer[data-screen-label="Footer"] > div[style*="grid-template-columns"] > div:first-child { grid-column: 1 / -1; }
+  footer[data-screen-label="Footer"] img[src*="Rectangle"] { height: 120px !important; margin: -24px 0 0 -10px !important; }
+  footer[data-screen-label="Footer"] > div:last-child { padding-left: 24px !important; padding-right: 24px !important; }
+  .ws-lamp-strip img { display: none !important; }
+}
+
+@media (max-width: 640px) {
+  /* Header */
+  header[data-screen-label="Header"] { padding: 15px 14px !important; }
+  header[data-screen-label="Header"] img[src*="Rectangle"] { height: 172px !important; margin: -55px 0 !important; }
+  .ws-drawer { padding: 96px 22px 32px; }
+  .ws-drawer a { font-size: 26px; }
+
+  section[data-screen-label] { padding-left: 18px !important; padding-right: 18px !important; }
+  section[data-screen-label="Marquee"], section[data-screen-label="Service categories"], section[data-screen-label="Studio story"] { padding-left: 0 !important; padding-right: 0 !important; }
+  section[data-screen-label="Studio story"] > div[style*="margin: 0 40px"], section[data-screen-label="Studio story"] > div[style*="margin: 38px 40px"] { margin-left: 18px !important; margin-right: 18px !important; }
+  section[data-screen-label="Work intro"], section[data-screen-label="About hero"], section[data-screen-label="Services hero"],
+  section[data-screen-label="Project intro"], section[data-screen-label="Contact"] { padding-top: 110px !important; }
+
+  /* Hero */
+  section[data-screen-label="Hero"] > div > div[style*="height: 100vh"] { padding-top: 90px !important; min-height: 0 !important; }
+  section[data-screen-label="Hero"] h1 { font-size: 30px !important; }
+  section[data-screen-label="Hero"] button[aria-label*="video"] { right: 14px !important; bottom: 14px !important; width: 38px !important; height: 38px !important; }
+
+  /* Featured / Commons */
+  .ws-bento-row > * { height: 190px !important; }
+  section[data-screen-label="Commons Accordion"] > div:last-child > a { min-height: 170px !important; }
+  section[data-screen-label="Commons Accordion"] > div:last-child > a > div:last-child { padding: 14px 14px !important; }
+
+  /* Home services accordion */
+  section[data-screen-label="Services"] > div:first-child { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+  section[data-screen-label="Services"] button { padding: 18px 12px !important; }
+  section[data-screen-label="Services"] button > div:first-child { gap: 14px !important; }
+  section[data-screen-label="Services"] div[style*="grid-template-columns"] { padding-left: 12px !important; }
+
+  /* Approach */
+  section[data-screen-label="Approach"] > div[style*="grid-template-columns"] > a { height: 220px !important; }
+
+  /* Testimonials */
+  .ws-tpin { margin: 0 -18px !important; }
+  .ws-tpin > div { padding-left: 18px !important; padding-right: 18px !important; }
+  .ws-track > div { width: 84vw !important; padding: 20px 18px 16px !important; }
+  .ws-scrollcue-x { left: 18px !important; }
+
+  /* Work grid + index rows */
+  section[data-screen-label="Work grid"] .ws-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; gap: 28px 12px !important; }
+  /* Equal tiles: square artwork; title with the year stacked beneath it */
+  section[data-screen-label="Work grid"] .ws-card .ws-mask { aspect-ratio: 1 / 1 !important; }
+  section[data-screen-label="Work grid"] .ws-card > div:nth-child(2) { flex-direction: column !important; align-items: flex-start !important; gap: 4px !important; margin-top: 12px !important; }
+  section[data-screen-label="Work grid"] .ws-card > div:nth-child(2) > span:first-child { font-size: 16px !important; line-height: 1.2 !important; }
+  section[data-screen-label="Work grid"] .ws-card > div:nth-child(2) > span:last-child { padding-top: 0 !important; font-size: 11px !important; }
+  section[data-screen-label="Work grid"] .ws-card > div:nth-child(3) { display: none !important; }
+  section[data-screen-label="Work intro"] video { width: 220px !important; }
+  div[style*="position: sticky"][style*="top: 84px"] { top: 56px !important; padding: 12px 18px !important; }
+
+  /* Services categories */
+  section[data-screen-label="Service categories"] > div > div div[style*="grid-template-columns: repeat"] { grid-template-columns: 1fr !important; }
+  section[data-screen-label="Service categories"] > div > div { padding: 32px 18px 48px !important; }
+  section[data-screen-label="Services CTA"] > div { gap: 16px !important; }
+
+  /* About */
+  section[data-screen-label="Values"] .ws-track > div { grid-template-columns: 1fr !important; }
+  section[data-screen-label="Values"] .ws-track > div > div:first-child { display: none !important; }
+  section[data-screen-label="Values"] .ws-track > div > *:nth-child(3) { grid-column: 1 !important; }
+  section[data-screen-label="Values"] .ws-track > div video { height: 48px !important; }
+
+  /* Project */
+  section[data-screen-label="Project gallery"] > div[style*="margin: 0 -40px"] { margin: 0 -18px !important; }
+
+  /* Footer stacks to one column */
+  footer[data-screen-label="Footer"] > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 24px !important; padding: 24px 18px 0 !important; }
+  footer[data-screen-label="Footer"] img[src*="Rectangle"] { height: 100px !important; }
+  footer[data-screen-label="Footer"] > div:last-child { flex-direction: column !important; gap: 6px !important; padding: 22px 18px 0 !important; }
+  footer[data-screen-label="Footer"] > a span, .ws-ticker-overlay span { font-size: 13vw !important; }
+}
+
+/* Home hero (desktop) — keep the "View work" button inside the frame.
+   The hero art box is locked to height:100vh with overflow:hidden, but it does not start at the
+   top of the page: the section's 90px padding-top minus the wrapper's -70px margin puts its top
+   edge 20px down, so a full 100vh box always ends 20px BELOW the fold. Sizing it to 100vh - 20px
+   lands its bottom edge exactly on the fold, and the bottom padding is then real, visible
+   clearance rather than space spent underneath the viewport.
+   The video is a flex item whose automatic minimum size equals its specified height
+   (calc(85vh - 185px)), so it cannot shrink; at common laptop heights the artwork + heading +
+   button together are taller than the box and overflow:hidden slices the bottom off the pill.
+   Letting the video shrink (min-height: 0) and pinning the text block makes the artwork give way
+   instead of the button. Measured across 1920x1080 down to 901x700, this holds the pill 56px clear
+   of both the clip edge and the fold; before it was 20px, which rounded away to a visible cut.
+   dvh repeats the height for browsers that have it, so a collapsing mobile toolbar in the 901px+
+   range resizes the box instead of pushing the button under the chrome. Under 901px the box is
+   already height:auto, so this is scoped to desktop. */
+@media (min-width: 901px) {
+  section[data-screen-label="Hero"] > div > div {
+    height: calc(100vh - 20px) !important;
+    height: calc(100dvh - 20px) !important;
+    padding-bottom: 56px;
+  }
+  section[data-screen-label="Hero"] video.ws-hero-vid { flex: 0 1 auto; min-height: 0; }
+  section[data-screen-label="Hero"] > div > div > div { flex: 0 0 auto; }
+}
