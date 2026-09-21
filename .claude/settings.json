@@ -1,0 +1,6 @@
+{
+  "env": {
+    "MCP_TOOL_TIMEOUT": "900000",
+    "CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT": "900000"
+  }
+}

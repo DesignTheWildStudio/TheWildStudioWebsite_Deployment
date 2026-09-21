@@ -35,3 +35,33 @@ apply the same edit on Webtold (`edit_file` on `public/projects-data.js`), bump
 the `?v=` cache-buster on the `projects-data.js` script tag in
 `public/project.html` and `public/work.html`, then `publish`. Source edits on
 Webtold are not live until a publish runs.
+
+## Publishing from Claude (known limitation)
+
+Webtold's `publish` must snapshot all ~888 source files before it queues a
+build. On this site that takes longer than one minute, and builds themselves
+run roughly 7 to 28 minutes even when nothing changed.
+
+Claude Code cloud sessions cap every MCP connector call at 60 seconds
+(`MCP_TOOL_TIMEOUT=60000`). The publish call is killed mid-snapshot, so no
+deploy is ever queued, and the site keeps serving the previous build. Editing
+files through the connector still works, because those calls return quickly.
+
+Two ways around it:
+
+1. Publish from the Webtold dashboard at https://api.webtold.app/dashboard.
+   Source edits made by Claude are already saved server-side, so one click
+   ships them.
+2. Raise the timeout for the cloud environment, then start a NEW session
+   (cloud sessions copy environment values once, at startup). Set both of
+   these in the environment configuration UI at claude.ai/code:
+
+       MCP_TOOL_TIMEOUT=900000
+       CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT=900000
+
+`.claude/settings.json` in this repo sets the same two values. Prefer the
+environment UI, since a platform-provided value may take precedence over the
+repo setting.
+
+The long-term fix is fewer source files: 796 of the 888 are images under
+`public/media/`, and 36 generated Figma bundles account for about 4.3 MB.
