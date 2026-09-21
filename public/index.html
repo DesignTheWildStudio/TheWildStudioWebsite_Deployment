@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Wild Studio</title>
+<meta name="description" content="The Wild Studio — a design and branding studio crafting identities, packaging and digital experiences.">
+<link rel="icon" href="favicon.png?v=2" type="image/png" sizes="180x180">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.png?v=2">
+
+<script src="./support.js?v=2"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script src="./theme.js"></script>
+  <link rel="stylesheet" href="./responsive.css">
+  <script src="./mobile-nav.js"></script>
+  <script src="./footer-reveal.js"></script>
+  <script src="./projects-data.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&amp;family=Questrial&amp;display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: 'Century Gothic'; src: url('uploads/century-gothic/centurygothic.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Century Gothic'; src: url('uploads/century-gothic/centurygothic-bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+    @keyframes ws-cta-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    html { scroll-behavior: smooth; }
+    .ws-btn { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; white-space: nowrap; width: 156px; height: 54px; box-sizing: border-box; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: .01em; border: 1.5px solid #141412; border-radius: 999px; padding: 0; background: transparent; color: #141412; cursor: pointer; transition: color .45s cubic-bezier(.65,0,.35,1); }
+    .ws-btn::before { content: ''; position: absolute; z-index: -1; left: -25%; right: -25%; bottom: -2px; height: 160%; background: #FFC72C; border-radius: 50% 50% 0 0; transform: translateY(101%); transition: transform .55s cubic-bezier(.65,0,.35,1), border-radius .55s cubic-bezier(.65,0,.35,1); }
+    .ws-btn:hover { color: #141412; }
+    .ws-btn:hover::before { transform: translateY(0); border-radius: 0; }
+    .ws-btn:active { color: #141412; }
+    .ws-btn:active::before { background: #FFC72C; transition: none; }
+    html.ws-dark .ws-btn:active { color: #141412; }
+    html.ws-dark .ws-btn:active::before { background: #FFC72C; }
+    html.ws-dark .ws-btn { border-color: #ECEAE3; color: #ECEAE3; }
+    html.ws-dark .ws-btn::before { background: #FFC72C; }
+    html.ws-dark .ws-btn:hover { color: #141412; }
+    body { margin: 0; background: #FFFFFF; color: #141412; font-family: 'Century Gothic', 'CenturyGothic', 'Questrial', 'Helvetica Neue', sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: 'Archivo', 'Helvetica Neue', sans-serif; }
+    * { box-sizing: border-box; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: inherit; }
+    button { cursor: pointer; }
+    ::selection { background: #141412; color: #FFFFFF; }
+    @keyframes ws-rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes ws-hl { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes ws-mark-sweep { 0% { transform: scaleX(0); } 70% { transform: scaleX(1.04); } 100% { transform: scaleX(1); } }
+    @keyframes ws-mark-ink { from { color: inherit; } to { color: #141412; } }
+    .ws-mark { position: relative; display: inline-block; cursor: pointer; }
+    .ws-mark::before { content: ''; position: absolute; inset: 0; background: #141412; transform: scaleX(0); transform-origin: bottom right; transition: transform .3s ease-in-out; will-change: transform; z-index: 0; }
+    .ws-mark > span { position: relative; z-index: 1; }
+    .ws-mark:hover::before { transform: scaleX(1); transform-origin: bottom left; }
+    .ws-mark > span { transition: color .3s ease-in-out; }
+    .ws-mark:hover > span { color: #FFFFFF; }
+    html.ws-dark .ws-mark::before { background: #ECEAE3; }
+    html.ws-dark .ws-mark:hover > span { color: #141412; }
+    .ws-hl { position: relative; display: inline-block; }
+    .ws-hl::before { content: ''; position: absolute; left: -0.1em; right: -0.1em; bottom: 0.04em; height: 0.42em; background: #FFC72C; z-index: -1; transform: scaleX(0); transform-origin: left center; border-radius: 2px; animation: ws-hl 1.1s cubic-bezier(.19,1,.22,1) 1.5s forwards; }
+    @keyframes ws-fade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes ws-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ws-reveal { opacity: 0; transform: translateY(36px); transition: opacity 1s cubic-bezier(.19,1,.22,1), transform 1s cubic-bezier(.19,1,.22,1); }
+    .ws-reveal.ws-in { opacity: 1; transform: translateY(0); }
+    .ws-mask { clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(.77,0,.18,1); }
+    .ws-mask.ws-in { clip-path: inset(0 0 0% 0); }
+    .ws-link { position: relative; }
+    .ws-link::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .5s cubic-bezier(.77,0,.18,1); }
+    .ws-link:hover::after { transform: scaleX(1); transform-origin: left; }
+    @keyframes ws-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ws-sticky { position: relative; background: #FFFFFF; border: 1.5px solid #141412; box-shadow: 10px 12px 0 #141412; border-radius: 2px; transform: rotate(-1.4deg); transition: transform .5s cubic-bezier(.19,1,.22,1), box-shadow .5s; }
+    .ws-sticky::before { content: ""; position: absolute; top: 10px; left: 14px; right: 14px; height: 26px; pointer-events: none;
+      background: radial-gradient(circle at 50% 72%, #141412 5px, transparent 5.5px) 0 0 / 32px 26px repeat-x,
+                  repeating-linear-gradient(90deg, transparent 0 13.5px, #141412 13.5px 18.5px, transparent 18.5px 32px) 0 0 / 100% 10px no-repeat; }
+    .ws-sticky:nth-child(2n) { transform: rotate(1.6deg); }
+    .ws-sticky:nth-child(3n) { transform: rotate(-0.8deg); }
+    .ws-sticky:hover { transform: rotate(0deg) translateY(-8px); box-shadow: 14px 18px 0 #141412; }
+    .ws-mq-pale { filter: grayscale(1) brightness(.22) contrast(1.4) !important; }
+    .ws-mq-pale:hover { filter: none !important; }
+    html.ws-dark .ws-mq-pale { filter: grayscale(1) brightness(0) invert(1) !important; }
+    html.ws-dark .ws-mq-pale:hover { filter: none !important; }
+    @keyframes ws-scrolldot-x { 0% { transform: translateX(-100%); } 100% { transform: translateX(220%); } }
+    @keyframes ws-scrollarrow-x { 0%, 100% { transform: translateX(0); opacity: .55; } 50% { transform: translateX(5px); opacity: 1; } }
+    .ws-scrollcue-x { position: absolute; left: 40px; bottom: 12px; display: flex; align-items: center; gap: 10px; pointer-events: none; color: #141412; transition: opacity .5s ease; }
+    .ws-scrollcue-x .ws-sc-rail-x { position: relative; width: 54px; height: 1px; background: rgba(20,20,18,.18); overflow: hidden; }
+    .ws-scrollcue-x .ws-sc-dot-x { position: absolute; left: 0; top: 0; height: 1px; width: 46%; background: #141412; animation: ws-scrolldot-x 1.9s cubic-bezier(.65,0,.35,1) infinite; }
+    .ws-scrollcue-x svg { animation: ws-scrollarrow-x 1.9s ease-in-out infinite; }
+    html.ws-dark .ws-scrollcue-x { color: #ECEAE3; }
+    html.ws-dark .ws-scrollcue-x .ws-sc-rail-x { background: rgba(236,234,227,.22); }
+    html.ws-dark .ws-scrollcue-x .ws-sc-dot-x { background: #ECEAE3; }
+    @keyframes ws-scrolldot { 0% { transform: translateY(-100%); } 100% { transform: translateY(220%); } }
+    @keyframes ws-scrollarrow { 0%, 100% { transform: translateY(0); opacity: .55; } 50% { transform: translateY(5px); opacity: 1; } }
+    .ws-scrollcue { position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 7px; pointer-events: none; color: #141412; transition: opacity .6s ease; }
+    .ws-scrollcue .ws-sc-rail { position: relative; width: 1px; height: 46px; background: rgba(20,20,18,.18); overflow: hidden; }
+    .ws-scrollcue .ws-sc-dot { position: absolute; left: 0; top: 0; width: 1px; height: 46%; background: #141412; animation: ws-scrolldot 1.9s cubic-bezier(.65,0,.35,1) infinite; }
+    .ws-scrollcue svg { animation: ws-scrollarrow 1.9s ease-in-out infinite; }
+    html.ws-dark .ws-scrollcue { color: #ECEAE3; }
+    html.ws-dark .ws-scrollcue .ws-sc-rail { background: rgba(236,234,227,.22); }
+    html.ws-dark .ws-scrollcue .ws-sc-dot { background: #ECEAE3; }
+    @keyframes ws-beam-search { 0% { transform: rotate(-3.2deg); } 50% { transform: rotate(1.4deg); } 100% { transform: rotate(3.2deg); } }
+    @keyframes ws-marquee-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    .ws-mq-logo-img { filter: grayscale(1); transition: filter .4s ease, transform .4s cubic-bezier(.19,1,.22,1); }
+    html.ws-dark .ws-mq-logo-img { filter: grayscale(1) invert(1); }
+    .ws-mq-logo-img:hover, html.ws-dark .ws-mq-logo-img:hover { filter: none; transform: scale(1.18) translateY(-10px); }
+    .ws-mq-dark { display: none !important; }
+    html.ws-dark .ws-mq-dark { display: block !important; filter: grayscale(1); }
+    html.ws-dark .ws-mq-dark:hover { filter: none; }
+    html.ws-dark .ws-mq-white, html.ws-dark .ws-mq-white:hover { filter: grayscale(1) brightness(0) invert(1) !important; }
+    html.ws-dark .ws-mq-whover:hover { filter: grayscale(1) brightness(0) invert(1) !important; }
+    html.ws-dark img.ws-mq-dark[src$="chyll-white-trim.png"], html.ws-dark img.ws-mq-dark[src$="chyll-white-trim.png"]:hover { filter: none !important; }
+    html.ws-dark .ws-mq-light.ws-swap { display: none !important; }
+    .ws-bento-row { display: flex; gap: 14px; }
+    .ws-bento-card { position: relative; overflow: hidden; flex: 1 1 0; border-radius: 18px; transition: flex-grow .8s cubic-bezier(.19,1,.22,1); }
+    .ws-bento-card.ws-wide { flex-grow: 2; }
+    .ws-bento-row:hover .ws-bento-card { flex-grow: 1; }
+    .ws-bento-row .ws-bento-card:hover { flex-grow: 3; }
+    .ws-bento-sub { opacity: 0; transform: translateY(8px); transition: opacity .6s ease .15s, transform .6s cubic-bezier(.19,1,.22,1) .15s; }
+    .ws-bento-card:hover .ws-bento-sub { opacity: 1; transform: translateY(0); }
+    .ws-folder { perspective: 1400px; }
+    .ws-folder-sheet { transition: transform 1s cubic-bezier(.19,1,.22,1) .05s, box-shadow 1s; }
+    .ws-folder:hover .ws-folder-sheet { transform: translateY(-96px) rotate(4deg); box-shadow: 0 -18px 40px rgba(20,20,18,.18); }
+    .ws-folder-cover { transform-origin: left center; transition: transform 1s cubic-bezier(.19,1,.22,1); }
+    .ws-folder:hover .ws-folder-cover { transform: rotateY(-44deg); }
+    @media (max-width: 980px) {
+      .ws-split { grid-template-columns: 1fr !important; }
+      .ws-cta-card { grid-template-columns: 1fr !important; padding: 64px 40px !important; }
+      .ws-cta-burst-col { height: 260px !important; }
+    }
+    .ws-zoom img, .ws-zoom image-slot { transition: transform 1.1s cubic-bezier(.19,1,.22,1); }
+    .ws-zoom:hover img, .ws-zoom:hover image-slot { transform: scale(1.045); }
+    .ws-bento-alt { opacity: 0; transform: scale(1.06); transition: opacity .6s ease, transform 1.1s cubic-bezier(.19,1,.22,1); }
+    .ws-bento-card:hover .ws-bento-alt { opacity: 1; transform: scale(1); }
+    .ws-bento-alt.ws-alt-contain { object-fit: contain !important; background: #FFFFFF; padding: 8%; box-sizing: border-box; }
+
+    .ws-dd { position: relative; }
+    .ws-dd-menu { position: absolute; top: 100%; left: 50%; transform: translate(-50%, 6px); background: #FFFFFF; box-shadow: 0 14px 34px rgba(20,20,18,.14); padding: 8px 0; min-width: 190px; border-radius: 14px; overflow: hidden; opacity: 0; visibility: hidden; transition: opacity .25s ease, transform .25s ease; }
+    .ws-dd:hover .ws-dd-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+    .ws-dd-menu a { display: block; padding: 10px 20px; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412; transition: background .25s; }
+    .ws-dd-menu a:hover { background: #FFC72C; color: #141412; }
+    .ws-dd-menu a:active { background: #E6AC00; color: #141412; }
+    .ws-dd-menu a + a { border-top: 1px solid rgba(20,20,18,.1); }
+    html.ws-dark .ws-dd-menu a + a { border-top-color: rgba(236,234,227,.12); }
+    html.ws-dark .ws-dd-menu { background: rgba(30,30,27,.85); box-shadow: 0 14px 34px rgba(0,0,0,.5); }
+    html.ws-dark .ws-dd-menu a { color: #ECEAE3; }
+    .ws-theme-btn { transition: background .35s, color .35s, border-color .35s; }
+    .ws-theme-btn:hover { background: #141412 !important; color: #FFFFFF !important; border-color: #141412 !important; }
+    html.ws-dark .ws-theme-btn:hover { background: #ECEAE3 !important; color: #141412 !important; border-color: #ECEAE3 !important; }
+    /* Dark mode */
+    .ws-ico-sun { display: none; }
+    html.ws-dark .ws-ico-sun { display: block; }
+    html.ws-dark .ws-ico-moon { display: none; }
+    html.ws-dark body { background: #141412; color: #ECEAE3; }
+    html.ws-dark [style*="background: rgb(255, 255, 255)"] { background: #141412 !important; }
+    html.ws-dark [style*="background: rgb(245, 243, 238)"] { background: #1C1C1A !important; }
+    html.ws-dark [style*="color: rgb(20, 20, 18)"] { color: #ECEAE3 !important; }
+    html.ws-dark [style*="color: rgba(20, 20, 18"] { color: rgba(236,234,227,.62) !important; }
+    html.ws-dark [style*="border: 1px solid rgba(20, 20, 18"] { border-color: rgba(255,255,255,.3) !important; }
+    html.ws-dark [style*="border-top: 1px solid rgba(20, 20, 18"] { border-top-color: rgba(255,255,255,.16) !important; }
+    html.ws-dark [style*="border-bottom: 1px solid rgba(20, 20, 18"] { border-bottom-color: rgba(255,255,255,.16) !important; }
+    html.ws-dark [style*="background: rgba(20, 20, 18, 0.05)"] { background: rgba(255,255,255,.06) !important; }
+    html.ws-dark header[style*="background: rgba(255, 255, 255"] { background: rgba(20,20,18,.8) !important; border-bottom-color: rgba(255,255,255,.1) !important; }
+    html.ws-dark header img[alt^="The Wild Studio"] { filter: invert(1); }
+    html.ws-dark .ws-track > div { background: #141412 !important; color: #FFFFFF !important; border-color: #FFFFFF !important; }
+    html.ws-dark .ws-track > div * { color: #FFFFFF !important; }
+    html.ws-dark .ws-track > div .ws-testi-logo { filter: grayscale(1) brightness(0) invert(1) !important; }
+    html.ws-dark .ws-track > div[style*="background: rgb(20, 20, 18)"] { background: #FFFFFF !important; color: #141412 !important; border-color: #FFFFFF !important; }
+    html.ws-dark .ws-track > div[style*="background: rgb(20, 20, 18)"] * { color: #141412 !important; }
+    html.ws-dark .ws-track > div[style*="background: rgb(20, 20, 18)"] .ws-testi-logo { filter: grayscale(1) brightness(0) !important; }
+    html.ws-dark .ws-track > div .ws-testi-logo.ws-keepcolor, html.ws-dark .ws-track > div[style*="background: rgb(20, 20, 18)"] .ws-testi-logo.ws-keepcolor { filter: none !important; }
+    html.ws-dark .ws-track > div .ws-testi-logo.ws-whiteon { filter: grayscale(1) brightness(0) invert(1) !important; }
+    html.ws-dark .ws-track > div[style*="background: rgb(20, 20, 18)"] .ws-testi-logo.ws-whiteon { filter: none !important; }
+    html.ws-dark .ws-hero-vid { mix-blend-mode: screen !important; filter: none !important; }
+    html.ws-dark section[data-screen-label="Hero"] button[aria-label*="video"] { background: #141412 !important; border-color: #FFFFFF !important; color: #FFFFFF !important; }
+    html.ws-dark .ws-lamp-light { display: none !important; }
+    html.ws-dark .ws-lamp-dark { display: block !important; }
+    html.ws-dark .ws-foot-contact, html.ws-dark .ws-foot-contact a { color: #ECEAE3 !important; }
+    html.ws-dark ::selection { background: #ECEAE3; color: #141412; }
+  </style>
+</helmet>
+
+<div style="min-height: 100vh; background: #FFFFFF;">
+
+
+  <!-- Page-load curtain -->
+  <div ref="{{ curtainRef }}" style="position: fixed; inset: 0; background: #141412; z-index: 9000; transform-origin: top; transition: transform 1.1s cubic-bezier(.77,0,.18,1); display: flex; align-items: center; justify-content: center;">
+    <div ref="{{ curtainWordRef }}" style="color: #FFFFFF; font-size: 15px; letter-spacing: .35em; text-transform: uppercase; font-weight: 400; opacity: 0; transition: opacity .6s;">THEWILDSTUDIO</div>
+  </div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header data-screen-label="Header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 800; display: flex; align-items: center; justify-content: space-between; padding: 6px 40px; background: rgba(255,255,255,.8); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(20,20,18,.08); color: #141412;">
+    <a href="#top" style="display: flex; align-items: center;"><img ref="{{ navLogoRef }}" src="media/branding-6b9a3146.webp" alt="The Wild Studio Creative Co." style="height: 179px; width: auto; display: block; margin: -53px 0;"></a>
+    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 36px;">
+      <a href="work.html" class="ws-link" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412;">Work</a>
+      <div class="ws-dd" style="display: flex; align-items: center;">
+        <a href="services.html" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412; display: inline-flex; align-items: center; gap: 6px;">Services <span aria-hidden="true" style="font-size: 10px;">▾</span></a>
+        <div class="ws-dd-menu">
+          <a href="services.html#branding">Branding</a>
+          <a href="services.html#uiux">UI/UX</a>
+          <a href="services.html#social-media">Social Media</a>
+          <a href="services.html#development">Development</a>
+        </div>
+      </div>
+      <a href="about.html" class="ws-link" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412;">About us</a>
+      <a class="ws-btn" href="contact.html" onClick="{{ noop }}" ref="{{ magneticRef }}" style="width: auto; height: 49px; padding: 0 28px; font-size: 14px;">Get in touch</a>
+      <button class="ws-theme-btn" aria-label="Toggle light and dark mode" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(20,20,18,.35); background: transparent; color: inherit; display: flex; align-items: center; justify-content: center; padding: 0;">
+        <svg class="ws-ico-moon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg>
+        <svg class="ws-ico-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="top" data-screen-label="Hero" style="position: relative; min-height: 40vh; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 90px 40px 78px; background: #FFFFFF; text-align: center">
+    <div ref="{{ heroArtRef }}" style="position: relative; width: 100vw; margin-left: calc(50% - 50vw); height: auto; margin-top: -70px;">
+      <div style="position: relative; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; overflow: hidden; background: #FFFFFF; padding-top: 100px; box-sizing: border-box;">
+        <video class="ws-hero-vid" autoPlay="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" src="uploads/main-animation-for-website-tws-b8eb11fb.mp4" style="width: 85%; height: calc(85vh - 185px); object-fit: contain; display: block; filter: brightness(1.035); mix-blend-mode: multiply;"></video>
+        <div ref="{{ heroTextRef }}" style="position: relative; margin: 5px auto 0; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; max-width: 1400px; opacity: 1; transform: none; will-change: opacity, transform">
+      <h1 style="margin: 0; font-weight: 400; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.1; letter-spacing: -0.025em; text-align: center">
+        <span style="display: block; white-space: nowrap; transition: opacity 1.1s cubic-bezier(.19,1,.22,1) 0.1s, transform 1.1s cubic-bezier(.19,1,.22,1) 0.1s, filter 1.1s cubic-bezier(.19,1,.22,1) 0.1s; opacity: {{ heroOpacity }}; transform: translateY({{ heroY }}); filter: blur({{ heroBlur }});">We turn big, messy ideas into<br>brands with a lot of <span class="ws-mark"><span><em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">heart</em></span></span>.</span>
+      </h1>
+      <p style="margin: 0; max-width: 520px; font-size: 14px; line-height: 1.7; color: rgba(20,20,18,.75); text-align: center; transition: opacity 1.1s cubic-bezier(.19,1,.22,1) 0.38s, transform 1.1s cubic-bezier(.19,1,.22,1) 0.38s, filter 1.1s cubic-bezier(.19,1,.22,1) 0.38s; opacity: {{ heroOpacity }}; transform: translateY({{ heroY }}); filter: blur({{ heroBlur }})">That's the whole job and we're a little obsessed with doing it beautifully.</p>
+      <div style="transition: opacity 1.1s cubic-bezier(.19,1,.22,1) 0.5s, transform 1.1s cubic-bezier(.19,1,.22,1) 0.5s, filter 1.1s cubic-bezier(.19,1,.22,1) 0.5s; opacity: {{ heroOpacity }}; transform: translateY({{ heroY }}); filter: blur({{ heroBlur }});">
+        <a class="ws-btn" href="work.html" style="width: auto; height: 49px; padding: 0 28px; font-size: 14px;">View work</a>
+      </div>
+        </div>
+        <button onClick="{{ heroMuteToggle }}" aria-label="{{ heroMuteLabel }}" title="{{ heroMuteLabel }}" style="position: absolute; right: 28px; bottom: 28px; z-index: 6; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(20,20,18,.25); background: rgba(255,255,255,.88); backdrop-filter: blur(8px); color: #141412; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;">
+          <sc-if value="{{ heroUnmuted }}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"></polygon><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg></sc-if>
+          <sc-if value="{{ heroMuted }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"></polygon><line x1="16" y1="9" x2="22" y2="15"></line><line x1="22" y1="9" x2="16" y2="15"></line></svg></sc-if>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURED BENTO ===================== -->
+  <section data-screen-label="Featured Bento" style="padding: 57px 40px 0; padding-top: 0px">
+    <div class="ws-reveal" data-ws="reveal" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 29px;">Featured work</div>
+    <div class="ws-mask" data-ws="mask" style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="ws-bento-row" style="height: 54vh; min-height: 380px;">
+        <sc-for list="{{ bentoRow1 }}" as="b" hint-placeholder-count="2">
+          <a href="{{ b.href }}" class="ws-bento-card {{ b.cls }}" style="display: block; cursor: pointer;">
+            <image-slot id="{{ b.slotId }}" shape="rect" src="{{ b.src }}" placeholder="{{ b.name }}" style="width: 100%; height: 100%; pointer-events: none;"></image-slot>
+            <sc-if value="{{ b.hoverSrc }}" hint-placeholder-val="{{ false }}">
+              <img class="ws-bento-alt {{ b.hoverCls }}" data-logo-src="{{ b.hoverSrc }}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+            </sc-if>
+
+          </a>
+        </sc-for>
+      </div>
+      <div class="ws-bento-row" style="height: 54vh; min-height: 380px;">
+        <sc-for list="{{ bentoRow2 }}" as="b" hint-placeholder-count="2">
+          <a href="{{ b.href }}" class="ws-bento-card {{ b.cls }}" style="display: block; cursor: pointer;">
+            <image-slot id="{{ b.slotId }}" shape="rect" src="{{ b.src }}" placeholder="{{ b.name }}" style="width: 100%; height: 100%; pointer-events: none;"></image-slot>
+            <sc-if value="{{ b.hoverSrc }}" hint-placeholder-val="{{ false }}">
+              <img class="ws-bento-alt {{ b.hoverCls }}" data-logo-src="{{ b.hoverSrc }}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+            </sc-if>
+
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMMONS ACCORDION ===================== -->
+  <section data-screen-label="Commons Accordion" style="padding: 96px 40px 0;">
+    <div class="ws-reveal" data-ws="reveal" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 29px;">Experience The Commons</div>
+    <div style="display: flex; flex-direction: row; align-items: stretch; justify-content: center; gap: 12px; height: 450px;">
+      <sc-for list="{{ commonsAccordion }}" as="ca" hint-placeholder-count="0">
+        <a href="{{ ca.href }}" onMouseEnter="{{ ca.onHover }}" style="position: relative; height: 100%; border-radius: 16px; overflow: hidden; cursor: pointer; display: block; flex-grow: {{ ca.grow }}; flex-basis: {{ ca.basis }}; min-width: 56px; transition: flex-grow .7s cubic-bezier(.65,0,.35,1), flex-basis .7s cubic-bezier(.65,0,.35,1);">
+          <div role="img" aria-label="{{ ca.name }}" style="position: absolute; inset: 0; background-image: url({{ ca.img }}); background-size: cover; background-position: center;"></div>
+          <div style="position: absolute; inset: 0; background: {{ ca.scrim }}; transition: background .5s ease;"></div>
+          <span style="position: absolute; bottom: {{ ca.labelBottom }}; left: 50%; white-space: nowrap; color: #FFFFFF; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: .02em; transform: {{ ca.labelTransform }}; opacity: {{ ca.labelOpacity }}; transition: transform .4s ease, bottom .4s ease, opacity .3s ease;">{{ ca.name }}</span>
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 32px; color: #FFFFFF; opacity: {{ ca.detailOpacity }}; transform: translateY({{ ca.detailShift }}); transition: opacity .45s ease .15s, transform .45s ease .15s; pointer-events: none;">
+            <div style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(22px, 2vw, 32px); font-weight: 400; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ ca.name }}</div>
+            <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.55; color: rgba(255,255,255,.85); max-width: 460px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ ca.blurb }}</p>
+            <div style="display: grid; grid-template-columns: 84px 1fr; gap: 6px 16px; margin-top: 14px; font-size: 12px; white-space: nowrap;">
+              <span style="letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.55);">Services</span><span style="overflow: hidden; text-overflow: ellipsis;">{{ ca.services }}</span>
+              <span style="letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.55);">Year</span><span>{{ ca.year }}</span>
+            </div>
+            <div style="margin-top: 18px; font-size: 13px; letter-spacing: .22em; text-transform: uppercase;">{{ ca.ctaLabel }} <span aria-hidden="true">{{ ca.ctaArrow }}</span></div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section id="services" data-screen-label="Services" style="padding: 96px 40px 0;">
+    <div class="ws-reveal" data-ws="reveal" style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(20,20,18,.16); padding-bottom: 28px;">
+      <h2 style="margin: 0; font-size: clamp(32px, 4vw, 64px); font-weight: 400; letter-spacing: -0.02em;">Our services</h2>
+      <a href="services.html" class="ws-link" style="font-size: 16px; letter-spacing: .22em; text-transform: uppercase; white-space: nowrap;">Explore all →</a>
+    </div>
+
+    <sc-for list="{{ services }}" as="svc" hint-placeholder-count="5">
+      <div class="ws-reveal" data-ws="reveal" style="border-bottom: 1px solid rgba(20,20,18,.16);">
+        <button onClick="{{ svc.toggle }}" style="all: unset; display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 22px 20px; cursor: pointer; transition: padding-left .5s cubic-bezier(.19,1,.22,1), background-color .35s ease;" style-hover="padding-left: 44px; background-color: #FFC72C;" style-active="background-color: #F0B400;">
+          <div style="display: flex; align-items: baseline; gap: 28px;">
+            <span style="font-size: 12px; color: rgba(20,20,18,.4); font-variant-numeric: tabular-nums;">{{ svc.num }}</span>
+            <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(22px, 2.2vw, 34px); font-weight: 400; letter-spacing: -0.01em;">{{ svc.name }}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 24px;">
+            <span style="font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(20,20,18,.45);">/{{ svc.count }} services</span>
+            <span style="font-size: 22px; font-weight: 300; transition: transform .5s cubic-bezier(.77,0,.18,1); display: inline-block; transform: {{ svc.chevron }};">+</span>
+          </div>
+        </button>
+        <div style="overflow: hidden; transition: max-height .7s cubic-bezier(.77,0,.18,1), opacity .5s; max-height: {{ svc.maxH }}; opacity: {{ svc.opacity }};">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 48px; padding: 0 0 40px 52px; max-width: 900px;">
+            <sc-for list="{{ svc.items }}" as="it" hint-placeholder-count="4">
+              <div style="font-size: 15px; color: rgba(20,20,18,.6); padding: 6px 0; border-bottom: 1px dotted rgba(20,20,18,.14);">{{ it }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+
+  </section>
+
+  <!-- ===================== LOGO MARQUEE ===================== -->
+  <section data-screen-label="Marquee" style="padding: 96px 0 0; overflow: hidden;">
+    <p class="ws-reveal" data-ws="reveal" style="margin: 0 0 8px; padding: 0 40px; text-align: center; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; font-weight: 400; letter-spacing: 0; text-transform: uppercase; line-height: 1.2;">We keep good company</p>
+    <div style="display: flex; max-width: 100vw; overflow: hidden; padding: 40px 0 26px;">
+      <div style="display: flex; width: max-content; animation: ws-marquee 55s linear infinite;" style-hover="animation-play-state: paused;">
+        <sc-for list="{{ marqueeItems }}" as="m" hint-placeholder-count="0">
+          <div class="ws-mq-item" style="display: flex; align-items: center; margin: 0 {{ m.mx }}px; white-space: nowrap;">
+            <img class="ws-mq-logo-img ws-mq-light {{ m.lightCls }}" data-logo-src="{{ m.logo }}" alt="{{ m.name }} logo" style="height: {{ m.h }}px; width: auto; display: block; max-width: 240px; object-fit: contain;">
+            <sc-if value="{{ m.dark }}" hint-placeholder-val="{{ false }}">
+              <img class="ws-mq-logo-img ws-mq-dark" data-logo-src="{{ m.dark }}" alt="{{ m.name }} logo" style="height: {{ m.hDark }}px; width: auto; display: block; max-width: 240px; object-fit: contain;">
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display: flex; max-width: 100vw; overflow: hidden; padding: 26px 0 30px;">
+      <div style="display: flex; width: max-content; animation: ws-marquee-rev 55s linear infinite;" style-hover="animation-play-state: paused;">
+        <sc-for list="{{ marqueeItemsB }}" as="m" hint-placeholder-count="0">
+          <div class="ws-mq-item" style="display: flex; align-items: center; margin: 0 {{ m.mx }}px; white-space: nowrap;">
+            <img class="ws-mq-logo-img ws-mq-light {{ m.lightCls }}" data-logo-src="{{ m.logo }}" alt="{{ m.name }} logo" style="height: {{ m.h }}px; width: auto; display: block; max-width: 240px; object-fit: contain;">
+            <sc-if value="{{ m.dark }}" hint-placeholder-val="{{ false }}">
+              <img class="ws-mq-logo-img ws-mq-dark" data-logo-src="{{ m.dark }}" alt="{{ m.name }} logo" style="height: {{ m.hDark }}px; width: auto; display: block; max-width: 240px; object-fit: contain;">
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APPROACH ===================== -->
+  <section id="studio" data-screen-label="Approach" style="padding: 96px 40px 31px;">
+    <div class="ws-reveal" data-ws="reveal" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 24px;">Our approach &amp; values</div>
+    <p class="ws-reveal" data-ws="reveal" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; margin: 0; font-size: clamp(28px, 3.4vw, 56px); line-height: 1.25; font-weight: 400; letter-spacing: -0.015em; max-width: 1180px;">
+      We combine <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">instinct</em>, strategy and craft to build brands and digital experiences that feel inevitable, <span class="ws-mark"><span>never accidental.</span></span>
+    </p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 80px;">
+      <a href="project.html?id=project-em" class="ws-mask" data-ws="mask" style="display: block; height: 420px; overflow: hidden; margin-top: 60px; cursor: pointer;">
+        <video ref="{{ approachVideo2Ref }}" src="uploads/project-em-video.mp4" autoplay="" muted="" loop="" playsinline="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+      </a>
+      <a href="project.html?id=goodhood" class="ws-mask" data-ws="mask" style="display: block; height: 420px; overflow: hidden; cursor: pointer;">
+        <video ref="{{ approachVideoRef }}" src="uploads/screen-recording-2026-06-18-133504.mp4" autoplay="" muted="" loop="" playsinline="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+      </a>
+      <a href="project.html?id=colour-crush" class="ws-mask" data-ws="mask" style="display: block; height: 420px; overflow: hidden; margin-top: 120px; cursor: pointer;">
+        <div class="ws-zoom" style="width: 100%; height: 100%;"><video ref="{{ approachVideo3Ref }}" src="uploads/reel-colour-crush-25.mp4" autoplay="" muted="" loop="" playsinline="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video></div>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section data-screen-label="Testimonials" style="background: #FFFFFF; color: #141412; margin-top: 24px; padding: 0 40px">
+    
+
+  <div class="ws-tpin" style="position: relative; margin: 0 -40px; width: auto">
+      <div style="position: sticky; top: 0; height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; padding: 48px 40px 48px; overflow: hidden">
+        <div class="ws-reveal" data-ws="reveal" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 14px; position: sticky">Testimonials</div>
+        <h2 class="ws-reveal" data-ws="reveal" style="margin: 0 0 34px; font-size: clamp(26px, 2.9vw, 48px); font-weight: 400; letter-spacing: -0.015em; max-width: 900px;">What our <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">clients</em> say about working with us.</h2>
+        <div style="flex: 0 0 auto; min-height: 0; display: flex; align-items: flex-start; height: auto;">
+        <div class="ws-track" style="display: flex; align-items: stretch; gap: 24px; will-change: transform; position: relative">
+          <sc-for list="{{ railCards }}" as="t" hint-placeholder-count="0">
+            <div onClick="{{ t.onPick }}" style="width: 400px; height: min(400px, calc(100vh - 300px)); align-self: flex-start; flex: none; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 24px 26px 20px; cursor: pointer; background: {{ t.bg }}; color: {{ t.fg }}; border: {{ t.border }}; transition: background .5s, color .5s, border-color .5s">
+              <div style="flex: 1 1 auto; min-height: 0; overflow: hidden;">
+                <sc-if value="{{ t.logo }}" hint-placeholder-val="{{ false }}">
+                  <div style="height: clamp(38px, 8vh, 62px); display: flex; align-items: center; margin-bottom: 8px;">
+                    <img class="ws-testi-logo {{ t.keepCls }}" data-logo-src="{{ t.logo }}" alt="" style="height: {{ t.logoH }}; width: auto; display: block; filter: {{ t.logoFilter }};">
+                  </div>
+                </sc-if>
+                <p class="ws-testi-quote" style="margin: 0; font-size: 11.5px; line-height: 1.6;">{{ t.text }}</p>
+              </div>
+              <div style="flex: 0 0 auto; display: flex; align-items: center; gap: 14px; margin-top: 14px;">
+                
+                <div style="display: flex; flex-direction: column; gap: 3px;">
+                  <div style="font-size: 14px; font-weight: 600;">{{ t.author }}</div>
+                  <sc-if value="{{ t.role }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: {{ t.muted }};">{{ t.role }}</div>
+                  </sc-if>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        </div>
+        <div style="position: relative; flex: 0 0 auto; display: flex; justify-content: flex-end; gap: 10px; z-index: 5; margin-top: 15px;">
+          <button onClick="{{ tArrowPrev }}" aria-label="Previous testimonial" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(20,20,18,.3); background: transparent; color: #141412; display: flex; align-items: center; justify-content: center; transition: background .3s, color .3s;" style-hover="background: #141412; color: #FFFFFF;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5"></path><path d="M11 18l-6-6 6-6"></path></svg></button>
+          <button onClick="{{ tArrowNext }}" aria-label="Next testimonial" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(20,20,18,.3); background: transparent; color: #141412; display: flex; align-items: center; justify-content: center; transition: background .3s, color .3s;" style-hover="background: #141412; color: #FFFFFF;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"></path><path d="M13 6l6 6-6 6"></path></svg></button>
+        </div>
+        <div class="ws-scrollcue-x" aria-hidden="true">
+          <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; opacity: .55;">Scroll to View more</span>
+          <div class="ws-sc-rail-x"><div class="ws-sc-dot-x"></div></div>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"></path><path d="M13 6l6 6-6 6"></path></svg>
+        </div>
+
+      </div>
+    </div></section>
+
+  <!-- ===================== CTA ===================== -->
+  <!-- ===================== PROJECT DETAIL OVERLAY ===================== -->
+  <sc-if value="{{ activeProject }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Project Detail" style="position: fixed; inset: 0; z-index: 5000; background: #FFFFFF; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 26px 40px;">
+        <div style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412;">The Wildstudio Project</div>
+        <button onClick="{{ closeProject }}" style="all: unset; width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(20,20,18,.35); display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background .4s, color .4s;" style-hover="background: #141412; color: #FFFFFF;">✕</button>
+      </div>
+      <div style="padding: 40px;">
+        <div style="font-size: 12px; color: rgba(20,20,18,.4); font-variant-numeric: tabular-nums; margin-bottom: 16px;">{{ activeProject.num }}</div>
+        <h2 style="margin: 0 0 40px; font-size: clamp(48px, 6vw, 104px); font-weight: 400; letter-spacing: -0.02em;">{{ activeProject.name }}</h2>
+        <sc-if value="{{ apHasCase }}" hint-placeholder-val="{{ false }}">
+          <div style="border-radius: 18px; overflow: hidden;">
+            <img ref="{{ caseImgRef }}" alt="{{ activeProject.name }} full case study" style="width: 100%; height: auto; display: block;">
+          </div>
+        </sc-if>
+        <sc-if value="{{ apNoCase }}" hint-placeholder-val="{{ false }}">
+          <div style="height: 72vh; overflow: hidden; border-radius: 18px;">
+            <img ref="{{ coverImgRef }}" alt="{{ activeProject.name }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+        </sc-if>
+        <div style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 80px; margin-top: 64px; padding-bottom: 120px;">
+          <p style="margin: 0; font-size: clamp(18px, 1.6vw, 24px); line-height: 1.6; color: rgba(20,20,18,.75); max-width: 720px;">{{ activeProject.desc }}</p>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 14px 40px; font-size: 14px; align-content: start;">
+            <span style="color: rgba(20,20,18,.4); letter-spacing: .12em; text-transform: uppercase; font-size: 11px;">Location</span><span>{{ activeProject.location }}</span>
+            <span style="color: rgba(20,20,18,.4); letter-spacing: .12em; text-transform: uppercase; font-size: 11px;">Industry</span><span>{{ activeProject.industry }}</span>
+            <span style="color: rgba(20,20,18,.4); letter-spacing: .12em; text-transform: uppercase; font-size: 11px;">Services</span><span>{{ activeProject.services }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===================== CTA MARQUEE + FOOTER ===================== -->
+  
+  <div class="ws-ticker-overlay" aria-hidden="true" style="position: fixed; left: 0; right: 0; top: 100vh; z-index: 11; pointer-events: none; color: #FFFFFF; mix-blend-mode: difference; white-space: nowrap; overflow: hidden; opacity: 0; transition: opacity .3s linear;">
+    <div style="display: inline-flex; animation: ws-marquee 22s linear infinite; will-change: transform;">
+      <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(64px, 9vw, 160px); font-weight: 400; letter-spacing: -0.02em; padding-right: 80px;">Let’s work together <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">design@thewildstudio.co</em> </span>
+      <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(64px, 9vw, 160px); font-weight: 400; letter-spacing: -0.02em; padding-right: 80px;">Let’s work together <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">design@thewildstudio.co</em> </span>
+    </div>
+  </div>
+
+  <div class="ws-lamp-strip" style="position: relative; z-index: 10; height: 60px; pointer-events: none">
+    <img class="ws-lamp-light" src="media/branding-c9697b32.webp" alt="" style="position: absolute; right: 4vw; bottom: calc(0px - min(100vh, 800px)); height: min(116.6vh, 933px); width: auto; display: block;">
+    <img class="ws-lamp-dark" src="media/branding-f4ee4a86.webp" alt="" style="position: absolute; right: 4vw; bottom: calc(0px - min(100vh, 800px)); height: min(116.6vh, 933px); width: auto; display: none;">
+  </div><div class="ws-footer-curtain" style="position: relative; height: min(100vh, 800px); clip-path: inset(0 0 0 0); margin-top: 0">
+  <footer id="contact" data-screen-label="Footer" style="position: fixed; bottom: 0; left: 0; right: 0; height: min(100vh, 800px); box-sizing: border-box; background: #141412; color: #FFFFFF; padding: 70px 0 36px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; z-index: 0; cursor: pointer;">
+    <a href="contact.html" style="display: block; white-space: nowrap; overflow: hidden;">
+      <div ref="{{ marqueeRef }}" style="display: inline-flex; animation: ws-marquee 22s linear infinite; will-change: transform; visibility: hidden;">
+        <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(64px, 9vw, 160px); font-weight: 400; letter-spacing: -0.02em; padding-right: 80px;">Let’s work together <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">design@thewildstudio.co</em> </span>
+        <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(64px, 9vw, 160px); font-weight: 400; letter-spacing: -0.02em; padding-right: 80px;">Let’s work together <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">design@thewildstudio.co</em> </span>
+      </div>
+    </a>
+    <div style="display: flex; justify-content: center; padding: 41px 40px 0;">
+      <a href="contact.html" class="ws-btn" style="border-color: #FFFFFF; color: #FFFFFF; width: auto; padding: 0 36px;" style-hover="color: #141412;">Let’s connect</a>
+    </div>
+    <div style="display: grid; grid-template-columns: minmax(320px, 1.1fr) 160px 160px 1fr; gap: 48px; padding: 40px 40px 0;">
+      <div>
+        <img src="media/branding-6b9a3146.webp" alt="The Wild Studio Creative Co." style="height: 187px; width: auto; filter: invert(1); display: block; margin: -44px 0 0 -18px; transition: transform .45s cubic-bezier(.19,1,.22,1); transform-origin: center;" style-hover="transform: scale(1.12);">
+        <p style="margin: 16px 0 0; font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.55); max-width: 320px;">A collaborative studio of problem solvers, visionaries and storytellers.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 6px;">Sitemap</div>
+        <a href="work.html" class="ws-link" style="font-size: 14px; width: fit-content;">Work</a>
+        <a href="#services" class="ws-link" style="font-size: 14px; width: fit-content;">Services</a>
+        <a href="about.html" class="ws-link" style="font-size: 14px; width: fit-content;">About us</a>
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin: 26px 0 6px;">Contact</div>
+        <a href="mailto:design@thewildstudio.co" class="ws-link" style="font-size: 14px; width: fit-content;">design@thewildstudio.co</a>
+        <a href="tel:+923091119453" class="ws-link" style="font-size: 14px; width: fit-content;">+92 309 111 9453</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 6px;">Social</div>
+        <a href="https://www.instagram.com/_thewildstudio" target="_blank" rel="noopener noreferrer" class="ws-link" style="font-size: 14px; width: fit-content;">Instagram</a>
+        <a href="https://www.linkedin.com/company/the-wildstudio/posts/?feedView=all" target="_blank" rel="noopener" class="ws-link" style="font-size: 14px; width: fit-content;">LinkedIn</a>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding: 30px 40px 0; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35);">
+      <span>© 2026 The Wildstudio</span>
+      <span>All rights reserved</span>
+    </div>
+  </footer>
+  </div>
+</div>
+
+<div style="position: absolute; width: 0; height: 0; overflow: hidden">
+  <x-import component-from-global-scope="image-slot" from="./image-slot.js" style="width: 0; height: 0;" hint-size="0,0"></x-import>
+</div>
+<div style="font-size: 16px; line-height: 1; font-family: 'Century Gothic', CenturyGothic, Questrial, 'Helvetica Neue', sans-serif; position: absolute; left: 81px; top: 10px; display: none">Your text here</div></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;marqueeSpeed&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 22, &quot;min&quot;: 8, &quot;max&quot;: 60, &quot;step&quot;: 1, &quot;unit&quot;: &quot;s&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Experience&quot;}}">
+class Component extends DCLogic {
+  state = { open: -1, quote: 0, formSent: false, formError: '', pickedServices: [], activeProject: null };
+
+  services = [
+    { name: 'Branding', items: ['Brand identity and guidelines', 'Moodboard concepts', 'Logo Design', 'Product Design', 'Packaging Design'] },
+    { name: 'UI/UX', items: ['UX / UI Design', 'Web Design', 'Mobile App Design', 'Wireframing', 'Prototyping', 'Design Systems'] },
+    { name: 'Social Media', items: ['Social media posts, reels & stories', 'Art direction and feed curation', 'AI Product Photography', 'AI Animation', 'Social media grid layout template'] },
+    { name: 'Development', items: ['Wordpress Development', 'IT Support', 'API Integration', 'AI Development'] },
+    { name: 'Art, Illustration & Animation', items: ['Custom Illustration', 'Character Design', 'Editorial & Print Art', 'Motion Graphics', 'Animated logo reveal'] },
+  ];
+
+  quotes = [
+    { text: "We couldn't be happier with the incredible talent & creativity of the team behind our new brand identity. Every detail, every idea was crafted with passion & precision.\n\nThank you for bringing our vision to life and making it even better than we imagined!", author: 'Mutahir Mahmood', role: 'O Shoot', initials: 'MM', logo: 'media/mutahir-mahmood-logo-3b06dc3e.webp', logoMt: 4 },
+    { text: "A little love for our incredible design partners, The Wild Studio 🤍\n\nThank you for helping us shape The Commons visually and for always understanding the world we’re trying to create. From the little details to the bigger picture, so much of how The Commons looks and feels has your thought, creativity and magic in it.\nSo grateful to have The Wild Studio as part of The Commons journey, and excited for everything we still get to create together.", author: 'Sitwat Rizvi', logo: 'media/sitwat-rizvi-logo-ec55da08.webp', logoH: 46, mono: true, role: 'Commons Karachi', initials: 'SR' },
+    { text: "At Nadia Farooqui, we wanted to launch Rabia by N|F. Our first meeting with Adeel and Tehniyat was such a breeze. They took the time to really get to know us, our story, our voice, and of course, our aesthetic. One thing we were particularly keen on was bringing Rabia’s identity as an artist into the branding, and they did that so beautifully. The process itself was just as exciting. From mood boards to different rounds of experimentation, it felt like a true collaboration. The team at Wild Studio was incredibly patient and open throughout, giving us the space to explore and refine the direction together. We’re so happy with how it all came together and absolutely loved the process. We’d do it all over again :)", author: 'Rabia Farooqui', role: 'Rabia by N|F', initials: 'RF', logo: 'media/rabia-farooqui-logo-0c37dbb0.webp', logoH: 26, mono: true },
+    { text: "Working with Tehniyat and Adeel on was honestly such a dream. They understood the vision from the very beginning and brought the brand to life in a way that felt so me! I genuinely couldn’t have imagined a better identity for Butterhaus 🥹🫶 The Wild Studio made my wildest dreams come true.", author: 'Iman Afzal', logo: 'media/iman-afzal-logo-d97da070.webp', logoH: 52, keepColor: true, whiteOnActive: true, role: 'Butterhaus', initials: 'IA' },
+    { text: "Tehniyat & Adeel have been an integral part of my life since god knows when, be it personally or professionally. Ever since wild studio has started I haven’t felt the need to go anywhere else for all my design needs.\nTheir creativity, professionalism and thoroughness is next to none, they ensure the client walks out fully satisfied. I recommend them 110% without giving it any second thought and I can assure anyone who wishes to work with them - they won’t be disappointed!", author: 'Maleeha Jawaid', role: 'Skin by Maleeha', initials: 'MJ', logo: 'media/maleeha-jawaid-logo-405210f2.webp', logoH: 54, mono: true },
+    { text: "It was absolutely amazing working with Tehniyat and Adeel. Very professional and timely work. Super receptive to your feedback. Would totally go back to them for whatever work that might be needed in future 🤍🤍", author: 'Amna Sultan', logo: 'media/amna-sultan-logo-a0e65751.webp', logoH: 30, keepColor: true, role: 'Project Em', initials: 'AS' },
+    { text: "Had such a lovely time working with the team on our new studio branding. From our very first meeting, they really understood what we were looking for and immediately tapped into our vision.\nThe whole process was creative, fun, and effortless, and they did an amazing job bringing everything together. The final branding feels so true to our studio and is exactly how we imagined it, if not better!\n\nSo grateful for all the thought, creativity, and care they put into bringing our vision to life.", author: 'Marium Kamal & Safwan Sabzwari', logo: 'media/marium-kamal-safwan-sabzwari-logo-b5aec011.webp', logoH: 74, role: 'Swad Meem', initials: 'MS', keepColor: true },
+    { text: "The Wild Studio did an incredible job bringing the Goodhood brand to life online. They really understood who we are and translated our personality into a website that feels bold, fun, and distinctly Goodhood. The entire process was collaborative, thoughtful, and easy, and they were always receptive to feedback while bringing strong creative ideas of their own. We couldn’t be happier with the final result and would absolutely recommend them to anyone looking for a creative team that genuinely understands branding and design.", author: 'Fahad Asadullah', role: 'Goodhood', initials: 'FA', logo: 'media/fahad-asadullah-logo-fff8d22b.webp', logoH: 27, mono: true },
+    { text: "The Wild Studio did an amazing job bringing Jigri Foods to life visually. We went to them with an idea of what we wanted, and they took it way beyond what we had imagined.\n\nFrom the logo and colour palette to the overall look and feel of the brand, every little detail was so thoughtfully done.\nWhat I loved most was that they didn’t just make things look good, they really understood the personality of Jigri and made sure the branding felt like us.\n\nWe’ve genuinely received so much appreciation for the design, and a big part of that goes to the Wild Studio team.", author: 'Zain Ahmed', role: 'Jigri Foods', initials: 'ZA', logo: 'media/zain-ahmed-logo-576b939f.webp', logoH: 44, keepColor: true },
+    { text: "Tehniyat and the team were an absolute pleasure to work with professional, attentive, and always willing to listen to what you need. She brings her own creative magic to every project while making sure your vision comes through beautifully.", author: 'Mehlum Sadriwala', role: 'MEHLUM', initials: 'MS', logo: 'media/mehlum-sadriwala-logo-f97754ef.webp', logoH: 26, mono: true },
+    { text: "Contacted them simply because their work was cute and aligned with our brand. But once working with them, they’re so much more than a cute design studio! They’re agile, receptive and friendly- all while being super professional! Rare combo to find, but they’re it 🐯💛", author: 'Arsha and Emaan', logo: 'media/arsha-and-emaan-logo-c5ecca73.webp', logoH: 44, mono: true, role: 'The Chyll Store', initials: 'AE' },
+    { text: 'My favourite logo in the whole world . Thank you for literally drawing out my brains 🧠 hahaha if that makes sense', author: 'Mehr', logo: 'media/mehr-logo-a95082af.webp', logoH: 62, role: 'From Home With Love', initials: 'MH' },
+  ];
+
+  quoteFs(t) {
+    const n = t.length;
+    if (n > 560) return '13px';
+    if (n > 400) return '14px';
+    if (n > 280) return '15px';
+    return '17px';
+  }
+
+  railCards() {
+    const q = this.quotes, n = q.length;
+    const cur = (((this.state && this.state.tOff) || 0) % n + n) % n;
+    return q.map((x, i) => {
+      const on = i === cur;
+      return {
+        ...x,
+        bg: on ? '#141412' : '#FFFFFF',
+        fg: on ? '#FFFFFF' : '#141412',
+        border: on ? '1.5px solid #141412' : '1.5px solid rgba(20,20,18,.14)',
+        muted: on ? 'rgba(255,255,255,.55)' : 'rgba(20,20,18,.5)',
+        avatarBg: on ? '#FFC72C' : '#141412',
+        avatarFg: on ? '#141412' : '#FFFFFF',
+        logo: x.logo || '',
+        keepCls: (x.keepColor ? 'ws-keepcolor' : '') + (x.whiteOnActive ? ' ws-whiteon' : ''),
+        logoH: (x.logoH || 18) + 'px',
+        logoMt: (x.logoMt || 0) + 'px',
+        fs: x.text.length > 400 ? 'clamp(10px, calc(0.50vh + 0.34vw), 13px)'
+          : x.text.length > 260 ? 'clamp(10.5px, calc(0.56vh + 0.38vw), 14px)'
+          : 'clamp(11px, calc(0.62vh + 0.42vw), 15px)',
+        logoFilter: x.whiteOnActive
+          ? (on ? 'grayscale(1) brightness(0) invert(1)' : 'none')
+          : x.keepColor
+          ? 'none'
+          : x.mono
+          ? (on ? 'grayscale(1) brightness(0) invert(1)' : 'grayscale(1) brightness(0)')
+          : (on ? 'invert(1)' : 'none'),
+        onPick: () => this.tScroll(i - cur),
+      };
+    });
+  }
+
+  openExternal(url) {
+    return (e) => {
+      if (e) e.preventDefault();
+      const w = window.open(url, '_blank', 'noopener');
+      if (!w) { try { window.top.location.href = url; } catch (err) { window.location.href = url; } }
+    };
+  }
+
+  tMobile() { return window.innerWidth <= 900; }
+
+  tScroll(dir) {
+    const pin = document.querySelector('.ws-tpin');
+    if (!pin) return;
+    const n = this.quotes.length;
+    if (this.tMobile()) {
+      // Mobile: plain carousel — arrows/swipe step the index, no page scroll involved.
+      const cur = this.state.tIdx || 0;
+      const nxt = Math.max(0, Math.min(n - 1, cur + dir));
+      if (nxt !== cur) this.setState({ tIdx: nxt, tOff: nxt }, () => this.testiTick());
+      return;
+    }
+    const top = pin.getBoundingClientRect().top + window.scrollY;
+    const span = pin.offsetHeight - window.innerHeight;
+    const p = Math.max(0, Math.min(1, (window.scrollY - top) / span));
+    const step = 1 / (n - 1);
+    const next = Math.max(0, Math.min(1, (Math.round(p / step) + dir) * step));
+    // Own rAF tween: this page sets html { scroll-behavior: smooth }, under which
+    // programmatic smooth scrolls never land.
+    const from = window.scrollY, to = top + next * span, t0 = performance.now();
+    if (this._tTween) cancelAnimationFrame(this._tTween);
+    const tick = (now) => {
+      const k = Math.min(1, (now - t0) / 520);
+      const e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+      window.scrollTo({ top: from + (to - from) * e, behavior: 'instant' });
+      if (k < 1) this._tTween = requestAnimationFrame(tick);
+    };
+    this._tTween = requestAnimationFrame(tick);
+  }
+
+  testiTick() {
+    const pin = document.querySelector('.ws-tpin');
+    const track = pin && pin.querySelector('.ws-track');
+    const bar = pin && pin.querySelector('.ws-tbar');
+    if (!pin || !track) return;
+    const mobile = this.tMobile();
+    const need = 100 + (this.quotes.length - 1) * 55;
+    if (mobile) { if (pin.style.height) pin.style.height = ''; }
+    else if (pin.style.height !== need + 'vh') pin.style.height = need + 'vh';
+    let p;
+    if (mobile) {
+      p = (this.state.tIdx || 0) / Math.max(1, this.quotes.length - 1);
+      track.style.transition = 'transform .55s cubic-bezier(.19,1,.22,1)';
+    } else {
+      track.style.transition = '';
+      const top = pin.getBoundingClientRect().top + window.scrollY;
+      const span = Math.max(1, pin.offsetHeight - window.innerHeight);
+      p = Math.max(0, Math.min(1, (window.scrollY - top) / span));
+    }
+    track.querySelectorAll('img.ws-testi-logo').forEach(el => {
+      const u = el.getAttribute('data-logo-src');
+      if (u && u.indexOf('{{') === -1 && el.getAttribute('src') !== u) el.setAttribute('src', u);
+    });
+    const cards = [...track.children];
+    const over = () => Math.max(0, ...cards.map(c => c.scrollHeight - c.clientHeight));
+    let fs = 15;
+    track.style.setProperty('--ws-tfs', fs + 'px');
+    while (fs > 10 && over() > 0) { fs -= 0.5; track.style.setProperty('--ws-tfs', fs + 'px'); }
+    const pad = window.innerWidth <= 640 ? 36 : window.innerWidth <= 900 ? 48 : 40;
+    const travel = Math.max(0, track.scrollWidth - (window.innerWidth - pad));
+    track.style.transform = 'translate3d(' + (-p * travel).toFixed(1) + 'px,0,0)';
+    if (bar) bar.style.width = (p * 100).toFixed(1) + '%';
+    const cueX = pin.querySelector('.ws-scrollcue-x');
+    if (cueX) cueX.style.opacity = p > 0.04 ? '0' : '1';
+    const n = this.quotes.length;
+    const cur = Math.min(n - 1, Math.round(p * (n - 1)));
+    if (!mobile && cur !== (this.state.tOff || 0)) this.setState({ tOff: cur });
+  }
+
+  componentDidMount() {
+
+    this._tickerRide = () => {
+      try {
+        const ov = document.querySelector('.ws-ticker-overlay');
+        const curtain = document.querySelector('.ws-footer-curtain');
+        const footerEl = document.getElementById('contact');
+        const realA = footerEl && footerEl.querySelector('a');
+        if (!ov || !curtain || !realA) return;
+        const cTop = curtain.getBoundingClientRect().top;
+        const realTop = realA.getBoundingClientRect().top;
+        const track = document.querySelector('.ws-track');
+        const testiSec = track && (track.closest('section') || track);
+        const tBottom = testiSec ? testiSec.getBoundingClientRect().bottom : -1;
+        const dur = (this.props.marqueeSpeed ?? 22) + 's';
+        const h = ov.offsetHeight || 1;
+        // Ride just above the footer edge (black on white), then pin at the footer's own ticker position
+        // and let the dark footer slide up behind it — the difference blend flips it black→white.
+        const effTop = Math.max(realTop, Math.min(cTop - h, tBottom));
+        const show = effTop < window.innerHeight - 20 && cTop > realTop + 2;
+        ov.style.top = effTop + 'px';
+        ov.firstElementChild.style.animationDuration = dur;
+        ov.style.opacity = show ? '1' : '0';
+        const mq = realA.firstElementChild;
+        if (mq) {
+          mq.style.animationDuration = dur;
+          mq.style.visibility = show ? 'hidden' : 'visible';
+          const oa = ov.firstElementChild.getAnimations()[0];
+          const fa = mq.getAnimations()[0];
+          if (oa && fa && fa.currentTime !== oa.currentTime) fa.currentTime = oa.currentTime;
+        }
+      } catch (e) {}
+    };
+    // Footer sits 100px below the testimonial cards regardless of viewport height (panel stays pinned at 100vh).
+    this._gapFix = () => {
+      try {
+        const sticky = document.querySelector('.ws-tpin > div');
+        const track = document.querySelector('.ws-track');
+        const strip = document.querySelector('.ws-lamp-strip');
+        if (!sticky || !track || !strip) return;
+        const empty = sticky.getBoundingClientRect().bottom - track.getBoundingClientRect().bottom;
+        const stripH = 60;
+        strip.style.marginTop = Math.min(0, Math.round(100 - empty - stripH)) + 'px';
+      } catch (e) {}
+    };
+    window.addEventListener('resize', this._gapFix);
+    this._gapFix(); setTimeout(this._gapFix, 400); setTimeout(this._gapFix, 1500);
+
+    // Touch: horizontal swipe on the testimonial rail maps to page scroll (the scrub driver),
+    // so the cards advance on mobile where a wheel event never fires.
+    const rail = document.querySelector('.ws-tpin');
+    if (rail) {
+      let x0 = 0, y0 = 0, sy0 = 0, horiz = null;
+      this._tTouchStart = (e) => {
+        const t = e.touches[0]; x0 = t.clientX; y0 = t.clientY; sy0 = window.scrollY; horiz = null;
+      };
+      this._tTouchEnd = (e) => {
+        if (!this.tMobile() || !horiz) return;
+        const t = e.changedTouches[0], dx = t.clientX - x0;
+        if (Math.abs(dx) > 40) this.tScroll(dx < 0 ? 1 : -1);
+      };
+      rail.addEventListener('touchend', this._tTouchEnd, { passive: true });
+      this._tTouchMove = (e) => {
+        const t = e.touches[0], dx = t.clientX - x0, dy = t.clientY - y0;
+        if (horiz === null) { if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return; horiz = Math.abs(dx) > Math.abs(dy) * 1.2; }
+        if (!horiz) return;
+        e.preventDefault();
+        if (this.tMobile()) return; // mobile: step on touchend, no scroll-driven scrub
+        const pin = document.querySelector('.ws-tpin');
+        const span = Math.max(1, pin.offsetHeight - window.innerHeight);
+        const track = pin.querySelector('.ws-track');
+        const pad = window.innerWidth <= 640 ? 36 : window.innerWidth <= 900 ? 48 : 40;
+        const travel = Math.max(1, track.scrollWidth - (window.innerWidth - pad));
+        // 'instant' — a drag must track the finger, and smooth scrolls restart each other every move.
+        window.scrollTo({ top: sy0 - dx * (span / travel), behavior: 'instant' });
+      };
+      rail.addEventListener('touchstart', this._tTouchStart, { passive: true });
+      rail.addEventListener('touchmove', this._tTouchMove, { passive: false });
+    }
+
+    window.addEventListener('scroll', this._tickerRide, { passive: true });
+    window.addEventListener('resize', this._tickerRide);
+    this._tickerRide();
+    this._tickerTimer = setInterval(this._tickerRide, 500);
+
+    this._testi = () => this.testiTick();
+    window.addEventListener('scroll', this._testi, { passive: true });
+    window.addEventListener('resize', this._testi);
+    this._testi();
+    setTimeout(this._testi, 400);
+    setTimeout(this._testi, 1400);
+    this._tlParallax = () => {};
+    this._heroArtScale = () => {};
+    window.addEventListener('scroll', this._heroArtScale, { passive: true });
+    requestAnimationFrame(this._heroArtScale);
+
+    window.addEventListener('scroll', this._tlParallax, { passive: true });
+    window.addEventListener('resize', this._tlParallax);
+    requestAnimationFrame(this._tlParallax);
+
+
+    setTimeout(() => {
+      const v = document.querySelector('video.ws-hero-vid');
+      if (!v || !v.duration) this._heroVidFailed = true;
+    }, 6000);
+    this._heroScrub = 0;
+    const heroScrubTick = () => {
+      this._heroScrubRaf = requestAnimationFrame(heroScrubTick);
+      const cue = document.querySelector('.ws-scrollcue');
+      if (cue) cue.style.opacity = window.scrollY > 90 ? '0' : '1';
+      const txt = this.refs.heroTextRef;
+      if (txt) { txt.style.opacity = '1'; txt.style.transform = 'none'; }
+    };
+    this._heroScrubRaf = requestAnimationFrame(heroScrubTick);
+
+
+    const HERO_LIGHT = 'uploads/main-animation-for-website-tws-b8eb11fb.mp4';
+    const HERO_DARK = 'uploads/untitled-design-7-d4a87f94.mp4';
+    this._heroThemeSwap = () => {
+      const hv = document.querySelector('video.ws-hero-vid');
+      if (!hv) return;
+      const want = document.documentElement.classList.contains('ws-dark') ? HERO_DARK : HERO_LIGHT;
+      if (hv.getAttribute('src') === want) return;
+      const t = hv.currentTime || 0, wasMuted = hv.muted, done = !!hv.dataset.wsEndedOnce;
+      hv.setAttribute('src', want); hv.load();
+      hv.addEventListener('loadeddata', () => {
+        if (done) { try { hv.currentTime = Math.max(0, hv.duration - 0.05); } catch (e) {} hv.pause(); return; }
+        try { hv.currentTime = t; } catch (e) {} hv.muted = wasMuted; hv.play().catch(() => {});
+      }, { once: true });
+    };
+    this._heroThemeSwap();
+    this._heroThemeObs = new MutationObserver(this._heroThemeSwap);
+    this._heroThemeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    this._vidSweep = setInterval(() => {
+      const heroes = document.querySelectorAll('video.ws-hero-vid');
+      document.querySelectorAll('video, audio').forEach(v => {
+        if (!v.isConnected || !document.body.contains(v)) { v.pause(); v.removeAttribute('src'); v.load(); return; }
+        // Only the first hero video may carry sound; everything else is hard-muted.
+        if (!(v.classList.contains('ws-hero-vid') && v === heroes[0])) { if (!v.muted) v.muted = true; v.volume = 0; if (v.classList.contains('ws-hero-vid')) { v.pause(); v.removeAttribute('src'); v.load(); } }
+      });
+      const hv = heroes[0];
+      if (hv && !hv.dataset.wsEndedOnce) {
+        if (!hv._wsEndBound) { hv._wsEndBound = true; hv.addEventListener('ended', () => { hv.dataset.wsEndedOnce = '1'; hv.pause(); }); }
+        if (hv.paused && !hv.ended && hv.readyState >= 2 && (hv.currentTime === 0 || hv.dataset.wsStarted)) {
+          hv.dataset.wsStarted = '1';
+          hv.muted = this._heroSoundOk ? !!this._userMuted : true; hv.volume = 1;
+          hv.play().catch(() => { hv.muted = true; hv.play().catch(() => {}); });
+        }
+        // Stall guard: unmuted but not advancing for two ticks → fall back to muted playback.
+        if (!hv.paused && !hv.muted) {
+          if (hv.currentTime === this._heroLastT) { this._heroStall = (this._heroStall || 0) + 1; if (this._heroStall >= 2) { this._heroSoundOk = false; hv.muted = true; hv.play().catch(() => {}); this._heroStall = 0; } }
+          else this._heroStall = 0;
+        } else this._heroStall = 0;
+        this._heroLastT = hv.currentTime;
+        if (this._heroSoundOk && hv.muted && !this._userMuted) { hv.muted = false; hv.volume = 1; }
+      }
+    }, 400);
+    // Every load / reload / bfcache restore starts the hero video from the top.
+    this._heroRestart = () => {
+      const hv = document.querySelector('video.ws-hero-vid');
+      if (!hv) return;
+      delete hv.dataset.wsEndedOnce; delete hv.dataset.wsStarted;
+      try { hv.currentTime = 0; } catch (e) {}
+      // Try with sound first; if the browser blocks or stalls it, fall back to muted so the video still plays.
+      hv.muted = !!this._userMuted; hv.volume = 1;
+      const t0 = hv.currentTime;
+      hv.play().catch(() => { hv.muted = true; hv.play().catch(() => {}); });
+      setTimeout(() => {
+        if (!hv.muted && !this._userMuted && hv.currentTime > t0 + 0.05) this._heroSoundOk = true;
+        else if (!hv.muted && !this._userMuted) { hv.muted = true; hv.play().catch(() => {}); }
+      }, 600);
+    };
+    this._onPageShow = (e) => { if (e && e.persisted) this._heroRestart(); };
+    window.addEventListener('pageshow', this._onPageShow);
+    this._heroRestart();
+    // Try sound right away (works when the browser already trusts this site); otherwise stay muted until a gesture.
+    this._heroTrySound = () => {
+      const hv = document.querySelector('video.ws-hero-vid');
+      if (!hv || this._userMuted || this._heroSoundOk || hv.dataset.wsEndedOnce) return;
+      const ua = navigator.userActivation;
+      if (!(ua && ua.hasBeenActive)) return; // no gesture yet: sound is impossible, stay muted
+      hv.muted = false; hv.volume = 1;
+      const t0 = hv.currentTime;
+      hv.play().catch(() => { hv.muted = true; hv.play().catch(() => {}); });
+      setTimeout(() => { if (!hv.muted && hv.currentTime > t0 + 0.05) this._heroSoundOk = true; else if (!hv.muted && !this._heroSoundOk) { hv.muted = true; hv.play().catch(() => {}); } }, 700);
+    };
+    setTimeout(this._heroTrySound, 300); setTimeout(this._heroTrySound, 1500);
+    // Browsers block unmuted autoplay until the user interacts; unmute on the first gesture.
+    this._heroSoundUnlock = () => {
+      const hv = document.querySelector('video.ws-hero-vid');
+      if (hv && !this._userMuted && !hv.dataset.wsEndedOnce) { this._heroSoundOk = true; hv.muted = false; hv.volume = 1; if (hv.paused && !hv.ended) hv.play().catch(() => {}); }
+      ['pointerdown', 'keydown', 'touchstart', 'wheel', 'scroll'].forEach(ev => window.removeEventListener(ev, this._heroSoundUnlock));
+    };
+    ['pointerdown', 'keydown', 'touchstart', 'wheel', 'scroll'].forEach(ev => window.addEventListener(ev, this._heroSoundUnlock, { passive: true }));
+    this._logoFill = setInterval(() => {
+      const imgs = document.querySelectorAll('img[data-logo-src]:not([src])');
+      if (!imgs.length) { clearInterval(this._logoFill); return; }
+      imgs.forEach(el => { const u = el.getAttribute('data-logo-src'); if (u && u.indexOf('{{') === -1) el.src = u; });
+    }, 200);
+    this.applyPrefs();
+    // Page-load curtain
+    const word = this.refs.curtainWordRef;
+    if (word) requestAnimationFrame(() => { word.style.opacity = '1'; });
+    setTimeout(() => {
+      const c = this.refs.curtainRef;
+      if (c) { c.style.transform = 'scaleY(0)'; setTimeout(() => { c.style.display = 'none'; }, 1200); }
+      const hv = this.refs.heroArtRef && this.refs.heroArtRef.querySelector ? this.refs.heroArtRef.querySelector('video') : document.querySelector('#top video');
+      const showHero = () => { if (!this._heroShown) { this._heroShown = true; this.setState({ heroIn: true }); } };
+      if (hv) {
+        const onTick = () => { if (hv.currentTime >= 2) { hv.removeEventListener('timeupdate', onTick); showHero(); } };
+        hv.addEventListener('timeupdate', onTick);
+        hv.addEventListener('ended', showHero);
+        setTimeout(showHero, 8000);
+      } else { showHero(); }
+      const firstMask = document.querySelector('[data-ws="mask"]');
+      if (firstMask) { firstMask.classList.add('ws-in'); if (this._revealed) this._revealed.add(firstMask); }
+    }, 900);
+
+    // Custom cursor
+    const dot = this.refs.cursorRef, ring = this.refs.cursorRingRef;
+    let rx = -100, ry = -100, tx = -100, ty = -100;
+    this._onMove = (e) => {
+      tx = e.clientX; ty = e.clientY;
+      if (dot) dot.style.transform = `translate(${tx - 5}px, ${ty - 5}px)`;
+
+      const overLink = e.target.closest && e.target.closest('a, button, image-slot');
+      if (ring) {
+        ring.style.width = overLink ? '64px' : '38px';
+        ring.style.height = overLink ? '64px' : '38px';
+        ring.style.borderColor = overLink ? 'rgba(20,20,18,.9)' : 'rgba(20,20,18,.4)';
+      }
+    };
+    window.addEventListener('mousemove', this._onMove);
+    const loop = () => {
+      rx += (tx - rx) * 0.14; ry += (ty - ry) * 0.14;
+      if (ring) ring.style.transform = `translate(${rx - parseFloat(ring.style.width || 38) / 2}px, ${ry - parseFloat(ring.style.height || 38) / 2}px)`;
+      this._raf = requestAnimationFrame(loop);
+    };
+    this._raf = requestAnimationFrame(loop);
+
+    // Scroll reveals + image masks re-render safe: track revealed nodes and re-apply after React updates
+    this._revealed = new Set();
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.classList.add('ws-in');
+          this._revealed.add(en.target);
+          this._io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0 });
+    this.syncReveals();
+    // Periodic sweep: catches late sc-for mounts and environments where IO never fires
+    this._revealTimer = setInterval(() => this.syncReveals(), 400);
+
+    // Counters
+    this._cio = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        this._cio.unobserve(en.target);
+        const target = parseInt(en.target.getAttribute('data-count'), 10);
+        const suffix = en.target.textContent.replace(/[0-9]/g, '');
+        const t0 = performance.now(), dur = 1600;
+        const step = (t) => {
+          const p = Math.min(1, (t - t0) / dur);
+          const e = 1 - Math.pow(1 - p, 4);
+          en.target.textContent = Math.round(target * e) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => this._cio.observe(el));
+
+    // Hero parallax
+    this._onScroll = () => {
+      this.syncReveals();
+
+      // Counter-moving gallery rows: scroll progress drives row 1 left, row 2 right
+      const hw = this.refs.hWrap, r1 = this.refs.rowLeftRef, r2 = this.refs.rowRightRef;
+      if (hw && r1 && r2) {
+        const r = hw.getBoundingClientRect();
+        const p = Math.max(0, Math.min(1, (window.innerHeight - r.top) / (window.innerHeight + r.height)));
+        const t1 = Math.max(0, r1.scrollWidth - window.innerWidth);
+        const t2 = Math.max(0, r2.scrollWidth - window.innerWidth);
+        r1.style.transform = `translateX(${-p * t1}px)`;
+        r2.style.transform = `translateX(${-t2 + p * t2}px)`;
+      }
+      const w = this.refs.heroImgWrap;
+      if (w) {
+        const r = w.parentElement.getBoundingClientRect();
+        const p = Math.max(-1, Math.min(1, (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight));
+        w.style.transform = `translateY(${p * -130}px) scale(1.08)`;
+      }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+
+
+
+
+    // Magnetic button disabled (kept nav button static per user request)
+    const mag = this.refs.magneticRef;
+    if (false) {
+      mag.addEventListener('mousemove', (e) => {
+        const r = mag.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        mag.style.transform = `translate(${dx * 0.25}px, ${dy * 0.35}px)`;
+      });
+      mag.addEventListener('mouseleave', () => {
+        mag.style.transition = 'transform .6s cubic-bezier(.19,1,.22,1), background .4s, color .4s';
+        mag.style.transform = 'translate(0,0)';
+        setTimeout(() => { mag.style.transition = 'background .4s, color .4s'; }, 600);
+      });
+    }
+  }
+
+  syncReveals() {
+    if (!this._revealed) return;
+    const limit = window.innerHeight * 0.95;
+    document.querySelectorAll('[data-ws]').forEach(el => {
+      if (this._revealed.has(el)) { el.classList.add('ws-in'); return; }
+      // Geometry fallback works even where IntersectionObserver is inert (hidden iframes, print)
+      const r = el.getBoundingClientRect();
+      if (r.top < limit && r.bottom > 0) {
+        el.classList.add('ws-in');
+        this._revealed.add(el);
+        if (this._io) this._io.unobserve(el);
+      } else if (this._io) {
+        this._io.observe(el);
+      }
+    });
+  }
+
+  applyPrefs() {
+    if (this.refs.marqueeRef) this.refs.marqueeRef.style.animationDuration = (this.props.marqueeSpeed ?? 22) + 's';
+  }
+
+  componentDidUpdate() {
+    this.applyPrefs();
+    this.syncReveals();
+    const ap = this.state.activeProject;
+    if (ap) {
+      if (this.refs.caseImgRef && ap.caseStudy && this.refs.caseImgRef.getAttribute('src') !== ap.caseStudy) this.refs.caseImgRef.src = ap.caseStudy;
+      if (this.refs.coverImgRef && this.refs.coverImgRef.getAttribute('src') !== ap.src) this.refs.coverImgRef.src = ap.src;
+    }
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this._vidRaf);
+    cancelAnimationFrame(this._gifRaf);
+    cancelAnimationFrame(this._tRaf);
+    clearInterval(this._vidSweep);
+    clearInterval(this._logoFill);
+    window.removeEventListener('mousemove', this._onMove);
+    window.removeEventListener('scroll', this._onScroll);
+    cancelAnimationFrame(this._raf);
+    clearInterval(this._revealTimer);
+    if (this._io) this._io.disconnect();
+    if (this._cio) this._cio.disconnect();
+  }
+
+  galW = ['40vw', '30vw', '36vw', '28vw', '44vw', '32vw'];
+
+  renderVals() {
+    if (!this.refs) this.refs = {};
+    const mkRef = (k) => (el) => { this.refs[k] = el; };
+    const q = this.quotes[this.state.quote];
+    const projMeta = [
+      { name: 'Rabia', slug: 'rabia', src: 'media/rabia-70f2ff5f.webp', desc: 'A couture identity woven from heritage embroidery and modern restraint crane motifs, gilded marks and a wordmark that moves like fabric.', location: 'Pakistan', industry: 'Fashion & Couture', services: 'Brand Identity, Visual Language' },
+      { name: 'Jigri Foods', slug: 'jigri-foods', src: '/media/asset-3664a8204da975ed2e931c49.webp', desc: 'A food brand built on warmth and nostalgia playful lettering, pattern-rich packaging and a palette borrowed from the spice rack.', location: 'Canada', industry: 'Food & Beverage', services: 'Brand Identity, Packaging' },
+      { name: 'Saha Clothing Co.', slug: 'saha', src: 'media/saha-clothing-co-a8cc6506.webp', desc: 'A clothing label with an emblem of paired horses classical, quiet and confident. Identity, monogram and art direction.', location: 'UAE', industry: 'Apparel', services: 'Brand Identity, Art Direction' },
+      { name: 'Project Em', slug: 'project-em', src: 'media/project-em-01c407d5.webp', desc: 'More than just dessert a dual-voice wordmark pairing structured serifs with a handwritten flourish for a patisserie with personality.', location: 'Pakistan', industry: 'Desserts', services: 'Brand Identity, Logo Design' },
+      { name: 'Butterhaus', slug: 'butterhaus', src: 'media/butterhaus-6b45c755.webp', desc: 'Curated baked goods, hand-drawn charm. A friendly script wordmark and illustration set on a bold, confident blue.', location: 'Germany', industry: 'Bakery', services: 'Brand Identity, Illustration' },
+      { name: 'Colour Crush', slug: 'colour-crush', src: 'media/color-crush-a72199ab.webp', desc: 'A raw, expressive identity system stamped typography, signature marks and sticker culture for a brand that refuses to sit still.', location: 'Pakistan', industry: 'Lifestyle', services: 'Brand Identity, Sticker Design' },
+    ];
+    const moreMeta = [
+      { name: 'Da Andrea', src: 'media/da-andrea-0f505ec8.webp', tag: 'Restaurant' },
+      { name: "Sarah's Pantry", src: 'media/tws-3f6a8baa.webp', tag: 'Food' },
+      { name: 'Rosa Blanca', src: 'media/rosa-blanca-5ff4be70.webp', tag: 'Restaurant' },
+    ];
+    return {
+      noop: (e) => {},
+      heroMuted: !!(this.state && this.state.heroMuted),
+      heroUnmuted: !(this.state && this.state.heroMuted),
+      heroMuteLabel: this.state && this.state.heroMuted ? 'Unmute video' : 'Mute video',
+      heroMuteToggle: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const next = !(this.state && this.state.heroMuted);
+        this._userMuted = next;
+        const hv = document.querySelector('video.ws-hero-vid');
+        if (hv) { hv.muted = next; if (!next) { hv.volume = 1; if (hv.paused && !hv.ended && !hv.dataset.wsEndedOnce) hv.play().catch(() => {}); } }
+        this.setState({ heroMuted: next });
+      },
+
+      marqueeItems: (() => {
+        const list = [
+          { name: 'MethodFive', logo: 'media/methodfive-logo-b5a597c5.webp', dark: 'media/methodfive-logo-dark-d9f94972.webp', h: 58 },
+          { name: 'Oraan', logo: 'media/oraan-logo-d811e624.webp', h: 78, pale: true },
+          { name: 'Rabia', logo: 'media/rabia-logo-a755fb56.webp', h: 81, whover: true },
+          { name: 'Goodhood', logo: 'media/fahad-asadullah-logo-fff8d22b.webp', h: 28 },
+          { name: 'Project Em', logo: 'media/project-em-logo-eda25749.webp', h: 44 },
+          { name: 'Saha Clothing Co.', logo: 'media/saha-clothing-co-logo-9c5e94ae.webp', h: 82, whover: true },
+          { name: 'Primidigital', logo: 'media/primidigital-logo-7184ef93.webp', dark: 'media/primidigital-logo-dark-bac8396c.webp', h: 54 },
+          { name: 'Bogoliv', logo: 'media/bogoliv-logo-adc91a9d.webp', h: 62 },
+          { name: 'Jigri Foods', logo: 'media/zain-ahmed-logo-576b939f.webp' },
+          { name: 'Ideas by Gul Ahmed', logo: 'media/ideas-by-gul-ahmed-logo-1bbff0d8.webp', h: 66 },
+          { name: 'Butterhaus', logo: 'media/butterhaus-logo-df187d53.webp', h: 95 },
+          { name: 'Natasha', logo: 'media/natasha-logo-27cc87e8.webp', h: 42 },
+          { name: 'Ayesha Diwan', logo: 'media/ayesha-diwan-logo-ee0f053c.webp', h: 83, whover: true },
+          { name: 'Emaan Dharani', logo: 'media/emaan-dharani-logo-2e9066ba.webp', dark: 'media/emaan-dharani-logo-dark-8f74dd53.webp', h: 118, hDark: 148 },
+        ];
+        return [...list, ...list].map(m => ({ ...m, h: m.h || 64, mx: m.mx || 56, hDark: m.hDark || m.h || 64, lightCls: (m.dark ? 'ws-swap ' : '') + (m.pale ? 'ws-mq-pale ' : '') + (m.whover ? 'ws-mq-whover ' : '') + (m.white ? 'ws-mq-white' : '') }));
+      })(),
+      marqueeItemsB: (() => {
+        const list = [
+          { name: 'Summer Digital', logo: 'media/summer-digital-logo-2ac37f1e.webp', dark: 'media/summer-digital-logo-dark-8cd88722.webp', h: 48 },
+          { name: 'The Sweetest Affair', logo: 'media/the-sweetest-affair-logo-9c593b2d.webp', h: 76, pale: true },
+          { name: 'Swad Meem', logo: 'media/swad-meem-logo-55cceed6.webp', h: 90 },
+          { name: 'Imersiverse', logo: 'media/imersiverse-logo-2d7f5a07.webp', h: 36 },
+          { name: 'Moments', logo: 'media/moments-logo-32fd1919.webp', h: 46 },
+          { name: 'A.A Joyland', logo: 'media/a-a-joyland-logo-18dc0b55.webp', h: 72 },
+          { name: 'O.Shoot', logo: 'media/o-shoot-logo-7bcdefbb.webp', dark: 'media/o-shoot-logo-dark-806b6afd.webp', h: 42 },
+          { name: 'Tinku and Co.', logo: 'media/tinku-and-co-logo-218fa49b.webp', dark: 'media/tinku-and-co-logo-dark-5184ad38.webp', h: 109, hDark: 181, mx: 20 },
+          { name: 'Joie', logo: 'media/joie-logo-ad8a18cb.webp', whover: true },
+          { name: 'Dimensions Seating', logo: 'media/dimensions-seating-logo-1d32eb4c.webp', h: 30, whover: true },
+          { name: 'FNB Guru', logo: 'media/fnb-guru-logo-43b4ae04.webp', dark: 'media/fnb-guru-logo-43b4ae04.webp', h: 88 },
+          { name: 'Chyll', logo: 'media/chyll-logo-1eb3e28f.webp', dark: 'media/arsha-and-emaan-logo-c5ecca73.webp', h: 60 },
+          { name: 'The Commons Karachi', logo: 'media/sitwat-rizvi-logo-ec55da08.webp', h: 88, white: true },
+        ];
+        return [...list, ...list].map(m => ({ ...m, h: m.h || 64, mx: m.mx || 56, hDark: m.hDark || m.h || 64, lightCls: (m.dark ? 'ws-swap ' : '') + (m.pale ? 'ws-mq-pale ' : '') + (m.whover ? 'ws-mq-whover ' : '') + (m.white ? 'ws-mq-white' : '') }));
+      })(),
+      marqueeItems2: (() => {
+        const list = [
+          { name: 'The Commons Karachi', logo: 'media/the-commons-karachi-logo-7b3d9758.webp' },
+          { name: 'Joie', logo: 'media/joie-logo-ad8a18cb.webp' },
+          { name: 'MethodFive', logo: 'media/methodfive-logo-b786aa7b.webp' },
+          { name: 'O.Shoot', logo: 'media/o-shoot-logo-f28fafa7.webp' },
+          { name: 'Moments', logo: 'media/moments-logo-58548124.webp' },
+          { name: 'Butterhaus', logo: 'media/butterhaus-logo-73df4f8e.webp' },
+          { name: 'Swad Meem', logo: 'media/swad-meem-logo-55cceed6.webp' },
+          { name: 'Ayesha Diwan', logo: 'media/ayesha-diwan-logo-ee0f053c.webp' },
+          { name: 'Faith Ovr Fear', logo: 'media/faith-ovr-fear-logo-0bf35712.webp' },
+          { name: 'Jigri Foods', logo: 'media/zain-ahmed-logo-576b939f.webp' },
+          { name: 'Project Em', logo: 'media/project-em-logo-e8aac123.webp' },
+          { name: 'Rabia', logo: 'media/rabia-logo-a755fb56.webp' },
+        ];
+        return [...list, ...list];
+      })(),
+
+      railCards: this.railCards(),
+      commonsAccordion: (() => {
+        const items = [
+          { name: 'Eid Milan 2.0', img: '/media/asset-33e20aff8d6148565c4ada06.webp', href: 'project.html?id=eid-milan-2' },
+          { name: 'Best Day Ever', img: 'media/best-day-ever-70e2d16d.webp', href: 'project.html?id=best-day-ever' },
+          { name: 'Eid Milan', img: 'media/eid-milan-726948c3.webp', href: 'project.html?id=eid-milan' },
+          { name: 'Picnic Together', img: '/media/asset-de3db4ab1ffe09e0be3dd826.webp', href: 'project.html?id=picnic' },
+          { name: 'Dil se', img: '/media/asset-80b9f5ec81bd30044c82f065.webp', href: 'project.html?id=dil-se' },
+          { name: 'Colour Crush', img: '/media/asset-2147361c6f11339413a3e905.webp', href: 'project.html?id=colour-crush' },
+          { name: 'Chaandni Raatein', img: '/media/asset-b31737de725e45f230fb9e53.webp', href: 'project.html?id=chaandni-raatein' },
+          { name: 'Jashn', img: '/media/asset-88796f8deb0ebd181e474deb.webp', href: 'project.html?id=jashn', cta: 'Sept 2026' },
+        ];
+        const active = (this.state && this.state.caActive != null) ? this.state.caActive : 0;
+        const all = (typeof window !== 'undefined' && window.WS_PROJECTS) || [];
+        return items.map((it, i) => {
+          const isActive = i === active;
+          const slug = (it.href.split('id=')[1] || '');
+          const p = all.find(x => x.slug === slug) || {};
+          return { ...it,
+            grow: isActive ? 6 : 0,
+            basis: isActive ? '400px' : '56px',
+            labelBottom: isActive ? '22px' : '90px',
+            labelTransform: isActive ? 'translateX(-50%) rotate(0deg)' : 'translateX(-50%) rotate(90deg)',
+            labelOpacity: isActive ? 0 : 1,
+            scrim: isActive ? 'linear-gradient(to top, rgba(20,20,18,.78), rgba(20,20,18,.25) 60%, rgba(20,20,18,.15))' : 'rgba(20,20,18,.32)',
+            detailOpacity: isActive ? 1 : 0,
+            detailShift: isActive ? '0px' : '14px',
+            ctaLabel: it.cta || (p.blurb === 'Coming soon.' ? 'Coming soon' : 'View project'),
+            ctaArrow: p.blurb === 'Coming soon.' ? '' : '→',
+            blurb: p.blurb && p.blurb !== 'Coming soon.' ? p.blurb : '',
+            services: p.services || 'Event Identity',
+            year: (p.year || '').replace(/^[A-Za-z]+ /, ''),
+            onHover: () => this.setState({ caActive: i }),
+          };
+        });
+      })(),
+      tArrowPrev: () => this.tScroll(-1),
+      tArrowNext: () => this.tScroll(1),
+      tlWrapRef: (el) => { this.refs.tlWrap = el; },
+      tPrev: () => this.setState(s => ({ tOff: (s.tOff || 0) - 1 })),
+      tNext: () => this.setState(s => ({ tOff: (s.tOff || 0) + 1 })),
+      cursorRef: mkRef('cursorRef'), cursorRingRef: mkRef('cursorRingRef'),
+      curtainRef: mkRef('curtainRef'), curtainWordRef: mkRef('curtainWordRef'),
+      heroOpacity: this.state.heroIn ? 1 : 0,
+      heroY: this.state.heroIn ? '0px' : '34px',
+      heroBlur: this.state.heroIn ? '0px' : '14px',
+      heroImgOpacity: this.state.heroIn ? 1 : 0,
+      heroArtRef: (el) => { this.refs.heroArtRef = el; },
+      heroTextRef: (el) => { this.refs.heroTextRef = el; },
+      heroImgWrap: mkRef('heroImgWrap'), magneticRef: mkRef('magneticRef'),
+      serviceCount: String(this.services.length).padStart(2, '0'),
+      services: this.services.map((s, i) => ({
+        ...s,
+        num: String(i + 1).padStart(2, '0'),
+        count: s.items.length,
+        toggle: () => this.setState({ open: this.state.open === i ? -1 : i }),
+        chevron: this.state.open === i ? 'rotate(45deg)' : 'rotate(0deg)',
+        maxH: this.state.open === i ? '400px' : '0px',
+        opacity: this.state.open === i ? 1 : 0,
+      })),
+      stats: [
+        { value: 12, suffix: '', label: 'Years of craft' },
+        { value: 87, suffix: '+', label: 'Projects delivered' },
+      ],
+      projects: projMeta.map((p, i) => ({
+        ...p,
+        num: String(i + 1).padStart(2, '0'),
+        slotId: 'work-' + (i + 1),
+        placeholder: 'Project image ' + p.name,
+        cols: i % 2 === 0 ? '7fr 5fr' : '5fr 7fr',
+        imgOrder: i % 2 === 0 ? 0 : 1,
+        textOrder: i % 2 === 0 ? 1 : 0,
+        open: () => { if (p.slug) { location.href = 'project.html?id=' + p.slug; } else { this.setState({ activeProject: { ...p, num: String(i + 1).padStart(2, '0') } }); } },
+      })),
+      activeProject: this.state.activeProject,
+      apHasCase: !!(this.state.activeProject && this.state.activeProject.caseStudy),
+      apNoCase: !!(this.state.activeProject && !this.state.activeProject.caseStudy),
+      closeProject: () => this.setState({ activeProject: null }),
+      caseImgRef: mkRef('caseImgRef'), coverImgRef: mkRef('coverImgRef'), navLogoRef: mkRef('navLogoRef'),
+      approachVideo2Ref: (el) => {
+        this.refs.approachVideo2Ref = el;
+        if (el) { el.loop = true; el.muted = true; el.volume = 0; const p = el.play(); if (p && p.catch) p.catch(() => {}); }
+      },
+      heroGifRef: (el) => { this.refs.heroGifRef = el; },
+      approachVideoRef: (el) => {
+        this.refs.approachVideoRef = el;
+        if (el) { el.loop = true; el.muted = true; el.volume = 0; const p = el.play(); if (p && p.catch) p.catch(() => {}); }
+      },
+      approachVideo3Ref: (el) => {
+        this.refs.approachVideo3Ref = el;
+        if (el) { el.loop = true; el.muted = true; el.volume = 0; const p = el.play(); if (p && p.catch) p.catch(() => {}); }
+      },
+      hWrap: mkRef('hWrap'), rowLeftRef: mkRef('rowLeftRef'), rowRightRef: mkRef('rowRightRef'),
+      bentoRow1: [
+        { name: 'Rabia', src: 'media/rabia-3689ca2a.webp', hoverSrc: 'media/rabia-70f2ff5f.webp', sub: 'Couture identity woven from heritage embroidery.', cls: 'ws-wide', slotId: 'bento-1', href: 'project.html?id=rabia' },
+        { name: 'Jigri Foods', src: '/media/asset-772ea1c62917f66fc68888d7.webp', hoverSrc: 'media/jigri-foods-hover-dcc5ee09.webp', sub: 'Warmth, nostalgia and a spice-rack palette.', cls: '', slotId: 'bento-2', href: 'project.html?id=jigri-foods' },
+      ],
+      bentoRow2: [
+        { name: 'Butterhaus', src: 'media/butterhaus-d0fdf5e0.webp', hoverSrc: 'media/butterhaus-6b45c755.webp', sub: 'Curated baked goods, hand-drawn charm.', cls: '', slotId: 'bento-4b', href: 'project.html?id=butterhaus' },
+        { name: 'Project Em', src: 'media/project-em-c4c30305.webp', hoverSrc: 'media/project-em-hover-639f4ffb.webp', sub: 'More than just dessert.', cls: 'ws-wide', slotId: 'bento-3-em', href: 'project.html?id=project-em' },
+      ],
+      galleryRow1: [
+        { name: 'Project Em', p: 151 }, { name: 'Alizé', p: 147 }, { name: 'Chyll Store', p: 144 },
+        { name: 'MethodFive', p: 140 }, { name: 'Colour Crush', p: 136 }, { name: 'Immersiverse', p: 132 },
+        { name: 'Oraan', p: 130 }, { name: 'Moments', p: 122 }, { name: 'Swad Meem', p: 118 },
+        { name: 'Rabia', p: 111 }, { name: 'Jigri Foods', p: 114 }, { name: 'Oshoot', p: 106 },
+        { name: 'Butterhaus', p: 102 }, { name: 'The Hudson Rose', p: 99, src: '/media/asset-c6fa8fa1dc920c57eae76cce.webp' }, { name: 'Faith Ovr Fear', p: 95, src: '/media/asset-052518aee01b47c8cd882095.webp' },
+        { name: 'Rosa Blanca', p: 91 }, { name: 'Okatshe', p: 86 }, { name: 'Gifts & Giggles', p: 84 },
+      ].map((g, i) => ({ ...g, src: g.src || ('/media/portfolio-' + g.p + '.jpg'), w: this.galW[i % this.galW.length], slotId: 'hgal-a' + (i + 1) })),
+      galleryRow2: [
+        { name: 'Taffeta', p: 83 }, { name: 'The Gift Boutique', p: 82 }, { name: 'Ink & Ivy', p: 81 },
+        { name: 'Sana Salman', p: 79 }, { name: 'Saha Clothing Co.', p: 76 }, { name: 'From Home with Love', p: 73 },
+        { name: 'Joie', p: 66 }, { name: 'Shamain', p: 61 }, { name: "Sarah's Pantry", p: 53 },
+        { name: 'SoGlo Skincare', p: 49 }, { name: 'Santa Comes to Bay Street', p: 43 }, { name: 'GAC Hospitality', p: 35 },
+        { name: 'Summer Digital', p: 32 }, { name: 'Primi Digital', p: 30 }, { name: 'Da Andrea', p: 19 },
+        { name: 'The Hudson Rose', p: 14 }, { name: "Pop's Corner", p: 8 },
+      ].map((g, i) => ({ ...g, src: '/media/portfolio-' + g.p + '.jpg', w: this.galW[(i + 3) % this.galW.length], slotId: 'hgal-b' + (i + 1) })),
+      quote: q,
+      quoteIndex: String(this.state.quote + 1).padStart(2, '0'),
+      quoteTotal: String(this.quotes.length).padStart(2, '0'),
+      prevQuote: () => this.setState({ quote: (this.state.quote + this.quotes.length - 1) % this.quotes.length }),
+      nextQuote: () => this.setState({ quote: (this.state.quote + 1) % this.quotes.length }),
+      formSent: this.state.formSent,
+      formNotSent: !this.state.formSent,
+      formError: this.state.formError,
+      fName: mkRef('fName'), fEmail: mkRef('fEmail'), fPhone: mkRef('fPhone'), fMessage: mkRef('fMessage'),
+      formServices: ['Brand Identity', 'Digital Experience', 'Visual Content', 'WordPress Development', 'AI Development', 'Hosting'].map(name => ({
+        name,
+        dot: this.state.pickedServices.includes(name) ? 'scale(1)' : 'scale(0)',
+        toggle: () => this.setState(s => ({ pickedServices: s.pickedServices.includes(name) ? s.pickedServices.filter(x => x !== name) : [...s.pickedServices, name] })),
+      })),
+      submitForm: () => {
+        const name = this.refs.fName && this.refs.fName.value.trim();
+        const email = this.refs.fEmail && this.refs.fEmail.value.trim();
+        const msg = this.refs.fMessage && this.refs.fMessage.value.trim();
+        if (!name || !email || !msg) { this.setState({ formError: 'Please fill in your name, email and project details.' }); return; }
+        this.setState({ formSent: true, formError: '' });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
