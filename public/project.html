@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project — The Wild Studio</title>
+<meta name="description" content="Case study by The Wild Studio.">
+<link rel="icon" href="favicon.png?v=2" type="image/png" sizes="180x180">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.png?v=2">
+
+<script src="./support.js?v=2"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script src="./theme.js"></script>
+  <link rel="stylesheet" href="./responsive.css">
+  <script src="./mobile-nav.js"></script>
+  <script src="./footer-reveal.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Questrial&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <script src="./projects-data.js?v=45"></script>
+  <style>
+    @font-face { font-family: 'Century Gothic'; src: url('uploads/century-gothic/centurygothic.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Century Gothic'; src: url('uploads/century-gothic/centurygothic-bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+    .ws-poster-l, .ws-poster-r { will-change: transform, opacity; }
+    @keyframes ws-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    html { scroll-behavior: smooth; }
+    .ws-also-card:hover img { transform: scale(1.045); }
+    .ws-also-card:hover .ws-also-info { opacity: 1; transform: translateY(0); }
+    .ws-dd { position: relative; }
+    .ws-dd-menu { position: absolute; top: 100%; left: 50%; transform: translate(-50%, 6px); background: #FFFFFF; box-shadow: 0 14px 34px rgba(20,20,18,.14); padding: 8px 0; min-width: 190px; border-radius: 14px; overflow: hidden; opacity: 0; visibility: hidden; transition: opacity .25s ease, transform .25s ease; }
+    .ws-dd:hover .ws-dd-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+    .ws-dd-menu a { display: block; padding: 10px 20px; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412; transition: background .25s; }
+    .ws-dd-menu a:hover { background: #FFC72C; color: #141412; }
+    .ws-dd-menu a:active { background: #E6AC00; color: #141412; }
+    .ws-dd-menu a + a { border-top: 1px solid rgba(20,20,18,.1); }
+    html.ws-dark .ws-dd-menu a + a { border-top-color: rgba(236,234,227,.12); }
+    html.ws-dark .ws-dd-menu { background: rgba(30,30,27,.85); box-shadow: 0 14px 34px rgba(0,0,0,.5); }
+    html.ws-dark .ws-dd-menu a { color: #ECEAE3; }
+    .ws-btn { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; white-space: nowrap; width: 156px; height: 54px; box-sizing: border-box; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: .01em; border: 1.5px solid #141412; border-radius: 999px; padding: 0; background: transparent; color: #141412; cursor: pointer; transition: color .45s cubic-bezier(.65,0,.35,1); }
+    .ws-btn::before { content: ''; position: absolute; z-index: -1; left: -25%; right: -25%; bottom: -2px; height: 160%; background: #FFC72C; border-radius: 50% 50% 0 0; transform: translateY(101%); transition: transform .55s cubic-bezier(.65,0,.35,1), border-radius .55s cubic-bezier(.65,0,.35,1); }
+    .ws-btn:hover { color: #141412; }
+    .ws-btn:hover::before { transform: translateY(0); border-radius: 0; }
+    .ws-btn:active { color: #141412; }
+    .ws-btn:active::before { background: #FFC72C; transition: none; }
+    html.ws-dark .ws-btn:active { color: #141412; }
+    html.ws-dark .ws-btn:active::before { background: #FFC72C; }
+    html.ws-dark .ws-btn { border-color: #ECEAE3; color: #ECEAE3; }
+    html.ws-dark .ws-btn::before { background: #FFC72C; }
+    html.ws-dark .ws-btn:hover { color: #141412; }
+    body { margin: 0; background: #FFFFFF; color: #141412; font-family: 'Century Gothic', 'CenturyGothic', 'Questrial', 'Helvetica Neue', sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: 'Archivo', 'Helvetica Neue', sans-serif; }
+    * { box-sizing: border-box; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: inherit; }
+    button { cursor: pointer; }
+    ::selection { background: #141412; color: #FFFFFF; }
+    html.ws-dark .ws-lamp-light { display: none !important; }
+    html.ws-dark .ws-lamp-dark { display: block !important; }
+    .ws-reveal { opacity: 0; transform: translateY(36px); transition: opacity 1s cubic-bezier(.19,1,.22,1), transform 1s cubic-bezier(.19,1,.22,1); }
+    .ws-reveal.ws-in { opacity: 1; transform: translateY(0); }
+    .ws-mask { clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(.77,0,.18,1); }
+    .ws-mask.ws-in { clip-path: inset(0 0 0% 0); }
+    .ws-poster-l, .ws-poster-r { opacity: 0; transition: opacity 1s cubic-bezier(.19,1,.22,1), transform 1s cubic-bezier(.19,1,.22,1); }
+    .ws-poster-l { transform: translateX(-120px); }
+    .ws-poster-r { transform: translateX(120px); }
+    .ws-poster-l.ws-in, .ws-poster-r.ws-in { opacity: 1; transform: translateX(0); }
+    .ws-primi-logo { transition: transform .4s cubic-bezier(.19,1,.22,1); }
+    .ws-primi-logo:hover { transform: scale(1.05); }
+    html.ws-dark .ws-primi-logo { filter: brightness(0) invert(1); }
+    html.ws-dark .ws-primi-logo:hover { filter: none; }
+    .ws-link { position: relative; }
+    .ws-link::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .5s cubic-bezier(.77,0,.18,1); }
+    .ws-link:hover::after { transform: scaleX(1); transform-origin: left; }
+    @media (max-width: 900px) {
+      .ws-meta { grid-template-columns: 1fr !important; gap: 28px !important; }
+      .ws-hide-sm { display: none !important; }
+    }
+
+    .ws-theme-btn { transition: background .35s, color .35s, border-color .35s; }
+    .ws-theme-btn:hover { background: #141412 !important; color: #FFFFFF !important; border-color: #141412 !important; }
+    html.ws-dark .ws-theme-btn:hover { background: #ECEAE3 !important; color: #141412 !important; border-color: #ECEAE3 !important; }
+    /* Dark mode */
+    .ws-ico-sun { display: none; }
+    html.ws-dark .ws-ico-sun { display: block; }
+    html.ws-dark .ws-ico-moon { display: none; }
+    html.ws-dark body { background: #141412; color: #ECEAE3; }
+    html.ws-dark [style*="background: rgb(255, 255, 255)"] { background: #141412 !important; }
+    html.ws-dark [style*="background: rgb(245, 243, 238)"] { background: #1C1C1A !important; }
+    html.ws-dark [style*="color: rgb(20, 20, 18)"] { color: #ECEAE3 !important; }
+    html.ws-dark [style*="color: rgba(20, 20, 18"] { color: rgba(236,234,227,.62) !important; }
+    html.ws-dark [style*="border: 1px solid rgba(20, 20, 18"] { border-color: rgba(255,255,255,.3) !important; }
+    html.ws-dark [style*="border-top: 1px solid rgba(20, 20, 18"] { border-top-color: rgba(255,255,255,.16) !important; }
+    html.ws-dark [style*="border-bottom: 1px solid rgba(20, 20, 18"] { border-bottom-color: rgba(255,255,255,.16) !important; }
+    html.ws-dark [style*="background: rgba(20, 20, 18, 0.05)"] { background: rgba(255,255,255,.06) !important; }
+    html.ws-dark header[style*="background: rgba(255, 255, 255"] { background: rgba(20,20,18,.8) !important; border-bottom-color: rgba(255,255,255,.1) !important; }
+    html.ws-dark header img[alt^="The Wild Studio"] { filter: invert(1); }
+    html.ws-dark .ws-tl-ink { background: #ECEAE3 !important; }
+    .ws-pill { border: 1px solid rgba(20,20,18,.32); color: #141412; background: transparent; transition: transform .45s cubic-bezier(.19,1,.22,1), background .25s, color .25s, border-color .25s; cursor: default; position: relative; }
+    .ws-pill:hover { transform: translateY(-4px) rotate(-1.5deg); background: #FFC72C; border-color: #FFC72C; color: #141412; }
+    html.ws-dark .ws-pill { border-color: rgba(236,234,227,.38); color: #ECEAE3; }
+    html.ws-dark .ws-pill:hover { background: #FFC72C; border-color: #FFC72C; color: #141412; }
+    .ws-card img { transition: transform 1.2s cubic-bezier(.19,1,.22,1), filter 1s ease; }
+    .ws-card:hover img { transform: scale(1.05); }
+    .ws-card-info { opacity: 0; transition: opacity .55s cubic-bezier(.19,1,.22,1); }
+    .ws-card-info > * { transform: translateY(14px); transition: transform .65s cubic-bezier(.19,1,.22,1); }
+    .ws-card:hover .ws-card-info { opacity: 1; }
+    .ws-card:hover .ws-card-info > * { transform: translateY(0); }
+    html.ws-dark .ws-sub-name { color: #ECEAE3 !important; }
+    html.ws-dark .ws-sub-meta { color: rgba(236,234,227,.5) !important; }
+    @media (max-width: 1200px) {
+      .ws-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; }
+    }
+    @media (max-width: 900px) {
+      .ws-grid { grid-template-columns: 1fr !important; gap: 56px !important; }
+    }
+    html.ws-dark ::selection { background: #ECEAE3; color: #141412; }
+  </style>
+</helmet>
+
+<div style="min-height: 100vh; background: #FFFFFF;">
+
+
+  <div ref="{{ curtainRef }}" style="position: fixed; inset: 0; background: #141412; z-index: 9000; transform-origin: top; transition: transform 1.1s cubic-bezier(.77,0,.18,1); display: flex; align-items: center; justify-content: center;">
+    <div ref="{{ curtainWordRef }}" style="color: #FFFFFF; font-size: 15px; letter-spacing: .35em; text-transform: uppercase; opacity: 0; transition: opacity .6s;">{{ name }}</div>
+  </div>
+
+  <header data-screen-label="Header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 800; display: flex; align-items: center; justify-content: space-between; padding: 6px 40px; background: rgba(255,255,255,.8); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(20,20,18,.08); color: #141412;">
+    <a href="index.html" style="display: flex; align-items: center;"><img src="/media/branding-6b9a3146.webp" alt="The Wild Studio Creative Co." style="height: 179px; width: auto; display: block; margin: -53px 0;"></a>
+    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 36px;">
+      <a href="work.html" class="ws-link" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412;">Work</a>
+      <div class="ws-dd" style="display: flex; align-items: center;">
+        <a href="services.html" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412; display: inline-flex; align-items: center; gap: 6px;">Services <span aria-hidden="true" style="font-size: 10px;">▾</span></a>
+        <div class="ws-dd-menu">
+          <a href="services.html#branding">Branding</a>
+          <a href="services.html#uiux">UI/UX</a>
+          <a href="services.html#social-media">Social Media</a>
+          <a href="services.html#development">Development</a>
+        </div>
+      </div>
+      <a href="about.html" class="ws-link" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412;">About us</a>
+      <a class="ws-btn" href="contact.html" style="width: auto; height: 49px; padding: 0 28px; font-size: 14px;">Get in touch</a>
+      <button class="ws-theme-btn" aria-label="Toggle light and dark mode" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(20,20,18,.35); background: transparent; color: inherit; display: flex; align-items: center; justify-content: center; padding: 0;">
+        <svg class="ws-ico-moon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg>
+        <svg class="ws-ico-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <section data-screen-label="Project intro" style="padding: 190px 40px 0;">
+    <a href="work.html" class="ws-link" style="display: inline-block; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 36px;">← All work</a>
+    <h1 style="margin: 0; font-weight: 400; font-size: clamp(44px, 7vw, 118px); line-height: 1.02; letter-spacing: -0.024em; max-width: 1400px; overflow: hidden;">
+      <span ref="{{ titleRef }}" style="display: block; transform: translateY(110%); transition: transform 1.2s cubic-bezier(.19,1,.22,1) .2s;">{{ name }}</span>
+    </h1>
+    <div class="ws-meta ws-reveal" data-ws="reveal" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 56px; margin-top: 72px; padding-top: 34px; border-top: 1px solid rgba(20,20,18,.14);">
+      <div>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 12px;">Services</div>
+        <div style="font-size: 16px; line-height: 1.6;">{{ services }}</div>
+      </div>
+      <div>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 12px;">Year</div>
+        <div style="font-size: 16px; line-height: 1.6;">{{ year }}</div>
+      </div>
+      <div>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 12px;">Overview</div>
+        <sc-for list="{{ ovParas }}" as="para" hint-placeholder-count="1">
+          <p style="margin: 0 0 14px; font-size: 16px; line-height: 1.7; color: rgba(20,20,18,.66);">{{ para }}</p>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ isLogoRow }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Client logos" style="padding: 72px 40px 0;">
+      <div style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" style="width: 0; height: 0;" hint-size="0,0"></x-import>
+      </div>
+      <div class="ws-reveal" data-ws="reveal" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 40px;">Projects</div>
+      <div class="ws-reveal" data-ws="reveal" style="display: flex; align-items: center; justify-content: flex-start; gap: 32px 20px; flex-wrap: wrap; width: 100%;">
+        <sc-for list="{{ primiLogos }}" as="pl" hint-placeholder-count="11">
+          <div style="display: flex; align-items: center; justify-content: center; height: 124px; flex: 0 1 calc(16.666% - 20px); min-width: 0; padding: 8px 0;">
+            <sc-if value="{{ pl.hasLogo }}" hint-placeholder-val="{{ true }}">
+              <sc-if value="{{ pl.linked }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ pl.href }}" title="{{ pl.name }}" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; cursor: pointer;">
+                  <img class="ws-primi-logo" src="{{ pl.src }}" alt="{{ pl.name }}" loading="lazy" style="max-height: {{ pl.h }}px; max-width: 100%; width: auto; height: auto; object-fit: contain; display: block;">
+                </a>
+              </sc-if>
+              <sc-if value="{{ pl.unlinked }}" hint-placeholder-val="{{ false }}">
+                <img class="ws-primi-logo" src="{{ pl.src }}" alt="{{ pl.name }}" title="{{ pl.name }}" loading="lazy" style="max-height: {{ pl.h }}px; max-width: 100%; width: auto; height: auto; object-fit: contain; display: block;">
+              </sc-if>
+            </sc-if>
+            <sc-if value="{{ pl.noLogo }}" hint-placeholder-val="{{ false }}">
+              <image-slot id="{{ pl.slotId }}" shape="rect" placeholder="{{ pl.name }} logo" style="width: 100%; max-width: 110px; height: 64px;"></image-slot>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ hasStory }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Events timeline" style="padding: 120px 40px 0; overflow-x: auto;">
+      <div class="ws-reveal" data-ws="reveal" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 20px;">The events so far</div>
+      <div class="ws-reveal" data-ws="reveal" style="position: relative; height: 340px; min-width: 860px;">
+        <div class="ws-tl-ink" style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(20,20,18,.7);"></div>
+        <div class="ws-tl-ink" style="position: absolute; left: 0; top: 50%; width: 5px; height: 5px; border-radius: 50%; background: #141412; transform: translate(0, -50%);"></div>
+        <div class="ws-tl-ink" style="position: absolute; right: 0; top: 50%; width: 5px; height: 5px; border-radius: 50%; background: #141412; transform: translate(0, -50%);"></div>
+        <sc-for list="{{ timeline }}" as="ev" hint-placeholder-count="7">
+          <div style="position: absolute; top: 0; bottom: 0; left: {{ ev.left }}%;">
+            <div class="ws-tl-ink" style="position: absolute; top: 50%; left: 0; width: {{ ev.dot }}px; height: {{ ev.dot }}px; border-radius: 50%; background: #141412; transform: translate(-50%, -50%);"></div>
+            <sc-if value="{{ ev.above }}" hint-placeholder-val="{{ false }}">
+              <div class="ws-tl-ink" style="position: absolute; left: 0; bottom: 50%; width: 1px; height: 44px; background: rgba(20,20,18,.7); margin-bottom: {{ ev.dotHalf }}px;"></div>
+              <div style="position: absolute; left: {{ ev.lblLeft }}; right: {{ ev.lblRight }}; text-align: {{ ev.lblAlign }}; bottom: 50%; margin-bottom: 58px; width: 150px;">
+                <div style="font-size: 15px; line-height: 1.4;">{{ ev.num }}. {{ ev.name }}</div>
+                <div style="font-size: 13.5px; color: rgba(20,20,18,.45); margin-top: 3px;">{{ ev.year }}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ ev.below }}" hint-placeholder-val="{{ false }}">
+              <div class="ws-tl-ink" style="position: absolute; left: 0; top: 50%; width: 1px; height: 44px; background: rgba(20,20,18,.7); margin-top: {{ ev.dotHalf }}px;"></div>
+              <div style="position: absolute; left: {{ ev.lblLeft }}; right: {{ ev.lblRight }}; text-align: {{ ev.lblAlign }}; top: 50%; margin-top: 58px; width: 150px;">
+                <div style="font-size: 15px; line-height: 1.4;">{{ ev.num }}. {{ ev.name }}</div>
+                <div style="font-size: 13.5px; color: rgba(20,20,18,.45); margin-top: 3px;">{{ ev.year }}</div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <section data-screen-label="Project gallery" style="padding: 120px 40px 0; display: flex; flex-direction: column; gap: 28px;">
+    <sc-if value="{{ isRabia }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Rabia" from="/fig-rabia/components.bundle.js" hint-size="1440px,10557px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isJigri }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Jigri" from="/fig-jigri/components.bundle.js" hint-size="1440px,12820px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isOkatshe }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="OKATSHE" from="/fig-okatshe/components.bundle.js" hint-size="1440px,15390px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isSwad }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="SuadMeem" from="/fig-swad/components.bundle.js" hint-size="1440px,9012px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isEmaan }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="EmanDharani" from="/fig-emaan/components.bundle.js" hint-size="1440px,9484px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isAisha }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="AishaDiwan" from="/fig-aisha/components.bundle.js" hint-size="1440px,8572px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isCommons }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px; position: relative;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px; position: relative;">
+          <x-import component-from-global-scope="COMMONSMainPage" from="/fig-commons/components.bundle.js" hint-size="1440px,6116px"></x-import>
+          <sc-for list="{{ commonsBtns }}" as="cb" hint-placeholder-count="6">
+            <a href="{{ cb.href }}" class="ws-btn" style="position: absolute; left: {{ cb.left }}px; top: {{ cb.top }}px; width: {{ cb.w }}px; height: {{ cb.h }}px; font-size: 18px; font-family: 'Century Gothic', 'Questrial', sans-serif; font-weight: 400; text-transform: none; letter-spacing: 0; background: #FFFFFF; z-index: 10;">{{ cb.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isRosa }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="RosaBlanca" from="/fig-rosa/components.bundle.js" hint-size="1440px,9934px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isColourCrush }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="COLORCRUSH" from="/fig-colourcrush/components.bundle.js" hint-size="1440px,7820px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isChaandni }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px; position: relative;">
+          <div class="ws-chaandni-seal" style="position: absolute; left: 590px; top: 1830px; width: 260px; height: 253px; z-index: 3;"></div>
+          <x-import component-from-global-scope="ChaandniRaatein" from="/fig-chaandni/components.bundle.js" hint-size="1440px,10028px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isOshootFig }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="OSHOOT" from="/fig-oshoot/components.bundle.js" hint-size="1440px,8733px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isGoodhood }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Goodhood" from="/fig-goodhood/components.bundle.js" hint-size="1440px,7283px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isAlaye }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Alaye" from="/fig-alaye/components.bundle.js" hint-size="1440px,7702px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isAlize }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Alize" from="/fig-alize/components.bundle.js" hint-size="1440px,6082px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isFnb }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="FNBGuru" from="/fig-fnb/components.bundle.js" hint-size="1440px,5802px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isJoie }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Joie" from="/fig-joie/components.bundle.js" hint-size="1440px,6157px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isMethod5 }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Method5Updated" from="/fig-method5/components.bundle.js" hint-size="1440px,7508px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isEidMilan }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="EidMilan" from="/fig-eidmilan/components.bundle.js" hint-size="1440px,6265px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isEidMilan2 }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="EidMilan20" from="/fig-eidmilan2/components.bundle.js" hint-size="1440px,4043px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isDilSe }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="DilSe" from="/fig-dilse/components.bundle.js" hint-size="1440px,7502px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isPicnic }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Picnic" from="/fig-picnic/components.bundle.js" hint-size="1440px,8878px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isSoglo }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Soglo" from="/fig-soglo/components.bundle.js" hint-size="1440px,7998px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isButterhaus }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Butterhaus" from="/fig-butterhaus/components.bundle.js" hint-size="1440px,7013px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isEm }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="ProjectEm" from="/fig-em/components.bundle.js" hint-size="1440px,7528px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isShamain }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="Shamain" from="/fig-shamain/components.bundle.js" hint-size="1440px,5507px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isSarahs }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="SarahSPantry" from="/fig-sarahs/components.bundle.js" hint-size="1440px,6912px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isSwaleha }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="SwalehaHassamParacha" from="/fig-swaleha/components.bundle.js" hint-size="1440px,3655px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isFhwl }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="FromHomeWithLove" from="/fig-fhwl/components.bundle.js" hint-size="1440px,3131px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isSanta }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="SantaComesToBayStreet" from="/fig-santa/components.bundle.js" hint-size="1440px,8399px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isInkIvy }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="InkIvy" from="/fig-inkivy/components.bundle.js" hint-size="1440px,4118px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isGiftBoutique }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="TheGiftBoutique" from="/fig-giftboutique/components.bundle.js" hint-size="1440px,3871px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isGac }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="GACHospitality" from="/fig-gac/components.bundle.js" hint-size="1440px,6395px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isHudson }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="TheHudsonRose" from="/fig-hudsonrose/components.bundle.js" hint-size="1440px,7977px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isPops }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="PopSCorner" from="/fig-popscorner/components.bundle.js" hint-size="1440px,7538px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isBestDay }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="BestDayEver" from="/fig-bestday/components.bundle.js" hint-size="1440px,9008px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isPrimi }}" hint-placeholder-val="{{ false }}">
+      <div ref="{{ figWrapRef }}" style="overflow: hidden; margin: 0 -40px;">
+        <div ref="{{ figScaleRef }}" style="width: 1440px;">
+          <x-import component-from-global-scope="PrimiDigital" from="/fig-primi/components.bundle.js" hint-size="1440px,5090px"></x-import>
+        </div>
+      </div>
+    </sc-if>
+    <sc-for list="{{ shots }}" as="s" hint-placeholder-count="4">
+      <div class="ws-mask" data-ws="mask" style="overflow: hidden; background: rgba(20,20,18,.04); display: flex; justify-content: center;">
+        <img src="{{ s.src }}" alt="{{ s.alt }}" loading="lazy" data-zoom="{{ s.zoom }}" style="width: {{ s.w }}; height: auto; display: block;">
+      </div>
+    </sc-for>
+  </section>
+
+  <section data-screen-label="You might also like" style="padding: 120px 40px 0;">
+    <h2 class="ws-reveal" data-ws="reveal" style="margin: 0 0 40px; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; font-weight: 400; letter-spacing: 0; text-transform: uppercase;">You might also like</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <sc-for list="{{ alsoLike }}" as="al" hint-placeholder-count="2">
+        <a href="{{ al.href }}" class="ws-reveal ws-also-card" data-ws="reveal" style="display: block; position: relative; overflow: hidden; border-radius: 14px; background: rgba(20,20,18,.04); aspect-ratio: 16 / 11;">
+          <img src="{{ al.src }}" alt="{{ al.name }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.1s cubic-bezier(.19,1,.22,1);">
+          <div class="ws-also-info" style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 28px; background: linear-gradient(to top, rgba(20,20,18,.72), rgba(20,20,18,0)); color: #FFFFFF; opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s cubic-bezier(.19,1,.22,1);">
+            <div style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 22px; font-weight: 400;">{{ al.name }}</div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 6px;">
+              <span style="font-size: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .75;">{{ al.services }}</span>
+              <span style="font-size: 12px; opacity: .6;">{{ al.year }}</span>
+            </div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+</div>
+
+
+  <div class="ws-lamp-strip" style="position: relative; z-index: 10; height: 170px; pointer-events: none">
+    <img class="ws-lamp-light" src="/media/branding-c9697b32.webp" alt="" style="position: absolute; right: 4vw; bottom: calc(0px - min(100vh, 800px)); height: min(116.6vh, 933px); width: auto; display: block;">
+    <img class="ws-lamp-dark" src="/media/branding-f4ee4a86.webp" alt="" style="position: absolute; right: 4vw; bottom: calc(0px - min(100vh, 800px)); height: min(116.6vh, 933px); width: auto; display: none;">
+  </div>
+  <div class="ws-footer-curtain" style="position: relative; height: min(100vh, 800px); clip-path: inset(0 0 0 0); margin-top: 0;">
+  <footer id="contact" data-screen-label="Footer" style="position: fixed; bottom: 0; left: 0; right: 0; height: min(100vh, 800px); box-sizing: border-box; background: #141412; color: #FFFFFF; padding: 70px 0 36px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; z-index: 0;">
+    <a href="contact.html" style="display: block; white-space: nowrap; overflow: hidden;">
+      <div style="display: inline-flex; animation: ws-marquee 22s linear infinite; will-change: transform;">
+        <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(64px, 9vw, 160px); font-weight: 400; letter-spacing: -0.02em; padding-right: 80px;">Let’s work together <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">design@thewildstudio.co</em> </span>
+        <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(64px, 9vw, 160px); font-weight: 400; letter-spacing: -0.02em; padding-right: 80px;">Let’s work together <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">design@thewildstudio.co</em> </span>
+      </div>
+    </a>
+    <div style="display: flex; justify-content: center; padding: 41px 40px 0;">
+      <a href="contact.html" class="ws-btn" style="border-color: #FFFFFF; color: #FFFFFF; width: auto; padding: 0 36px;" style-hover="color: #141412;">Let’s connect</a>
+    </div>
+    <div style="display: grid; grid-template-columns: minmax(320px, 1.1fr) 160px 160px 1fr; gap: 48px; padding: 40px 40px 0;">
+      <div>
+        <img src="/media/branding-6b9a3146.webp" alt="The Wild Studio Creative Co." style="height: 187px; width: auto; filter: invert(1); display: block; margin: -44px 0 0 -18px; transition: transform .45s cubic-bezier(.19,1,.22,1); transform-origin: center;" style-hover="transform: scale(1.12);">
+        <p style="margin: 16px 0 0; font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.55); max-width: 320px;">A collaborative studio of problem solvers, visionaries and storytellers.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 6px;">Sitemap</div>
+        <a href="work.html" class="ws-link" style="font-size: 14px; width: fit-content;">Work</a>
+        <a href="services.html" class="ws-link" style="font-size: 14px; width: fit-content;">Services</a>
+        <a href="about.html" class="ws-link" style="font-size: 14px; width: fit-content;">About us</a>
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin: 26px 0 6px;">Contact</div>
+        <a href="mailto:design@thewildstudio.co" class="ws-link" style="font-size: 14px; width: fit-content;">design@thewildstudio.co</a>
+        <a href="tel:+923091119453" class="ws-link" style="font-size: 14px; width: fit-content;">+92 309 111 9453</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 6px;">Social</div>
+        <a href="https://www.instagram.com/_thewildstudio?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==&amp;igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="ws-link" style="font-size: 14px; width: fit-content;">Instagram</a>
+        <a href="https://www.linkedin.com/company/the-wildstudio/posts/?feedView=all" target="_blank" rel="noopener" class="ws-link" style="font-size: 14px; width: fit-content;">LinkedIn</a>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding: 30px 40px 0; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35);">
+      <span>© 2026 The Wildstudio</span>
+      <span>All rights reserved</span>
+    </div>
+  </footer>
+  </div>
+
+</x-dc>
+<script>(function(){try{var id=new URLSearchParams(location.search).get('id');var p=(window.WS_PROJECTS||[]).filter(function(x){return x.slug===id;})[0];var comp=(p&&p.fig&&p.fig.comp)||'';var keep='component-from-global-scope="'+comp+'"';var els=document.querySelectorAll('x-import[component-from-global-scope]');for(var i=0;i<els.length;i++){var el=els[i];var frm=el.getAttribute('from')||'';if(frm.indexOf('components.bundle.js')!==-1&&el.getAttribute('component-from-global-scope')!==comp){el.parentNode.removeChild(el);}}var of=window.fetch;window.fetch=function(u,o){var s=(typeof u==='string')?u:(u&&u.url)||'';if(s!==location.href){return of.apply(window,arguments);}return of.apply(window,arguments).then(function(res){return res.text().then(function(t){var pruned=t.replace(/<x-import[^>]*><\/x-import>/g,function(m){if(m.indexOf('components.bundle.js')===-1)return m;return m.indexOf(keep)!==-1?m:'';});return new Response(pruned,{status:res.status,statusText:res.statusText,headers:{'content-type':'text/html'}});});});};}catch(e){}})();</script>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    requestAnimationFrame(() => {
+      const w = this.refs.curtainWordRef; if (w) w.style.opacity = '1';
+      setTimeout(() => {
+        const c = this.refs.curtainRef;
+        if (w) w.style.opacity = '0';
+        if (c) { c.style.transform = 'scaleY(0)'; setTimeout(() => { if (c) c.style.display = 'none'; }, 1200); }
+        const t = this.refs.titleRef; if (t) t.style.transform = 'translateY(0)';
+      }, 650);
+    });
+
+    this._mouse = { x: -100, y: -100 };
+    this._ring = { x: -100, y: -100 };
+    this._onMove = (e) => {
+      this._mouse = { x: e.clientX, y: e.clientY };
+      const d = this.refs.cursorRef;
+      if (d) d.style.transform = `translate(${e.clientX - 5}px, ${e.clientY - 5}px)`;
+    };
+    window.addEventListener('mousemove', this._onMove, { passive: true });
+    const tick = () => {
+      this._ring.x += (this._mouse.x - this._ring.x) * 0.14;
+      this._ring.y += (this._mouse.y - this._ring.y) * 0.14;
+      const r = this.refs.cursorRingRef;
+      if (r) r.style.transform = `translate(${this._ring.x - 19}px, ${this._ring.y - 19}px)`;
+      this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+
+    const scrubPosters = () => {
+      this._posterRaf = requestAnimationFrame(scrubPosters);
+      document.querySelectorAll('img[data-zoom="1"]').forEach(img => {
+        const wrap = img.parentElement, r = wrap.getBoundingClientRect();
+        if (r.width === 0) return;
+        const p = Math.min(1, Math.max(0, (window.innerHeight - r.top) / (window.innerHeight * 0.9)));
+        img.style.width = (60 + 40 * p) + '%';
+      });
+      document.querySelectorAll('.ws-poster-l, .ws-poster-r').forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.width === 0) return;
+        const vh = window.innerHeight;
+        // 0 when card top enters viewport bottom → 1 when it reaches 75% up, so they're fully joined while the section is on screen
+        let t = (vh - r.top) / (vh * 0.55);
+        t = Math.max(0, Math.min(1, t));
+        const e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; // ease-in-out cubic
+        const dir = el.classList.contains('ws-poster-l') ? -1 : 1;
+        const target = dir * (1 - e) * 45; // percent
+        // lerp toward target for extra smoothness
+        const cur = el._wsX === undefined ? target : el._wsX;
+        const x = cur + (target - cur) * 0.18;
+        el._wsX = x;
+        el.style.transform = `translateX(${x}%)`;
+        el.style.opacity = String(0.55 + e * 0.45);
+      });
+    };
+    this._posterRaf = requestAnimationFrame(scrubPosters);
+    this._figSync = setInterval(() => {
+      document.querySelectorAll('video').forEach(v => {
+        v.muted = true; v.volume = 0;
+        if (v.paused) { v.play().catch(() => {}); }
+      });
+      const wrap = this.refs.figWrapRef, sc = this.refs.figScaleRef;
+      if (!wrap || !sc || !this._figH) return;
+      const s = wrap.clientWidth / 1440;
+      if (this._figS !== s) { this._figS = s; sc.style.zoom = s; }
+    }, 400);
+
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('ws-in'); this._io.unobserve(en.target); } });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    this._sweep = setInterval(() => {
+      const h = window.innerHeight;
+      document.querySelectorAll('[data-ws]:not(.ws-in), .ws-poster-l:not(.ws-in), .ws-poster-r:not(.ws-in)').forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < h * 0.92) el.classList.add('ws-in');
+        else this._io.observe(el);
+      });
+    }, 400);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this._onMove);
+    cancelAnimationFrame(this._raf);
+    clearInterval(this._sweep);
+    clearInterval(this._figSync);
+    cancelAnimationFrame(this._posterRaf);
+    if (this._io) this._io.disconnect();
+  }
+
+  renderVals() {
+    if (!this.refs) this.refs = {};
+    const mkRef = (k) => (el) => { this.refs[k] = el; };
+    const all = (typeof window !== 'undefined' && window.WS_PROJECTS) || [];
+    const id = new URLSearchParams(location.search).get('id');
+    const i = Math.max(0, all.findIndex(p => p.slug === id));
+    const p = all[i] || { name: 'Selected Work', services: '', year: '', blurb: '', pages: [] };
+    const next = all[(i + 1) % (all.length || 1)] || p;
+    this._figH = p.fig ? p.fig.height : 0;
+    return {
+      cursorRef: mkRef('cursorRef'), cursorRingRef: mkRef('cursorRingRef'),
+      curtainRef: mkRef('curtainRef'), curtainWordRef: mkRef('curtainWordRef'),
+      titleRef: mkRef('titleRef'),
+      figWrapRef: mkRef('figWrapRef'), figScaleRef: mkRef('figScaleRef'),
+      isRabia: !!(p.fig && p.fig.comp === 'Rabia'),
+      isJigri: !!(p.fig && p.fig.comp === 'Jigri'),
+      isOkatshe: !!(p.fig && p.fig.comp === 'OKATSHE'),
+      isSwad: !!(p.fig && p.fig.comp === 'SuadMeem'),
+      isEm: !!(p.fig && p.fig.comp === 'ProjectEm'),
+      isAisha: !!(p.fig && p.fig.comp === 'AishaDiwan'),
+      isEmaan: !!(p.fig && p.fig.comp === 'EmanDharani'),
+      isCommons: !!(p.fig && p.fig.comp === 'COMMONSMainPage'),
+      isSummerDigital: false,
+      isLogoRow: p.slug === 'primi-digital' || p.slug === 'summer-digital',
+      primiLogos: (p.slug === 'summer-digital' ? [
+        { name: 'Vista Taxes', slotId: 'summer-logo-vista', href: '', src: '/media/asset-046ea8fe379a248d96a3283a.webp', h: 64 },
+        { name: 'Focus Lifestyle', slotId: 'summer-logo-focus', href: '', src: '/media/asset-77039e560148069e23aff2d4.webp', h: 60 },
+        { name: 'Santa Comes to Bay Street', slotId: 'summer-logo-sctbs', href: 'project.html?id=santa-bay-street', src: '/media/asset-565db735a0fd22c576c99747.webp', h: 92 },
+        { name: 'YYZ LAW', slotId: 'summer-logo-yyzlaw', href: '', src: '/media/asset-558ad917dc4e389ab06b6f68.webp', h: 66 },
+        { name: 'Escro Air', slotId: 'summer-logo-escro', href: '', src: '/media/asset-83e181d2c2dcb0b7341f0830.webp', h: 60 },
+      ] : [
+        { name: 'Feenix', slotId: 'primi-logo-feenix', href: '', src: '/media/asset-9644e51b9c6183c39ac4838f.webp', h: 55 },
+        { name: 'Buena Onda', slotId: 'primi-logo-buenaonda', href: '', src: '/media/asset-9664e10152866095d5423862.webp', h: 74 },
+        { name: 'Okatshe', slotId: 'primi-logo-okatshe', href: 'project.html?id=okatshe', src: '/media/asset-9b3da46d830fc91d0c344b37.webp', h: 41 },
+        { name: 'Rosa Blanca', slotId: 'primi-logo-rosablanca', href: 'project.html?id=rosa-blanca', src: '/media/asset-6bbd94549d199b0451d2340a.webp', h: 94 },
+        { name: 'Da Andrea', slotId: 'primi-logo-daandrea', href: 'project.html?id=da-andrea', src: '/media/asset-3cc0ca0041548d9338f69b5a.webp', h: 91 },
+        { name: 'Paperchase', slotId: 'primi-logo-paperchase', href: '', src: '/media/asset-dae08b6e0453ab8479f0baea.webp', h: 36 },
+        { name: 'IPANEMA', slotId: 'primi-logo-ipanema', href: '', src: '/media/asset-ec8aa799a80577718a5a07fd.webp', h: 73 },
+        { name: 'GAC Hospitality', slotId: 'primi-logo-gac', href: 'project.html?id=gac-hospitality', src: '/media/asset-6e62a1d36038785964844678.webp', h: 77 },
+        { name: 'The Hudson Rose', slotId: 'primi-logo-hudsonrose', href: 'project.html?id=the-hudson-rose', src: '/media/asset-1628b900f1dc350ff58caff5.webp', h: 92 },
+        { name: "Pop's Corner", slotId: 'primi-logo-popscorner', href: 'project.html?id=pops-corner', src: '/media/asset-71eadd70bc96330c77a107bb.webp', h: 108 },
+        { name: 'Jose Garces', slotId: 'primi-logo-josegarces', href: '', src: '/media/asset-12344ec4353f56043f80e835.webp', h: 65 },
+        { name: 'Mission Ceviche', slotId: 'primi-logo-missionceviche', href: '', src: '/media/asset-7fca5a027a6216ac34c4971e.webp', h: 82 },
+      ]).map(t => ({ ...t, linked: !!(t.href && t.src), unlinked: !!t.src && !t.href, hasLogo: !!t.src, noLogo: !t.src, h: t.h || 40 })),
+      summerTabs: (p.slug === 'primi-digital' ? [
+        { name: 'Feenix', services: 'Brand Identity, Digital', year: '2020', slotId: 'primi-feenix', href: '' },
+        { name: 'Buena Onda', services: 'Brand Identity, Digital', year: '2020', slotId: 'primi-buenaonda', href: '' },
+        { name: 'Okatshe', services: 'Brand Identity, Packaging', year: '2022', slotId: 'primi-okatshe', src: '/media/asset-bd22faba2ed22a5fe283fbb8.webp', hasImg: true, href: 'project.html?id=okatshe' },
+        { name: 'Rosa Blanca', services: 'Brand Identity', year: '2021', slotId: 'primi-rosablanca', href: 'project.html?id=rosa-blanca' },
+        { name: 'Da Andrea', services: 'Brand Identity, Menus', year: '2019', slotId: 'primi-daandrea', href: '' },
+        { name: 'Paperchase', services: 'Brand Identity, Digital', year: '2020', slotId: 'primi-paperchase', href: '' },
+        { name: 'IPANEMA', services: 'Brand Identity, Digital', year: '2020', slotId: 'primi-ipanema', href: '' },
+        { name: 'GAC Hospitality', services: 'Brand Identity, Collateral', year: '2020', slotId: 'primi-gac', href: 'project.html?id=gac-hospitality' },
+        { name: 'The Hudson Rose', services: 'Brand Identity, Digital', year: '2020', slotId: 'primi-hudsonrose', href: 'project.html?id=the-hudson-rose' },
+        { name: "Pop's Corner", services: 'Brand Identity, Digital', year: '2020', slotId: 'primi-popscorner', href: 'project.html?id=pops-corner' },
+        { name: 'Two Boots', services: 'Brand Identity, Digital', year: '2020', slotId: 'primi-twoboots', href: '' },
+      ] : [
+        { name: 'Vista Taxes', services: 'Brand Identity, Digital', year: '2020', slotId: 'summer-vista' },
+        { name: 'Focus Lifestyle', services: 'Brand Identity, Digital', year: '2020', slotId: 'summer-focus' },
+        { name: 'SCTBS', services: 'Brand Identity, Digital', year: '2020', slotId: 'summer-sctbs' },
+        { name: 'YYZ LAW', services: 'Brand Identity, Digital', year: '2020', slotId: 'summer-yyzlaw' },
+        { name: 'Escro Air', services: 'Brand Identity, Digital', year: '2020', slotId: 'summer-escro' },
+      ]).map(t => ({ ...t, noImg: !t.hasImg })),
+      isRosa: !!(p.fig && p.fig.comp === 'RosaBlanca'),
+      isOshootFig: !!(p.fig && p.fig.comp === 'OSHOOT'),
+      isGoodhood: !!(p.fig && p.fig.comp === 'Goodhood'),
+      isAlaye: !!(p.fig && p.fig.comp === 'Alaye'),
+      isAlize: !!(p.fig && p.fig.comp === 'Alize'),
+      isButterhaus: !!(p.fig && p.fig.comp === 'Butterhaus'),
+      isFnb: !!(p.fig && p.fig.comp === 'FNBGuru'),
+      isJoie: !!(p.fig && p.fig.comp === 'Joie'),
+      isMethod5: !!(p.fig && p.fig.comp === 'Method5Updated'),
+      isEidMilan: !!(p.fig && p.fig.comp === 'EidMilan'),
+      isEidMilan2: !!(p.fig && p.fig.comp === 'EidMilan20'),
+      isDilSe: !!(p.fig && p.fig.comp === 'DilSe'),
+      isPicnic: !!(p.fig && p.fig.comp === 'Picnic'),
+      isSoglo: !!(p.fig && p.fig.comp === 'Soglo'),
+      isColourCrush: !!(p.fig && p.fig.comp === 'COLORCRUSH'),
+      isChaandni: !!(p.fig && p.fig.comp === 'ChaandniRaatein'),
+      isShamain: !!(p.fig && p.fig.comp === 'Shamain'),
+      isSarahs: !!(p.fig && p.fig.comp === 'SarahSPantry'),
+      isSwaleha: !!(p.fig && p.fig.comp === 'SwalehaHassamParacha'),
+      isFhwl: !!(p.fig && p.fig.comp === 'FromHomeWithLove'),
+      isSanta: !!(p.fig && p.fig.comp === 'SantaComesToBayStreet'),
+      isInkIvy: !!(p.fig && p.fig.comp === 'InkIvy'),
+      isGiftBoutique: !!(p.fig && p.fig.comp === 'TheGiftBoutique'),
+      isGac: !!(p.fig && p.fig.comp === 'GACHospitality'),
+      isHudson: !!(p.fig && p.fig.comp === 'TheHudsonRose'),
+      isPops: !!(p.fig && p.fig.comp === 'PopSCorner'),
+      isPrimi: !!(p.fig && p.fig.comp === 'PrimiDigital'),
+      isBestDay: !!(p.fig && p.fig.comp === 'BestDayEver'),
+      commonsBtns: [
+        { left: 94.566, top: 454.051, w: 209, h: 54, href: 'project.html?id=eid-milan-2' },
+        { left: 870.828, top: 1306.981, w: 209, h: 54, href: 'project.html?id=best-day-ever' },
+        { left: 95.086, top: 1942.851, w: 209, h: 54, href: 'project.html?id=eid-milan' },
+        { left: 870.828, top: 2747.23, w: 209, h: 54, href: 'project.html?id=picnic' },
+        { left: 95.086, top: 3466.887, w: 209, h: 54, href: 'project.html?id=dil-se' },
+        { left: 851.086, top: 4239.875, w: 209, h: 54, href: 'project.html?id=colour-crush' },
+        { left: 92.461, top: 4957.304, w: 209, h: 54, href: 'project.html?id=chaandni-raatein' },
+        { left: 877.086, top: 5828.675, w: 209, h: 54, href: '#', label: 'Coming soon' },
+      ].map(b => ({ ...b, label: b.label || 'View full project' })),
+      name: p.name, services: p.services, year: p.year, blurb: p.blurb,
+      hasStory: !!(p.timeline && p.timeline.length),
+      ovParas: (p.intro && p.intro.length) ? p.intro : [p.blurb],
+      timeline: (p.timeline || []).map((ev, k, arr) => {
+        const dot = 12 + Math.round(k * 10 / Math.max(1, arr.length - 1));
+        const last = k === arr.length - 1;
+        return { ...ev, num: k + 1, left: (3 + k * 94 / Math.max(1, arr.length - 1)).toFixed(2),
+          dot, dotHalf: Math.ceil(dot / 2) + 4, above: k % 2 === 0, below: k % 2 === 1,
+          lblLeft: last ? 'auto' : '-6px', lblRight: last ? '-6px' : 'auto', lblAlign: last ? 'right' : 'left' };
+      }),
+      shots: p.fig ? [] : (p.caseImgs
+        ? p.caseImgs.map((s, k) => ({ src: s, alt: p.name + ' ' + (k + 1) }))
+        : p.caseImg
+        ? [{ src: p.caseImg, alt: p.name + ' full case study' }]
+        : (p.pages || []).map((n, k) => ({ src: '/media/portfolio-' + n + '.jpg', alt: p.name + ' ' + (k + 1) }))).map((s, k) => ({ ...s, zoom: p.slug === 'jigri-foods' && k === 0 ? '1' : '', w: p.slug === 'jigri-foods' && k === 0 ? '60%' : '100%' })),
+      alsoLike: (() => {
+        const pool = all.filter(x => x.slug !== p.slug && (x.card || x.hero != null));
+        const pinned = { 'fnb-guru': ['goodhood'], 'soglo-skincare': ['alize'], 'commons-karachi': ['swad-meem', 'project-em'], 'eid-milan-2': ['colour-crush', 'chaandni-raatein'], 'picnic': ['dil-se', 'jashn'], 'dil-se': ['eid-milan-2', 'picnic'], 'colour-crush': ['chaandni-raatein', 'dil-se'], 'chaandni-raatein': ['jashn', 'picnic'], 'methodfive': ['alaye', 'rabia'], 'alize': ['butterhaus', 'project-em'], 'oshoot': ['swad-meem', 'project-em'] }[p.slug];
+        if (p.slug === 'goodhood') {
+          const same = p.cat ? pool.filter(x => x.cat === p.cat) : [];
+          const def = same.concat(pool.filter(x => same.indexOf(x) === -1)).slice(0, 2)
+            .map(x => x.slug === 'oshoot' ? pool.find(y => y.slug === 'okatshe') || x : x);
+          return def;
+        }
+        if (pinned) return pinned.map(s => pool.find(x => x.slug === s)).filter(Boolean);
+        const same = p.cat ? pool.filter(x => x.cat === p.cat) : [];
+        return same.concat(pool.filter(x => same.indexOf(x) === -1)).slice(0, 2);
+      })().map(x => ({
+        name: x.name, services: x.services || '', year: x.year || '',
+        src: x.card || ('/media/portfolio-' + x.hero + '.jpg'),
+        href: 'project.html?id=' + x.slug,
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

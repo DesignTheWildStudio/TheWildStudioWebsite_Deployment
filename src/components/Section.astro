@@ -1,0 +1,32 @@
+---
+interface Props {
+  title?: string;
+  alt?: boolean;
+}
+
+const { title, alt = false } = Astro.props;
+---
+
+<section class:list={{ alt }}>
+  <div class="inner">
+    {title && <h2>{title}</h2>}
+    <slot />
+  </div>
+</section>
+
+<style>
+  section.alt {
+    background: var(--bg-alt);
+  }
+
+  .inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-12) var(--space-6);
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+  }
+</style>
