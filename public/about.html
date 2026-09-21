@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — The Wild Studio</title>
+<meta name="description" content="The story, values and people behind The Wild Studio.">
+<link rel="icon" href="favicon.png?v=2" type="image/png" sizes="180x180">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.png?v=2">
+
+<script src="./support.js?v=2"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script src="./theme.js"></script>
+  <link rel="stylesheet" href="./responsive.css">
+  <script src="./mobile-nav.js"></script>
+  <script src="./footer-reveal.js"></script>
+  <script src="./video-key.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&amp;family=Questrial&amp;display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    @font-face { font-family: 'Century Gothic'; src: url('uploads/century-gothic/centurygothic.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Century Gothic'; src: url('uploads/century-gothic/centurygothic-bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+    @keyframes ws-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    html { scroll-behavior: smooth; }
+    .ws-dd { position: relative; }
+    .ws-dd-menu { position: absolute; top: 100%; left: 50%; transform: translate(-50%, 6px); background: #FFFFFF; box-shadow: 0 14px 34px rgba(20,20,18,.14); padding: 8px 0; min-width: 190px; border-radius: 14px; overflow: hidden; opacity: 0; visibility: hidden; transition: opacity .25s ease, transform .25s ease; }
+    .ws-dd:hover .ws-dd-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+    .ws-dd-menu a { display: block; padding: 10px 20px; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412; transition: background .25s; }
+    .ws-dd-menu a:hover { background: #FFC72C; color: #141412; }
+    .ws-dd-menu a:active { background: #E6AC00; color: #141412; }
+    .ws-dd-menu a + a { border-top: 1px solid rgba(20,20,18,.1); }
+    html.ws-dark .ws-dd-menu a + a { border-top-color: rgba(236,234,227,.12); }
+    html.ws-dark .ws-dd-menu { background: rgba(30,30,27,.85); box-shadow: 0 14px 34px rgba(0,0,0,.5); }
+    html.ws-dark .ws-dd-menu a { color: #ECEAE3; }
+    .ws-btn { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; white-space: nowrap; width: 156px; height: 54px; box-sizing: border-box; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: .01em; border: 1.5px solid #141412; border-radius: 999px; padding: 0; background: transparent; color: #141412; cursor: pointer; transition: color .45s cubic-bezier(.65,0,.35,1); }
+    .ws-btn::before { content: ''; position: absolute; z-index: -1; left: -25%; right: -25%; bottom: -2px; height: 160%; background: #FFC72C; border-radius: 50% 50% 0 0; transform: translateY(101%); transition: transform .55s cubic-bezier(.65,0,.35,1), border-radius .55s cubic-bezier(.65,0,.35,1); }
+    .ws-btn:hover { color: #141412; }
+    .ws-btn:hover::before { transform: translateY(0); border-radius: 0; }
+    .ws-btn:active { color: #141412; }
+    .ws-btn:active::before { background: #FFC72C; transition: none; }
+    html.ws-dark .ws-btn:active { color: #141412; }
+    html.ws-dark .ws-btn:active::before { background: #FFC72C; }
+    html.ws-dark .ws-btn { border-color: #ECEAE3; color: #ECEAE3; }
+    html.ws-dark .ws-btn::before { background: #FFC72C; }
+    html.ws-dark .ws-btn:hover { color: #141412; }
+    body { margin: 0; background: #FFFFFF; color: #141412; font-family: 'Century Gothic', 'CenturyGothic', 'Questrial', 'Helvetica Neue', sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: 'Archivo', 'Helvetica Neue', sans-serif; }
+    * { box-sizing: border-box; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: inherit; }
+    button { cursor: pointer; }
+    ::selection { background: #141412; color: #FFFFFF; }
+    html.ws-dark .ws-lamp-light { display: none !important; }
+    html.ws-dark .ws-lamp-dark { display: block !important; }
+    html.ws-dark .ws-vid-light { display: none !important; }
+    html.ws-dark .ws-vid-dark { display: block !important; }
+    .ws-mark { position: relative; display: inline; cursor: pointer; }
+    .ws-mark::before { content: ''; position: absolute; inset: 0; background: #141412; transform: scaleX(0); transform-origin: bottom right; transition: transform .3s ease-in-out; will-change: transform; z-index: 0; }
+    .ws-mark > span { position: relative; z-index: 1; }
+    .ws-mark:hover::before, .ws-markgroup:hover .ws-mark::before { transform: scaleX(1); transform-origin: bottom left; }
+    .ws-mark > span { transition: color .3s ease-in-out; }
+    .ws-mark:hover > span, .ws-markgroup:hover .ws-mark > span { color: #FFFFFF; }
+    html.ws-dark .ws-mark::before { background: #ECEAE3; }
+    html.ws-dark .ws-mark:hover > span, html.ws-dark .ws-markgroup:hover .ws-mark > span { color: #141412; }
+    .ws-reveal { opacity: 0; transform: translateY(36px); transition: opacity 1s cubic-bezier(.19,1,.22,1), transform 1s cubic-bezier(.19,1,.22,1); }
+    .ws-reveal.ws-in { opacity: 1; transform: translateY(0); }
+    .ws-mask { clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(.77,0,.18,1); }
+    .ws-mask.ws-in { clip-path: inset(0 0 0% 0); }
+    .ws-link { position: relative; }
+    .ws-link::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .5s cubic-bezier(.77,0,.18,1); }
+    .ws-link:hover::after { transform: scaleX(1); transform-origin: left; }
+    @media (max-width: 900px) {
+      .ws-2col { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .ws-3col { grid-template-columns: 1fr !important; }
+      .ws-hide-sm { display: none !important; }
+      .ws-oneline { white-space: normal !important; font-size: 16px !important; }
+    }
+
+    .ws-theme-btn { transition: background .35s, color .35s, border-color .35s; }
+    .ws-theme-btn:hover { background: #141412 !important; color: #FFFFFF !important; border-color: #141412 !important; }
+    html.ws-dark .ws-theme-btn:hover { background: #ECEAE3 !important; color: #141412 !important; border-color: #ECEAE3 !important; }
+    /* Dark mode */
+    .ws-ico-sun { display: none; }
+    html.ws-dark .ws-ico-sun { display: block; }
+    html.ws-dark .ws-ico-moon { display: none; }
+    html.ws-dark body { background: #141412; color: #ECEAE3; }
+    html.ws-dark [style*="background: rgb(255, 255, 255)"] { background: #141412 !important; }
+    html.ws-dark [style*="background: rgb(245, 243, 238)"] { background: #1C1C1A !important; }
+    html.ws-dark [style*="color: rgb(20, 20, 18)"] { color: #ECEAE3 !important; }
+    html.ws-dark [style*="color: rgba(20, 20, 18"] { color: rgba(236,234,227,.62) !important; }
+    html.ws-dark [style*="border: 1px solid rgba(20, 20, 18"] { border-color: rgba(255,255,255,.3) !important; }
+    html.ws-dark [style*="border-top: 1px solid rgba(20, 20, 18"] { border-top-color: rgba(255,255,255,.16) !important; }
+    html.ws-dark [style*="border-bottom: 1px solid rgba(20, 20, 18"] { border-bottom-color: rgba(255,255,255,.16) !important; }
+    html.ws-dark [style*="background: rgba(20, 20, 18, 0.05)"] { background: rgba(255,255,255,.06) !important; }
+    html.ws-dark header[style*="background: rgba(255, 255, 255"] { background: rgba(20,20,18,.8) !important; border-bottom-color: rgba(255,255,255,.1) !important; }
+    html.ws-dark header img[alt^="The Wild Studio"] { filter: invert(1); }
+    html.ws-dark section[data-screen-label="About hero"] video { mix-blend-mode: screen !important; filter: contrast(2.4) brightness(1.02) !important; }
+    html.ws-dark section[data-screen-label="About hero"] video[poster] { background: transparent !important; }
+    html.ws-dark section[data-screen-label="About hero"] div[style*="isolation"] { background: #141412 !important; width: 491px !important; left: 55px !important; }
+    html.ws-dark ::selection { background: #ECEAE3; color: #141412; }
+    html.ws-dark .ws-track > div { background: #141412 !important; color: #FFFFFF !important; border-color: #FFFFFF !important; }
+    html.ws-dark .ws-track > div * { color: #FFFFFF !important; }
+    html.ws-dark .ws-track > div[style*="background: rgb(20, 20, 18)"] { background: #FFFFFF !important; color: #141412 !important; border-color: #FFFFFF !important; }
+    html.ws-dark .ws-track > div[style*="background: rgb(20, 20, 18)"] * { color: #141412 !important; }
+    html.ws-dark .ws-track > div [style*="border-radius: 16px"] { background: #141412 !important; }
+    html.ws-dark section[data-screen-label="Values"] .ws-track > div:hover { background: #FFC72C !important; color: #141412 !important; }
+    html.ws-dark section[data-screen-label="Values"] .ws-track > div:hover * { color: #141412 !important; }
+  </style>
+</helmet>
+
+<div style="min-height: 100vh; background: #FFFFFF;">
+
+
+  <div ref="{{ curtainRef }}" style="position: fixed; inset: 0; background: #141412; z-index: 9000; transform-origin: top; transition: transform 1.1s cubic-bezier(.77,0,.18,1); display: flex; align-items: center; justify-content: center;">
+    <div ref="{{ curtainWordRef }}" style="color: #FFFFFF; font-size: 15px; letter-spacing: .35em; text-transform: uppercase; opacity: 0; transition: opacity .6s;">ABOUT US</div>
+  </div>
+
+  <header data-screen-label="Header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 800; display: flex; align-items: center; justify-content: space-between; padding: 6px 40px; background: rgba(255,255,255,.8); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(20,20,18,.08); color: #141412;">
+    <a href="index.html" style="display: flex; align-items: center;"><img src="/media/branding-6b9a3146.webp" alt="The Wild Studio Creative Co." style="height: 179px; width: auto; display: block; margin: -53px 0;"></a>
+    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 36px;">
+      <a href="work.html" class="ws-link" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412;">Work</a>
+      <div class="ws-dd" style="display: flex; align-items: center;">
+        <a href="services.html" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412; display: inline-flex; align-items: center; gap: 6px;">Services <span aria-hidden="true" style="font-size: 10px;">▾</span></a>
+        <div class="ws-dd-menu">
+          <a href="services.html#branding">Branding</a>
+          <a href="services.html#uiux">UI/UX</a>
+          <a href="services.html#social-media">Social Media</a>
+          <a href="services.html#development">Development</a>
+        </div>
+      </div>
+      <a href="about.html" class="ws-link" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; color: #141412;">About us</a>
+      <a class="ws-btn" href="contact.html" style="width: auto; height: 49px; padding: 0 28px; font-size: 14px;">Get in touch</a>
+      <button class="ws-theme-btn" aria-label="Toggle light and dark mode" style="width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(20,20,18,.35); background: transparent; color: inherit; display: flex; align-items: center; justify-content: center; padding: 0;">
+        <svg class="ws-ico-moon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg>
+        <svg class="ws-ico-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <section data-screen-label="About hero" style="padding: 190px 40px 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 48px;">
+    <div style="flex: 1 1 auto; min-width: 0;">
+    <h1 class="ws-markgroup" style="margin: 0; font-weight: 400; font-size: clamp(34px, 4.6vw, 92px); line-height: 1.06; letter-spacing: -0.022em; max-width: 1500px;">
+      <span style="display: block; overflow: hidden;"><span ref="{{ h1e }}" style="display: block; transform: translateY(110%); transition: transform 1.2s cubic-bezier(.19,1,.22,1) .26s;">Design built to be adored,</span></span>
+      <span style="display: block; overflow: hidden;"><span ref="{{ h1b }}" style="display: block; transform: translateY(110%); transition: transform 1.2s cubic-bezier(.19,1,.22,1) .32s;"><span class="ws-mark"><span>not just noticed.</span></span></span></span>
+    </h1>
+    <p style="font-size: 24px; font-weight: 400; color: #141412; font-family: 'Archivo', 'Helvetica Neue', sans-serif; letter-spacing: 0; text-transform: none; margin-bottom: 29px">Imagine. Inspire. Create.</p>
+    </div>
+    <div style="flex: 0 0 auto; width: 340px; margin-bottom: -64px; position: relative; left: -96px; z-index: 1; background: #FFFFFF; isolation: isolate;"><video src="{{ illVideoSrc }}" data-ws-key="1" poster="/media/asset-8cb7977bd34924965073ec5b.webp" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" aria-label="Animated line illustration" style="width: 491px; height: 297px; display: block; mix-blend-mode: multiply; filter: brightness(1.08) contrast(1.06)"></video><canvas aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 0; height: 0; visibility: hidden; pointer-events: none;"></canvas></div>
+  </section>
+
+  <section data-screen-label="Who we are" style="padding: 64px 40px 0;">
+    <div class="ws-2col" style="display: grid; grid-template-columns: 0.52fr 1.48fr; gap: 30px; align-items: center; border-top: 1px solid rgba(20,20,18,.14); padding-top: 56px;">
+      <div class="ws-reveal" data-ws="reveal">
+        <img src="/media/asset-7afab19973df9ae5f0ac5ebf.webp" alt="Adeel and Tehniyat, founders of The Wild Studio" style="width: 100%; height: auto; display: block;">
+      </div>
+      <div>
+        <p class="ws-reveal" data-ws="reveal" style="margin: 0 0 24px; font-size: clamp(19px, 1.7vw, 26px); line-height: 1.55; letter-spacing: -0.01em;">Two very different brains. One shared eye for good design.</p>
+        <p class="ws-reveal" data-ws="reveal" style="margin: 0 0 18px; font-size: 18px; line-height: 1.6; color: rgba(20,20,18,.62);">Adeel brings a decade of experience, he understands how businesses think, what people respond to, and how to turn a good idea into something that actually works. A natural problem-solver (and unapologetic perfectionist), he brings the clarity and structure behind the studio.</p>
+        <p class="ws-reveal" data-ws="reveal" style="margin: 0 0 18px; font-size: 18px; line-height: 1.6; color: rgba(20,20,18,.62);">Tehniyat, a Central Saint Martins Fine Art graduate with a background in the fashion industry, brings an approach that is instinctive, visual and a little unexpected, pulling references from art, fashion, culture and everywhere in between.</p>
+        <p class="ws-reveal" data-ws="reveal" style="margin: 0 0 18px; font-size: 18px; line-height: 1.6; color: rgba(20,20,18,.62);">Together, they balance strategy with spontaneity and creative chaos with a healthy refusal to do things the obvious way.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Studio story" style="padding: 120px 0 0;">
+    <div style="margin: 0 40px; border-top: 1px solid rgba(20,20,18,.14); padding-top: 56px;">
+      <div class="ws-reveal" data-ws="reveal" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 48px;">The studio</div>
+    </div>
+    <div ref="{{ zoomWrapRef }}" class="ws-mask" data-ws="reveal" style="display: flex; justify-content: center;">
+      <img ref="{{ zoomImgRef }}" src="/media/asset-3233c5e711a4c1f2ab199ee1.webp" alt="The Wildstudio team at work" style="width: 100%; height: auto; display: block;">
+    </div>
+    <div style="margin: 38px 40px 0;">
+      <p class="ws-reveal" data-ws="reveal" style="margin: 0 auto; max-width: 1000px; text-align: center; font-size: 18px; line-height: 1.6; letter-spacing: -0.01em;">A multi-disciplinary team of designers, creators and storytellers focused on creating good design.<br>&nbsp;Small team, high standard, entirely too much care.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Values" style="background: #FFFFFF; color: #141412; padding: 120px 40px 0;">
+    <div class="ws-reveal" data-ws="reveal" style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 24px; letter-spacing: 0; text-transform: uppercase; font-weight: 400; color: #141412; margin-bottom: 14px;">What we believe</div>
+    <h2 class="ws-reveal" data-ws="reveal" style="margin: 0 0 40px; font-size: clamp(28px, 2.9vw, 50px); font-weight: 400; letter-spacing: -0.015em; max-width: 900px;"><span style="display: block;">Design is mostly an act of <em class="ws-mark" style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;"><span>feeling</span></em>.</span><span style="display: block;">Everything else is in service of that.</span></h2>
+    <p class="ws-reveal" data-ws="reveal" style="margin: 0 0 40px; font-size: 20px; line-height: 1.6; font-weight: 400; color: rgba(20,20,18,.75);">We're curators of aesthetics. We just take it seriously enough to keep it fun.</p>
+    <div class="ws-track ws-reveal" data-ws="reveal" style="border-top: 1px solid rgba(20,20,18,.18);">
+      <sc-for list="{{ valueCards }}" as="v" hint-placeholder-count="4">
+        <div style="display: grid; grid-template-columns: 40px 260px 1fr; align-items: baseline; gap: 18px; padding: 22px 20px; border-bottom: 1px solid rgba(20,20,18,.18); transition: padding-left .5s cubic-bezier(.19,1,.22,1), background-color .35s ease;" style-hover="padding-left: 44px; background-color: #FFC72C;">
+          <div style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: 14px; color: rgba(20,20,18,.45);">{{ v.num }}</div>
+          <div style="display: flex; align-items: center; gap: 16px; font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-weight: 400; font-size: clamp(24px, 2.2vw, 34px); letter-spacing: -0.01em;"><span style="display: inline-block; min-width: 126px;">{{ v.title }}</span><sc-if value="{{ v.hasVideo }}" hint-placeholder-val="{{ false }}"><span class="ws-vid-light" style="position: relative; display: block;"><video data-ws-autoplay="1" data-ws-stop-at="{{ v.stopAt }}" data-ws-key="1" src="{{ v.video }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" style="height: 64px; width: auto; display: block; mix-blend-mode: multiply; filter: brightness(1.08) contrast(1.06);"></video><canvas aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 0; height: 0; visibility: hidden; pointer-events: none;"></canvas></span><span class="ws-vid-dark" style="position: relative; display: none;"><video data-ws-autoplay="1" data-ws-stop-at="{{ v.stopAt }}" data-ws-key="1" src="{{ v.videoDark }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" style="height: 64px; width: auto; display: block; mix-blend-mode: lighten; filter: brightness(0.93) contrast(1.2);"></video><canvas aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 0; height: 0; visibility: hidden; pointer-events: none;"></canvas></span></sc-if></div>
+          <p style="margin: 0; max-width: 540px; justify-self: end; font-size: 15px; line-height: 1.7; color: {{ v.muted }};">{{ v.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  
+
+</div>
+
+
+  <div class="ws-lamp-strip" style="position: relative; z-index: 10; height: 165px; margin-top: -5px; pointer-events: none">
+    <img class="ws-lamp-light" src="/media/branding-c9697b32.webp" alt="" style="position: absolute; right: 4vw; bottom: calc(0px - min(100vh, 800px)); height: min(116.6vh, 933px); width: auto; display: block;">
+    <img class="ws-lamp-dark" src="/media/branding-f4ee4a86.webp" alt="" style="position: absolute; right: 4vw; bottom: calc(0px - min(100vh, 800px)); height: min(116.6vh, 933px); width: auto; display: none;">
+  </div>
+  <div class="ws-footer-curtain" style="position: relative; height: min(100vh, 800px); clip-path: inset(0 0 0 0); margin-top: 0;">
+  <footer id="contact" data-screen-label="Footer" style="position: fixed; bottom: 0; left: 0; right: 0; height: min(100vh, 800px); box-sizing: border-box; background: #141412; color: #FFFFFF; padding: 70px 0 36px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; z-index: 0;">
+    <a href="contact.html" style="display: block; white-space: nowrap; overflow: hidden;">
+      <div style="display: inline-flex; animation: ws-marquee 22s linear infinite; will-change: transform;">
+        <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(64px, 9vw, 160px); font-weight: 400; letter-spacing: -0.02em; padding-right: 80px;">Let’s work together <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">design@thewildstudio.co</em> </span>
+        <span style="font-family: 'Archivo', 'Helvetica Neue', sans-serif; font-size: clamp(64px, 9vw, 160px); font-weight: 400; letter-spacing: -0.02em; padding-right: 80px;">Let’s work together <em style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300;">design@thewildstudio.co</em> </span>
+      </div>
+    </a>
+    <div style="display: flex; justify-content: center; padding: 41px 40px 0;">
+      <a href="contact.html" class="ws-btn" style="border-color: #FFFFFF; color: #FFFFFF; width: auto; padding: 0 36px;" style-hover="color: #141412;">Let’s connect</a>
+    </div>
+    <div style="display: grid; grid-template-columns: minmax(320px, 1.1fr) 160px 160px 1fr; gap: 48px; padding: 40px 40px 0;">
+      <div>
+        <img src="/media/branding-6b9a3146.webp" alt="The Wild Studio Creative Co." style="height: 187px; width: auto; filter: invert(1); display: block; margin: -44px 0 0 -18px; transition: transform .45s cubic-bezier(.19,1,.22,1); transform-origin: center;" style-hover="transform: scale(1.12);">
+        <p style="margin: 16px 0 0; font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.55); max-width: 320px;">A collaborative studio of problem solvers, visionaries and storytellers.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 6px;">Sitemap</div>
+        <a href="work.html" class="ws-link" style="font-size: 14px; width: fit-content;">Work</a>
+        <a href="services.html" class="ws-link" style="font-size: 14px; width: fit-content;">Services</a>
+        <a href="about.html" class="ws-link" style="font-size: 14px; width: fit-content;">About us</a>
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin: 26px 0 6px;">Contact</div>
+        <a href="mailto:design@thewildstudio.co" class="ws-link" style="font-size: 14px; width: fit-content;">design@thewildstudio.co</a>
+        <a href="tel:+923091119453" class="ws-link" style="font-size: 14px; width: fit-content;">+92 309 111 9453</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 6px;">Social</div>
+        <a href="https://www.instagram.com/_thewildstudio?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==&amp;igsi=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="ws-link" style="font-size: 14px; width: fit-content;">Instagram</a>
+        <a href="https://www.linkedin.com/company/the-wildstudio/posts/?feedView=all" target="_blank" rel="noopener" class="ws-link" style="font-size: 14px; width: fit-content;">LinkedIn</a>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding: 30px 40px 0; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35);">
+      <span>© 2026 The Wildstudio</span>
+      <span>All rights reserved</span>
+    </div>
+  </footer>
+  </div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { vOff: 0 };
+
+  valuesData() {
+    return [
+      { title: 'Intuition', body: "We know when something's right long before we can say why. Instinct gets the first word here rigour gets the last.", iconImg: '/media/asset-6b1f79990a984f954110ce1c.webp', video: 'uploads/intuition-video-8167a6bc.mp4', videoDark: 'uploads/intuition-video-2-3156479b.mp4' },
+      { title: 'Aesthetics', body: "We're happily obsessed. Beauty isn't the last thing we add it's the first thing anyone feels.", iconImg: '/media/asset-65d1c6e13a1d1fd5cf098d86.webp', video: 'uploads/aesthetics-video.mp4', videoDark: 'uploads/aesthetics-video-2.mp4', stopAt: 1.9 },
+      { title: 'Play', body: 'The wild gets in through experiment. Play isn\'t a stage of our process; it\'s where everything good has ever come from.', iconImg: '/media/asset-e83446376aec4b0a57584a98.webp', video: 'uploads/play-video.mp4', videoDark: 'uploads/play-video-2.mp4', stopAt: 1.9 },
+      { title: 'Precision', body: 'And then we sweat it. Every curve, kern and comma is a decision somebody here cared about far too much.', iconImg: '/media/asset-35fb69dbd64e9e460731fd1c.webp', video: 'uploads/precision-video.mp4', videoDark: 'uploads/precision-video-2.mp4', stopAt: 1.9 },
+    ];
+  }
+
+  vTick() {
+    const pin = document.querySelector('.ws-tpin');
+    const track = pin && pin.querySelector('.ws-track');
+    if (!pin || !track) return;
+    const top = pin.getBoundingClientRect().top + window.scrollY;
+    const span = Math.max(1, pin.offsetHeight - window.innerHeight);
+    const p = Math.max(0, Math.min(1, (window.scrollY - top) / span));
+    const travel = Math.max(0, track.scrollWidth - (window.innerWidth - 80));
+    track.style.transform = 'translate3d(' + (-p * travel).toFixed(1) + 'px,0,0)';
+    const n = this.valuesData().length;
+    const cur = Math.min(n - 1, Math.round(p * (n - 1)));
+    if (cur !== (this.state.vOff || 0)) this.setState({ vOff: cur });
+  }
+
+  vScroll(dir) {
+    const pin = document.querySelector('.ws-tpin');
+    if (!pin) return;
+    const n = this.valuesData().length;
+    const top = pin.getBoundingClientRect().top + window.scrollY;
+    const span = pin.offsetHeight - window.innerHeight;
+    const p = Math.max(0, Math.min(1, (window.scrollY - top) / span));
+    const step = 1 / (n - 1);
+    const next = Math.max(0, Math.min(1, (Math.round(p / step) + dir) * step));
+    window.scrollTo({ top: top + next * span, behavior: 'smooth' });
+  }
+
+  componentDidMount() {
+    const playOnce = (v) => {
+      const stopAt = parseFloat(v.dataset.wsStopAt || '0');
+      v.dataset.wsRun = String((parseInt(v.dataset.wsRun || '0', 10)) + 1);
+      const run = v.dataset.wsRun;
+      try { v.currentTime = 0; } catch (err) {}
+      if (stopAt) {
+        const tick = () => {
+          if (v.dataset.wsRun !== run) return;
+          if (v.currentTime >= stopAt) { v.pause(); v.currentTime = stopAt; return; }
+          // rAF, not requestVideoFrameCallback: the video is hidden behind its keyed canvas (video-key.js) and hidden videos get no frame callbacks.
+          requestAnimationFrame(tick);
+        };
+        tick();
+      }
+      v.play().catch(() => {});
+    };
+    const vidObs = new IntersectionObserver((es) => es.forEach((e) => {
+      const v = e.target;
+      if (e.isIntersecting && !v.dataset.wsPlayed) { v.dataset.wsPlayed = '1'; playOnce(v); }
+    }), { threshold: 0.2 });
+    const watchVids = () => {
+      document.querySelectorAll('video[data-ws-autoplay]:not([data-ws-obs])').forEach((v) => { v.setAttribute('data-ws-obs', '1'); vidObs.observe(v); });
+      document.querySelectorAll('section[data-screen-label="Values"] .ws-track > div:not([data-ws-hov])').forEach((row) => {
+        row.setAttribute('data-ws-hov', '1');
+        row.addEventListener('mouseenter', () => {
+          row.querySelectorAll('video[data-ws-autoplay]').forEach((v) => { if (v.offsetParent !== null) playOnce(v); });
+        });
+      });
+    };
+    watchVids(); this._vidTimer = setInterval(watchVids, 1000);
+    const loadIll = (key, url) => fetch(url).then((r) => r.blob()).then((b) => {
+      this.setState({ ['illSrc_' + key]: URL.createObjectURL(b) });
+      requestAnimationFrame(() => { const v = document.querySelector('section[data-screen-label="About hero"] video'); if (v && v.paused) v.play().catch(() => {}); });
+    }).catch(() => {});
+    loadIll('light', 'uploads/girl-scribble-guy-thumbsup-v4.mp4');
+    loadIll('dark', 'uploads/girl-drawing-dark-mode.mp4');
+    this._illThemeObs = new MutationObserver(() => { this.forceUpdate();
+      requestAnimationFrame(() => { const v = document.querySelector('section[data-screen-label="About hero"] video'); if (v && v.paused) v.play().catch(() => {}); }); });
+    this._illThemeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    requestAnimationFrame(() => {
+      const w = this.refs.curtainWordRef; if (w) w.style.opacity = '1';
+      setTimeout(() => {
+        const c = this.refs.curtainRef;
+        if (w) w.style.opacity = '0';
+        if (c) { c.style.transform = 'scaleY(0)'; setTimeout(() => { if (c) c.style.display = 'none'; }, 1200); }
+        ['h1a', 'h1e', 'h1b', 'h1c', 'h1d'].forEach(k => { const el = this.refs[k]; if (el) el.style.transform = 'translateY(0)'; });
+      }, 650);
+    });
+
+    this._mouse = { x: -100, y: -100 };
+    this._ring = { x: -100, y: -100 };
+    this._onMove = (e) => {
+      this._mouse = { x: e.clientX, y: e.clientY };
+      const d = this.refs.cursorRef;
+      if (d) d.style.transform = `translate(${e.clientX - 5}px, ${e.clientY - 5}px)`;
+    };
+    window.addEventListener('mousemove', this._onMove, { passive: true });
+    const tick = () => {
+      this._ring.x += (this._mouse.x - this._ring.x) * 0.14;
+      this._ring.y += (this._mouse.y - this._ring.y) * 0.14;
+      const r = this.refs.cursorRingRef;
+      if (r) r.style.transform = `translate(${this._ring.x - 19}px, ${this._ring.y - 19}px)`;
+      this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+
+    this._onScroll = () => {
+      const lg = this.refs.navLogoRef;
+      if (lg) {
+        const t = Math.min(1, window.scrollY / 320);
+        lg.style.height = (200 - (200 - 131) * t) + 'px';
+      }
+
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('ws-in'); this._io.unobserve(en.target); } });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    this._sweep = setInterval(() => {
+      const h = window.innerHeight;
+      document.querySelectorAll('[data-ws]:not(.ws-in)').forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < h * 0.92) el.classList.add('ws-in');
+        else this._io.observe(el);
+      });
+    }, 400);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this._onMove);
+    window.removeEventListener('scroll', this._onScroll);
+    cancelAnimationFrame(this._raf);
+    clearInterval(this._sweep);
+    if (this._io) this._io.disconnect();
+  }
+
+  mkIcon(d) {
+    return React.createElement('svg', { width: 24, height: 24, viewBox: '0 0 24 24', fill: 'currentColor' }, React.createElement('path', { d }));
+  }
+  renderVals() {
+    if (!this.refs) this.refs = {};
+    const mkRef = (k) => (el) => { this.refs[k] = el; };
+    return {
+      illVideoSrc: (() => {
+        const dark = document.documentElement.classList.contains('ws-dark');
+        const s = this.state || {};
+        return dark
+          ? (s.illSrc_dark || 'uploads/girl-drawing-dark-mode.mp4')
+          : (s.illSrc_light || 'uploads/girl-scribble-guy-thumbsup-v4.mp4');
+      })(),
+      cursorRef: mkRef('cursorRef'), cursorRingRef: mkRef('cursorRingRef'),
+      curtainRef: mkRef('curtainRef'), curtainWordRef: mkRef('curtainWordRef'),
+      h1a: mkRef('h1a'), h1b: mkRef('h1b'), h1c: mkRef('h1c'), h1d: mkRef('h1d'), h1e: mkRef('h1e'), navLogoRef: mkRef('navLogoRef'), zoomWrapRef: mkRef('zoomWrapRef'), zoomImgRef: mkRef('zoomImgRef'),
+      valueCards: this.valuesData().map((x, i) => {
+        const n = this.valuesData().length;
+        const cur = (((this.state && this.state.vOff) || 0) % n + n) % n;
+        return {
+          ...x,
+          num: String(i + 1).padStart(2, '0'),
+          bg: '#FFFFFF',
+          fg: '#141412',
+          border: 'none',
+          muted: 'rgba(20,20,18,.62)',
+          tileBorder: 'rgba(20,20,18,0)',
+          onPick: () => {},
+          hasVideo: !!x.video,
+          video: x.video || '',
+          videoDark: x.videoDark || x.video || '',
+          stopAt: String(x.stopAt || 1.6),
+        };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>
